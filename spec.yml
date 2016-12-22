@@ -27,4 +27,5 @@ MoveSet:
 
 Type:
   Weaknesses: *Type[]
+  Strength: *Type[]
   Name: string
