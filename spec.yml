@@ -1,0 +1,30 @@
+PokemonSpecies:
+  Name: string
+  Type: *Type[]
+  Number: int PRIMARY KEY
+  Weight: double
+  Category: string
+  Evolution: *Pokemon
+
+Pokemon: 
+  Species: *PokemonSpecies
+  MoveSet: *MoveSet
+  UUID: *UUID
+  AbilitySet: *AbilitySet
+  Nickname: string
+  Level: int
+
+AbilitySet: 
+  AbilityOne: Ability
+  AbilityTwo: Ability
+
+MoveSet:
+  MoveOne: Move
+  MoveTwo: Move
+  MoveThree: Move
+  MoveFour: Move
+
+
+Type:
+  Weaknesses: *Type[]
+  Name: string
