@@ -1,7 +1,7 @@
 PokemonSpecies:
   Name: string
   Type: *Type[]
-  Number: int PRIMARY KEY
+  Number: int PRIMARY KEY (<=151)
   Weight: double
   Category: string
   Evolution: *Pokemon
@@ -33,4 +33,4 @@ MoveSet:
 Type:
   Weaknesses: *Type[]
   Strength: *Type[]
-  Name: string
+  Name: string (No Dark/Fairy)
