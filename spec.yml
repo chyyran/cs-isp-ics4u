@@ -7,7 +7,6 @@ PokemonSpecies:
   Evolution: *Pokemon
 
 Pokemon: 
-  Species: *PokemonSpecies
   MoveSet: *MoveSet
   UUID: *UUID
   AbilitySet: *AbilitySet
