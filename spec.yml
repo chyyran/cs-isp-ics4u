@@ -5,14 +5,17 @@ PokemonSpecies:
   Weight: double
   Category: string
   Evolution: *Pokemon
-
+  AbilitySet: *AbilitySet
+    
 Pokemon: 
+  Species: PokemonSpecies
   MoveSet: *MoveSet
   UUID: *UUID
-  AbilitySet: *AbilitySet
   Nickname: string
   Level: int
-
+  Ability: Ability
+  HP: int
+  
 AbilitySet: 
   AbilityOne: Ability
   AbilityTwo: Ability
