@@ -5,6 +5,7 @@ PokemonSpecies:
   Weight: double
   Category: string
   Evolution: *Pokemon
+  Prevolution: *Pokemon
   AbilitySet: *AbilitySet
     
 Pokemon: 
