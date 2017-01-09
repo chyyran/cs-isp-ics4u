@@ -18,6 +18,9 @@ AbilitySet:
   AbilityOne: Ability
   AbilityTwo: Ability
 
+Ability: 
+  Name: string
+  
 MoveSet:
   MoveOne: Move
   MoveTwo: Move
