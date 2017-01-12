@@ -10,7 +10,6 @@ PokemonSpecies:
 Pokemon: 
   Species: PokemonSpecies
   MoveSet: *MoveSet
-  UUID: *UUID
   Nickname: string
   Level: int
   HP: int
