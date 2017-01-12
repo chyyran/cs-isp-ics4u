@@ -6,7 +6,6 @@ PokemonSpecies:
   Category: string
   Evolution: *Pokemon
   Prevolution: *Pokemon
-  AbilitySet: *AbilitySet
     
 Pokemon: 
   Species: PokemonSpecies
@@ -14,22 +13,13 @@ Pokemon:
   UUID: *UUID
   Nickname: string
   Level: int
-  Ability: Ability
   HP: int
-  
-AbilitySet: 
-  AbilityOne: Ability
-  AbilityTwo: Ability
-
-Ability: 
-  Name: string
   
 MoveSet:
   MoveOne: Move
   MoveTwo: Move
   MoveThree: Move
   MoveFour: Move
-
 
 Type:
   Weaknesses: *Type[]
