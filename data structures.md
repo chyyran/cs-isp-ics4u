@@ -44,7 +44,7 @@ Saves the collection of type T to the file Name.srsf in the context directory, w
 #####`<T> List<T> getCollection(Class<T>)`
 Gets the loaded collection of items of type T as a List. 
 
-### _serialization.srsf.**LazyResolver<T>**_
+### <u>interface</u> _serialization.srsf.**LazyResolver\<T\>**_
 
 #### Description
 An interface that represents a factory object used to resolve, or provide an instance of, an object at a later time, thus deferring initialization after object initialization for use with Lazy. 
@@ -54,7 +54,7 @@ An interface that represents a factory object used to resolve, or provide an ins
 ##### `T resolve()`
 Resolves the lazy object by creating a new instance of the object. This method acts as a factory for objects of type _T_.
 
-### _serialization.srsf.**Lazy<T>**_
+### _serialization.srsf.**Lazy\<T\>**_
 
 #### Description
 Represents a lazily evaluated object type. By providing a `LazyResolver<T>` as an object factory, `Lazy<T>` provides an object only upon request, this can be thought of as a promise to instantiate an object. Once instantiated, the instance is cached, and subsequent requests for the object must return the same instance.
@@ -76,7 +76,7 @@ Returns the cached or instantiates a new value of type T with the provided LazyR
 ##### `boolean isValueCreated()`
 Returns whether or not the instance or value has been created with the LazyResolver, in other words whether getValue() had previously been called.
 
-### serialization.srsf.**Serializer**<T>
+### *<u>abstract</u>* serialization.srsf.**Serializer\<T\>**
 
 #### Description 
 Represents a serializer to convert from the key value pair representation of an SRSF block to objects of type T, and vice versa. 
@@ -89,10 +89,10 @@ Represents a serializer to convert from the key value pair representation of an 
 #####`protected serialization.srsf.SerializationContext getContext()`
 Gets the SerializationContext associated with this serializer.
 
-##### `T deserialize(HashMap<String, KeyValuePair>)`
+##### `abstract T deserialize(HashMap<String, KeyValuePair>)`
 Converts from the key value pair representation of an SRSF block to an instance of T.
 
-##### `HashMap<String, String> serialize(T)`
+##### `abstract HashMap<String, String> serialize(T)`
 Converts from the instance of T to a hashmap of String/Value pairs ready for saving.
 
 
@@ -221,7 +221,7 @@ Starts the menu loop, and run until the user chooses to exit.
 ##### `@Override toString()`
 Returns the string representation of the menu to be displayed to the user.
 
-### _menu.text.**MenuOption**_
+### _*<u>abstract</u>* menu.text.**MenuOption**_
 
 #### Description 
 An abstract class to represent an option in a menu. 
@@ -240,7 +240,7 @@ Gets the name of the menu option to be displayed to the user
 ##### `abstract void run()`
 Runs the menu option once.
 
-### _menu.text.**ErrorHandler**_
+### *<u>abstract</u>* _menu.text.**ErrorHandler**_
 
 #### Description
 An abstract class to represent an error handler.
@@ -790,6 +790,44 @@ A menu option to start a Pokemon Battle. Is responsible for managing the `pokemo
 
 Runs the Pokemon battle with the battle manager. 
 
+
+
+## Pokemon Comparators (`pokemon.data.comparators.*`)
+
+The following classes implement `Comparator<T>` for Pokemon Data Types
+
+### _pokemon.data.comparators_.**PokemonSpeciesNameComparator** implements Comparator\<PokemonSpecies\>
+
+Compares two `PokemonSpecies` by their name in lexicographical order.
+
+#### Methods
+
+##### `int compare(PokemonSpecies, PokemonSpecies)`
+
+Compares two Pokemon species by their name `getName()` in lexicographical order. Defers to `String.compare` for comparison.
+
+
+
+### _pokemon.data.comparators_.**PokemonSpeciesNumberComparator** implements Comparator\<PokemonSpecies\>
+
+Compares two `PokemonSpecies` by their Pokemon number.
+
+#### Methods
+
+##### `int compare(PokemonSpecies, PokemonSpecies)`
+
+Compares two Pokemon species by their number `getNumber()` Defers to `Integer.compare` for comparison.
+
+### _pokemon.data.comparators_.**PokemonSpeciesWeightComparator** implements Comparator\<PokemonSpecies\>
+
+Compares two `PokemonSpecies` by their weight.
+
+#### Methods
+
+##### `int compare(PokemonSpecies, PokemonSpecies)`
+
+Compares two Pokemon species by their weight `getWeight()` Defers to `Double.compare` for comparison.
+
 ## Appendix A — Simple Relational String Format 
 
 *Simple Relational String Format*, or SRSF defines a generic method to load and save a collection of objects into text files. Objects are loaded into a root serialization context from formatted ‘.srsf’ record files, and are accessible as collections of loaded objects. In order to resolve self-references, object references are lazily evaluated and resolved within the context before being produced into objects by the converter. Record files are expected to contain a collection of objects of the same type, and will be serialized as a list or array.
@@ -930,7 +968,7 @@ This concept is used during serialization for Lazy instantiation (`Lazy<PokemonT
 A dynamic array or a List is a resizable array of indefinite size. Used to store Pokemon, types, and allow lazy instanatiation of array-like types.
 
 ## Interfaces
-A contract for a class to implement. Used to define the `LazyResolver<T>` interface used during serialization.
+A contract for a class to implement. Used to define the `LazyResolver<T>` interface used during serialization. Also used for `PokemonSpecies` comparators.
 
 ## Hash Maps
 A data structure that maps keys to values. Used during serialization to represent key value pairs.
