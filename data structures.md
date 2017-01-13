@@ -1,4 +1,4 @@
-# 2A. Data Structures
+# Data Structures and Classes
 
 ## Serialization Framework (`serialization.srsf.*`)
 
@@ -119,10 +119,34 @@ Gets the key of the key value pair.
 
 ##### `String asString()`
 
-Gets the value as a string. If the value is equal to the magic string `@@NULL@@`, returns `null`.
+Gets the value as a string. If the string `value` is equal to the magic string `@@NULL@@`, returns `null`.
+
+##### `String[] asStringArray()`
+
+Gets the value as a string array. If the string `value` is equal to the magic string `@@NULL@@`, returns `null`.
+
+##### `int asInt()`
+
+Attempts to get the value as an integer. If the string `value` is equal to the magic string `@@NULL@@`, returns `0`.
 
 
+##### `int[] asIntArray()`
 
+Attempts to get the value as an integer array. If the string `value` is equal to the magic string `@@NULL@@`, returns `null`.
+
+##### `double asDouble()`
+
+Attempts to get the value as a double. If the string `value` is equal to the magic string `@@NULL@@`, returns `0`.
+
+##### `double[] asDoubleArray()`
+Attempts to get the value as a double array. If the string `value` is equal to the magic string `@@NULL@@`, returns `null`.
+
+##### `boolean asBoolean()`
+
+Attempts to get the value as a boolean. If the string `value` is equal to the magic string `@@NULL@@`, returns false.
+
+##### `boolean[] asBooleanArray()`
+Attempts to get the value as a boolean array. If the string `value` is equal to the magic string `@@NULL@@`, returns `null`.
 
 
 ## Simple Relational String Format Schema (`serialization.srsf.schema.*`)
@@ -498,13 +522,228 @@ Applies the effects of the given move to the casting and target Pokemon. This me
 
 ## Pokemon Serialization Classes (`pokemon.serialization.*`)
 
-### Pokemon Serializer Classes 
+**Pokemon Serializer Classes**
 
 The following classes extend `serialization.srsf.Serializer` and are used to serialize their specified types.
 
+### _pokemon.serialization._**PokemonTypeSerializer** extends Serializer\<PokemonType\>
+Serializes `pokemon.data.PokemonType`
+
+#### Schema
+```
+$schemaName|PokemonType
+$outputType|pokemon.data.PokemonType
+@name|string
+@strongAgainst|[string!!PokemonType]
+@weakAgainst|[string!!PokemonType]
+---
+```
+#### Example
+```
+$name|WATER
+$strongAgainst|[FIRE]
+$weakAgainst|[GRASS]
+---
+```
+#### Methods
+##### `@Override PokemonType deserialize(HashMap<String, KeyValuePair)`
+Converts from a block of the above example to a `PokemonType`.
+
+##### `@Override HashMap<String, String> serialize(PokemonType)`
+Converts from a `PokemonType` object to it's key value pair representation.
+
+### _pokemon.serialization._**PokemonSpeciesSerializer** extends Serializer\<PokemonSpecies\>
+Serializes `pokemon.data.PokemonSpecies`
+
+#### Schema
+```
+$schemaName|PokemonSpecies
+$outputType|pokemon.data.PokemonSpecies
+@name|string
+@index|int
+@primaryType|string!!PokemonType
+@secondaryType|string!!PokemonType
+@weight|double
+@evolution|int!!PokemonSpecies
+@preevolution|int!!PokemonSpecies
+---
+```
+#### Example
+```
+$index|1
+$name|Bulbasaur
+$primaryType|GRASS
+$secondaryType|@@NUL@@
+$weight|10
+$evolution|2
+$preevolution|0
+---
+```
+#### Methods
+##### `@Override PokemonSpecies deserialize(HashMap<String, KeyValuePair)`
+Converts from a block of the above example to a `PokemonSpecies`. `$evolution` and `$preevlotion` are represented as the Pokemon number.
+
+##### `@Override HashMap<String, String> serialize(PokemonSpecies)`
+Converts from a `PokemonSpecies` object to it's key value pair representation.
+
+### _pokemon.serialization._**MoveSerializer** extends Serializer\<Move\>
+Serializes `pokemon.data.Move`
+
+#### Schema
+```
+$schemaName|Move
+$outputType|pokemon.data.Move
+@name|string
+@type|string!!PokemonType
+@baseDamage|int
+@selfDamage|int
+---
+```
+#### Example
+```
+$name|Hyper Beam
+$type|NORMAL
+$baseDamage|100
+$selfDamage|50
+---
+```
+#### Methods
+##### `@Override Move deserialize(HashMap<String, KeyValuePair)`
+Converts from a block of the above example to a `Move`. `$evolution` and `$preevlotion` are represented as the Pokemon number.
+
+##### `@Override HashMap<String, String> serialize(Move)`
+Converts from a `Move` object to it's key value pair representation.
 
 
-|Class Name|Class 
+### _pokemon.serialization._**PokemonSerializer** extends Serializer\<Pokemon\>
+Serializes `pokemon.data.Pokemon`
+
+#### Schema
+```
+$schemaName|Pokemon
+$outputType|pokemon.data.Pokemon
+@species|int!!PokemonSpecies
+@nickName|string
+@level|int
+@moves|[string!!Move]
+@hp|int
+@id|string
+---
+```
+
+#### Example
+```
+$species|1
+$nickName|Bulby
+$level|10
+$moves|[LEECHSEED,TACKLE,@@NULL@@,@@NULL@@]
+$hp|100
+$id|A9810DJ12D
+---
+```
+
+#### Methods
+##### `@Override Pokemon deserialize(HashMap<String, KeyValuePair)`
+Converts from a block of the above example to a `Pokemon`
+
+##### `@Override HashMap<String, String> serialize(Pokemon)`
+Converts from a `Pokemon` object to it's key value pair representation.
+
+### _*pokemon.serialization.*_**TeamSerializer** extends Serializer\<Team\>
+
+Serializes `pokemon.data.Team`
+
+#### Schema
+```
+$schemaName|Team
+$outputType|pokemon.data.Team
+@pokemon|[string!!Pokemon]
+---
+```
+
+#### Example
+```
+$pokemon|[A9810DJ12D]
+---
+```
+
+#### Methods
+##### `@Override Team deserialize(HashMap<String, KeyValuePair)`
+Converts from a block of the above example to a `Team`. Pokemon are stored as references by the unique Pokemon ID.
+
+##### `@Override HashMap<String, String> serialize(Pokemon)`
+Converts from a `Team` object to it's key value pair representation.
+
+
+
+**Pokemon Resolver Classes**
+
+Resolves loaded Pokemon information from a serialization context.
+
+
+### _*pokemon.serialization.*_**PokemonTypeListResolver** implements \<LazyResolver\<List\<PokemonType\>\>
+
+Lazily resolves a list of Pokemon types from their type names.
+
+#### Fields
+| Field Name | Field Type             | Field Description                     |
+| ---------- | ---------------------- | ------------------------------------- |
+| context    | `SerializationContext` | The context to resolve the types from |
+| typeNames  | `String[]`             | The names of the types                |
+
+#### Methods
+##### `@Override List<PokemonType> resolve()`
+Resolves the list of loaded types from the serialization context
+
+
+### _*pokemon.serialization.*_**PokemonSpeciesResolver** implements \<LazyResolver\<PokemonSpecies\>
+
+Lazily resolves a Pokemon species from the Pokemon number
+
+#### Fields
+| Field Name | Field Type             | Field Description                     |
+| ---------- | ---------------------- | ------------------------------------- |
+| context    | `SerializationContext` | The context to resolve the types from |
+| number     | `int`                  | The Pokemon number                    |
+
+#### Methods
+##### `@Override PokemonSpecies resolve()`
+Resolves the Pokemon species from the serialization context
+
+
+### _*pokemon.serialization.*_**PokemonIdResolver** implements \<LazyResolver\<PokemonSpecies\>
+
+Lazily resolves a Pokemon from the Pokemon ID
+
+#### Fields
+| Field Name | Field Type             | Field Description                     |
+| ---------- | ---------------------- | ------------------------------------- |
+| context    | `SerializationContext` | The context to resolve the types from |
+| id         | `String`               | The Pokemon ID                        |
+
+#### Methods
+##### `@Override Pokemon resolve()`
+Resolves the Pokemon from the serialization context
+
+### _*pokemon.serialization.*_**PokemonTypeResolver** implements \<LazyResolver\<PokemonType\>
+
+Lazily resolves a single Pokemon types from their type names.
+
+#### Fields
+| Field Name | Field Type             | Field Description                     |
+| ---------- | ---------------------- | ------------------------------------- |
+| context    | `SerializationContext` | The context to resolve the types from |
+| typeName   | `String`               | The name of the type                  |
+
+#### Methods
+##### `@Override PokemonType resolve()`
+Resolves the types from the serialization context
+
+
+
+## _Menu Options (`pokemon.menu.*`)_
+
+The following classes extend `menu.text.MenuOption` to provide the UI for the application.
 
 ## Appendix A — Simple Relational String Format 
 
@@ -576,3 +815,77 @@ This schema defines the type for the previous `PokemonType` example. A schema ha
 |                |                                          |                    |
 
 Thus, each SRSF must be composed of, or have objects references derived, on the responsibility of the Serializer, these four SRSF primitive types.
+
+#Algorithms and concepts
+
+## Accessors
+Methods to get an access or to get the value of a field within a class
+```
+	<data type> get<fieldName>()
+		return <fieldName>
+```
+
+## Mutators
+Methods to change the value of a field within a class
+```
+<data type> set<fieldName>(<variable>) 
+```
+
+## Binary Search
+This will be used when searching for a specific Pokémon using the ID in a list of Pokémon sorted by ID.
+```
+<item> BinarySearch(list L, item)
+	middle = middle value of list 
+if middle’s Field = item’s Field
+		Then return item;
+	If middle’s Field > item’s Field
+		Then 
+list L2 = first half of L
+		return BinarySearch(L2, item)
+	If middle’s Field <  item’s Field
+		Then
+list L2 = second half of L
+		return BinarySearch(L2, item)
+```
+
+## Sequential Search
+This will be used search for a Pokémon by name and type. 
+```
+	SequentialSearch(list L, String x)
+		For each item in the list
+			If (y matches x) 
+				Return y;
+```
+
+## Bubble Sort
+This will be used to sort Pokémon in Pokedex by name, ID, and weight
+
+```
+	BubbleSort (List L)
+		for upperbound equals L.length - 1 down to 1 and sorted is false
+Set sorted to true
+for j from 0 to upperbound - 1
+	If j > j + 1
+		set sorted to false
+		swap j and j + 1
+```
+
+## Recursion
+This will be used as part of the Binary Search
+Refer to Binary Search
+
+## File Input/Output
+This will be used to store or load teams of Pokémon.
+
+
+## Generics
+This concept is used during serialization for Lazy instantiation (`Lazy<PokemonType>`), use of dynamic arrays (`List<Pokemon>`), and hash maps (`HashMap<String, String>`). A generic class or algorithm allows the types to be specified later when needed.
+
+## Dynamic Arrays
+A dynamic array or a List is a resizable array of indefinite size. Used to store Pokemon, types, and allow lazy instanatiation of array-like types.
+
+## Interface
+A contract for a class to implement. Used to define the `LazyResolver<T>` interface used during serialization.
+
+## Hash maps
+A data structure that maps keys to values. Used during serialization to represent key value pairs.
