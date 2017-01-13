@@ -745,6 +745,16 @@ Resolves the types from the serialization context
 
 The following classes extend `menu.text.MenuOption` to provide the UI for the application.
 
+### _pokemon.menu.PokedexMenu_
+A menu option to display and search the Pokedex. 
+
+### _pokemon.menu.TeamMenu_
+A menu option to manage your Pokemon Team
+
+### _pokemon.menu.BattleMenu_
+A menu option to start a Pokemon Battle. Is responsible for managing the `pokemon.core.Battle`
+
+
 ## Appendix A — Simple Relational String Format 
 
 *Simple Relational String Format*, or SRSF defines a generic method to load and save a collection of objects into text files. Objects are loaded into a root serialization context from formatted ‘.srsf’ record files, and are accessible as collections of loaded objects. In order to resolve self-references, object references are lazily evaluated and resolved within the context before being produced into objects by the converter. Record files are expected to contain a collection of objects of the same type, and will be serialized as a list or array.
