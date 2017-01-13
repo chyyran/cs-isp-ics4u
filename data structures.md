@@ -748,12 +748,47 @@ The following classes extend `menu.text.MenuOption` to provide the UI for the ap
 ### _pokemon.menu.PokedexMenu_
 A menu option to display and search the Pokedex. 
 
+#### Fields
+
+| Field Name | Field Type | Field Description  |
+| ---------- | ---------- | ------------------ |
+| pokedex    | `Pokedex`  | The Pokedex to use |
+
+#### Methods
+
+##### `@Override run()`
+
+Runs the Pokedex menu option. 
+
 ### _pokemon.menu.TeamMenu_
 A menu option to manage your Pokemon Team
 
-### _pokemon.menu.BattleMenu_
-A menu option to start a Pokemon Battle. Is responsible for managing the `pokemon.core.Battle`
+#### Fields
 
+| Field Name | Field Type | Field Description          |
+| ---------- | ---------- | -------------------------- |
+| team       | `Team`     | The Pokemon team to manage |
+
+#### Methods
+
+##### `@Override run()`
+
+Runs the Pokemon team menu option. 
+
+### _pokemon.menu.BattleMenu_
+A menu option to start a Pokemon Battle. Is responsible for managing the `pokemon.core.battle.BattleManager`
+
+#### Fields
+
+| Field Name    | Field Type      | Field Description                        |
+| ------------- | --------------- | ---------------------------------------- |
+| battleManager | `BattleManager` | The Pokemon battle manager to run the battle menu. |
+
+#### Methods
+
+##### `@Override run()`
+
+Runs the Pokemon battle with the battle manager. 
 
 ## Appendix A — Simple Relational String Format 
 
@@ -894,8 +929,8 @@ This concept is used during serialization for Lazy instantiation (`Lazy<PokemonT
 ## Dynamic Arrays
 A dynamic array or a List is a resizable array of indefinite size. Used to store Pokemon, types, and allow lazy instanatiation of array-like types.
 
-## Interface
+## Interfaces
 A contract for a class to implement. Used to define the `LazyResolver<T>` interface used during serialization.
 
-## Hash maps
+## Hash Maps
 A data structure that maps keys to values. Used during serialization to represent key value pairs.
