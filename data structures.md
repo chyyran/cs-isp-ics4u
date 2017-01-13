@@ -253,7 +253,7 @@ Handles the given exception.
 
 
 
-## Pokemon Data Structures (`pokemon.data.*`)
+## Pokémon Data Structures (`pokemon.data.*`)
 
 ### _pokemon.data._**PokemonSpecies**
 
@@ -277,25 +277,25 @@ Handles the given exception.
 #### Methods
 
 ##### `String getName()`
-The name of the Pokemon species, for example, ‘Pikachu’. This name should be the same for instances of the same Pokemon Species. 
+The name of the Pokémon species, for example, ‘Pikachu’. This name should be the same for instances of the same Pokémon Species. 
 
 ##### `PokemonType getPrimaryType()`
-The primary type of the Pokemon species.
+The primary type of the Pokémon species.
 
 ##### `PokemonType getSecondaryType()`
-The secondary type of the Pokemon species.
+The secondary type of the Pokémon species.
 
 ##### `double getWeight()`
-The average weight of the Pokemon
+The average weight of the Pokémon
 
 ##### `int getNumber()`
-The unique Pokedex number of the Pokemon species. This number must be unique for each different species.
+The unique Pokédex number of the Pokémon species. This number must be unique for each different species.
 
 ##### `PokemonSpecies getNextEvolution()`
-The Pokemon species next in the evolutionary chain of the Pokemon. This merely indicates the Pokemon next in the evolutionary chain, and does not specify the requirements for the Pokemon species to evolve into it’s evolution. If this Pokemon species is the final stage in the evolutionary chain, then this property returns null.
+The Pokémon species next in the evolutionary chain of the Pokemon. This merely indicates the Pokémon next in the evolutionary chain, and does not specify the requirements for the Pokémon species to evolve into it’s evolution. If this Pokémon species is the final stage in the evolutionary chain, then this property returns null.
 
 ##### `PokemonSpecies getPreviousEvolution()` 
-The Pokemon species previous in the evolutionary chain of the Pokemon. This merely indicates the Pokemon previous in the evolutonary chain, and does not specify the requirements for the previous evolution species to evolve into the current Pokemon species. If this Pokemon species is the first in its evolutionary chain, then this property returns null. 
+The Pokémon species previous in the evolutionary chain of the Pokemon. This merely indicates the Pokémon previous in the evolutonary chain, and does not specify the requirements for the previous evolution species to evolve into the current Pokémon species. If this Pokémon species is the first in its evolutionary chain, then this property returns null. 
 
 ##### `boolean equals(PokemonSpecies)`
 
@@ -326,10 +326,10 @@ The name of the move, for example, ‘Hyper Beam’.
 The damage of a move before any multipliers. Can be negative to apply a healing effect.
 
 ##### `int getSelfDamage()`
-The damage applied to the Pokemon that uses this move. Can be negative to apply a healing effect.
+The damage applied to the Pokémon that uses this move. Can be negative to apply a healing effect.
 
 ##### `PokemonType getType()`
-The type of the move. The type is important in figuring out the damage given to the other Pokemon in battles as each type is strong and weak to other types.
+The type of the move. The type is important in figuring out the damage given to the other Pokémon in battles as each type is strong and weak to other types.
 
 ##### `boolean equals(Move)`
 
@@ -349,13 +349,13 @@ The team is a collection of individual `Pokemon`, usually up to 6.
 
 #### Methods
 ##### `void switchPosition(int, int)`
-Swaps the positions of the pokemon in the two specified slots.
+Swaps the positions of the Pokémon in the two specified slots.
 ##### `List<Pokemon> getPokemon()`
-Get all Pokemon in the team.
+Get all Pokémon in the team.
 ##### `Pokemon getActivePokemon()`
-Gets the first Pokemon in the team.
+Gets the first Pokémon in the team.
 ##### `void setActivePokemon(int)`
-Sets the active Pokemon to the Pokemon at the given index. This has the effect of swapping the Pokemon at the given index with the first Pokemon in the team.
+Sets the active Pokémon to the Pokémon at the given index. This has the effect of swapping the Pokémon at the given index with the first Pokémon in the team.
 
 ### _pokemon.data.**PokemonType**_
 #### Description
@@ -403,7 +403,7 @@ Default `equals(Object)` override. Defers to `equals(PokemonType)` for equality.
 
 ### _pokemon.data.**Pokemon**_
 #### Description
-Represents an individual Pokemon belonging to the user or player character, including all information, such as species, move set, nickname, level, and health points.
+Represents an individual Pokémon belonging to the user or player character, including all information, such as species, move set, nickname, level, and health points.
 
 #### Fields
 | Field Name | Field Type             | Field Description   |
@@ -422,13 +422,13 @@ Gets the species of this Pokemon
 Gets the list of moves for this Pokemon
 
 ##### `String getNickname()`
-Gets the given nickname of this Pokemon. If not set, then return the name of the Pokemon species.
+Gets the given nickname of this Pokemon. If not set, then return the name of the Pokémon species.
 
 ##### `void setNickname(String)` 
 Sets the given nickname of this Pokemon. To unset, set the nickname to the empty string.
 
 ##### `int getLevel()` 
-The level of this Pokemon. The higher the level is, the greater the base damage of each Pokemon. Also, the health point increases every time the Pokemon levels up.
+The level of this Pokemon. The higher the level is, the greater the base damage of each Pokemon. Also, the health point increases every time the Pokémon levels up.
 
 ##### `void setLevel(int)`
 Sets the level of this Pokemon. 
@@ -440,9 +440,9 @@ Gets the amount of health points of this Pokemon.
 Sets the amount of health points of this Pokemon.
 
 ##### `boolean isFainted()`
-The status of the Pokemon that indicates whether it is alive or fainted. If the Pokemon’s the health point is zero, the Pokemon is fainted thus it returns true. Otherwise, it returns false.
+The status of the Pokémon that indicates whether it is alive or fainted. If the Pokemon’s the health point is zero, the Pokémon is fainted thus it returns true. Otherwise, it returns false.
 
-## Pokemon Core Facilities (`pokemon.core.*`)
+## Pokémon Core Facilities (`pokemon.core.*`)
 
 The following classes contain the behavior of the program regarding Pokedex and Battle functionality, and are not meant to be saved to a file. 
 
@@ -458,7 +458,7 @@ Represents a sortable and searchable collection of `PokemonSpecies`.
 
 | Field Name     | Field Type             | Field Description                        |
 | -------------- | ---------------------- | ---------------------------------------- |
-| pokemonSpecies | `List<PokemonSpecies>` | The list of Pokemon species defined in this Pokedex. |
+| pokemonSpecies | `List<PokemonSpecies>` | The list of Pokémon species defined in this Pokedex. |
 
 #### Methods
 
@@ -471,10 +471,10 @@ Searches for and returns all `PokemonSpecies` with the given `PokemonType`.
 Searches for and returns all `PokemonSpecies` with a name matching the given string.
 
 ##### `List<PokemonSpecies> getAllPokemon()`
-Gets all the Pokemon in the Pokedex.
+Gets all the Pokémon in the Pokedex.
 
 ##### `PokemonSpecies getPokemon(int)`
-Gets the Pokemon with the given number.
+Gets the Pokémon with the given number.
 
 ##### `static void sortByName(List<PokemonSpecies>)`
 Sorts the given list of `PokemonSpecies` by their name in lexicographical order. See `PokemonSpeciesNameComparator`
@@ -495,22 +495,22 @@ An enumeration of possible battle states.
 | -------------------- | ---------------------------------------- |
 | `PLAYER_ONE_MOVE`    | The battle is waiting for the first player to select their move |
 | `PLAYER_TWO_MOVE`    | The battle is waiting for second player  |
-| `PLAYER_ONE_FAINTED` | Player one has a fainted Pokemon and must select a new one from their team. |
-| `PLAYER_TWO_FAINTED` | Player two has  a fainted Pokemon and must select a new one from their team. |
+| `PLAYER_ONE_FAINTED` | Player one has a fainted Pokémon and must select a new one from their team. |
+| `PLAYER_TWO_FAINTED` | Player two has  a fainted Pokémon and must select a new one from their team. |
 | `PLAYER_ONE_VICTORY` | The battle has been completed, player two has exhausted their team, and player one is the victor. |
 | `PLAYER_TWO_VICTORY` | The battle has been completed, player one has exhausted their team, and player two is the victor. |
 
 ### _pokemon.core.battle.**BattleManager**_
 
 #### Description
-Manages a battle between two Pokemon `Teams`. `BattleManager` is a state machine intended to be run in a loop until one Team has encountered a victory state. 
+Manages a battle between two Pokémon `Teams`. `BattleManager` is a state machine intended to be run in a loop until one Team has encountered a victory state. 
 
 #### Fields
 | Field Name | Field Type    | Field Description                     |
 | ---------- | ------------- | ------------------------------------- |
 | state      | `BattleState` | The current state of the battle       |
-| teamOne    | `Team`        | The Pokemon team of the first player  |
-| teamTwo    | `Team`        | The Pokemon team of the second player |
+| teamOne    | `Team`        | The Pokémon team of the first player  |
+| teamTwo    | `Team`        | The Pokémon team of the second player |
 |            |               |                                       |
 
 #### Methods
@@ -519,15 +519,15 @@ Manages a battle between two Pokemon `Teams`. `BattleManager` is a state machine
 Gets the current state of the battle.
 
 ##### `Team getTeamOne()`
-Gets the first team of Pokemon in the battle.
+Gets the first team of Pokémon in the battle.
 
 ##### `Team getTeamTwo()`
-Gets the second team of Pokemon in the battle.
+Gets the second team of Pokémon in the battle.
 
 ##### `void applyMove(Move, Pokemon, Pokemon)`
-Applies the effects of the given move to the casting and target Pokemon. This method calculates the amount of damage dealt to each Pokemon after the move is applied, and determines the new `BattleState` after damage calculations.
+Applies the effects of the given move to the casting and target Pokemon. This method calculates the amount of damage dealt to each Pokémon after the move is applied, and determines the new `BattleState` after damage calculations.
 
-## Pokemon Serialization Classes (`pokemon.serialization.*`)
+## Pokémon Serialization Classes (`pokemon.serialization.*`)
 
 **Pokemon Serializer Classes**
 
@@ -588,7 +588,7 @@ $preevolution|0
 ```
 #### Methods
 ##### `@Override PokemonSpecies deserialize(HashMap<String, KeyValuePair)`
-Converts from a block of the above example to a `PokemonSpecies`. `$evolution` and `$preevlotion` are represented as the Pokemon number.
+Converts from a block of the above example to a `PokemonSpecies`. `$evolution` and `$preevlotion` are represented as the Pokémon number.
 
 ##### `@Override HashMap<String, String> serialize(PokemonSpecies)`
 Converts from a `PokemonSpecies` object to it's key value pair representation.
@@ -616,7 +616,7 @@ $selfDamage|50
 ```
 #### Methods
 ##### `@Override Move deserialize(HashMap<String, KeyValuePair)`
-Converts from a block of the above example to a `Move`. `$evolution` and `$preevlotion` are represented as the Pokemon number.
+Converts from a block of the above example to a `Move`. `$evolution` and `$preevlotion` are represented as the Pokémon number.
 
 ##### `@Override HashMap<String, String> serialize(Move)`
 Converts from a `Move` object to it's key value pair representation.
@@ -650,7 +650,7 @@ $id|A9810DJ12D
 ```
 
 #### Methods
-##### `@Override Pokemon deserialize(HashMap<String, KeyValuePair)`
+##### `@Override Pokémon deserialize(HashMap<String, KeyValuePair)`
 Converts from a block of the above example to a `Pokemon`
 
 ##### `@Override HashMap<String, String> serialize(Pokemon)`
@@ -676,7 +676,7 @@ $pokemon|[A9810DJ12D]
 
 #### Methods
 ##### `@Override Team deserialize(HashMap<String, KeyValuePair)`
-Converts from a block of the above example to a `Team`. Pokemon are stored as references by the unique Pokemon ID.
+Converts from a block of the above example to a `Team`. Pokémon are stored as references by the unique Pokémon ID.
 
 ##### `@Override HashMap<String, String> serialize(Pokemon)`
 Converts from a `Team` object to it's key value pair representation.
@@ -685,12 +685,12 @@ Converts from a `Team` object to it's key value pair representation.
 
 **Pokemon Resolver Classes**
 
-Resolves loaded Pokemon information from a serialization context.
+Resolves loaded Pokémon information from a serialization context.
 
 
 ### _*pokemon.serialization.*_**PokemonTypeListResolver** implements \<LazyResolver\<List\<PokemonType\>\>
 
-Lazily resolves a list of Pokemon types from their type names.
+Lazily resolves a list of Pokémon types from their type names.
 
 #### Fields
 | Field Name | Field Type             | Field Description                     |
@@ -703,38 +703,38 @@ Lazily resolves a list of Pokemon types from their type names.
 Resolves the list of loaded types from the serialization context
 
 
-### _*pokemon.serialization.*_**PokemonSpeciesResolver** implements \<LazyResolver\<PokemonSpecies\>
+### _*pokemon.serialization.*_**PokemonSpeciesResolver** implements \<LazyResolver\<PokemonSpecies\>\>
 
-Lazily resolves a Pokemon species from the Pokemon number
+Lazily resolves a Pokémon species from the Pokémon number
 
 #### Fields
 | Field Name | Field Type             | Field Description                     |
 | ---------- | ---------------------- | ------------------------------------- |
 | context    | `SerializationContext` | The context to resolve the types from |
-| number     | `int`                  | The Pokemon number                    |
+| number     | `int`                  | The Pokémon number                    |
 
 #### Methods
 ##### `@Override PokemonSpecies resolve()`
-Resolves the Pokemon species from the serialization context
+Resolves the Pokémon species from the serialization context
 
 
-### _*pokemon.serialization.*_**PokemonIdResolver** implements \<LazyResolver\<PokemonSpecies\>
+### _*pokemon.serialization.*_**PokemonIdResolver** implements \<LazyResolver\<PokemonSpecies\>\>
 
-Lazily resolves a Pokemon from the Pokemon ID
+Lazily resolves a Pokémon from the Pokémon ID
 
 #### Fields
 | Field Name | Field Type             | Field Description                     |
 | ---------- | ---------------------- | ------------------------------------- |
 | context    | `SerializationContext` | The context to resolve the types from |
-| id         | `String`               | The Pokemon ID                        |
+| id         | `String`               | The Pokémon ID                        |
 
 #### Methods
-##### `@Override Pokemon resolve()`
-Resolves the Pokemon from the serialization context
+##### `@Override Pokémon resolve()`
+Resolves the Pokémon from the serialization context
 
-### _*pokemon.serialization.*_**PokemonTypeResolver** implements \<LazyResolver\<PokemonType\>
+### _*pokemon.serialization.*_**PokemonTypeResolver** implements \<LazyResolver\<PokemonType\>\>
 
-Lazily resolves a single Pokemon types from their type names.
+Lazily resolves a single Pokémon types from their type names.
 
 #### Fields
 | Field Name | Field Type             | Field Description                     |
@@ -745,7 +745,6 @@ Lazily resolves a single Pokemon types from their type names.
 #### Methods
 ##### `@Override PokemonType resolve()`
 Resolves the types from the serialization context
-
 
 
 ## _Menu Options (`pokemon.menu.*`)_
@@ -768,40 +767,45 @@ A menu option to display and search the Pokedex.
 Runs the Pokedex menu option. 
 
 ### _pokemon.menu.TeamMenu_
-A menu option to manage your Pokemon Team
+A menu option to manage your Pokémon Team
 
 #### Fields
 
 | Field Name | Field Type | Field Description          |
 | ---------- | ---------- | -------------------------- |
-| team       | `Team`     | The Pokemon team to manage |
+| team       | `Team`     | The Pokémon team to manage |
 
 #### Methods
 
 ##### `@Override run()`
 
-Runs the Pokemon team menu option. 
+Runs the Pokémon team menu option. 
 
 ### _pokemon.menu.BattleMenu_
-A menu option to start a Pokemon Battle. Is responsible for managing the `pokemon.core.battle.BattleManager`
+A menu option to start a Pokémon Battle. Is responsible for managing the `pokemon.core.battle.BattleManager`
 
 #### Fields
 
 | Field Name    | Field Type      | Field Description                        |
 | ------------- | --------------- | ---------------------------------------- |
-| battleManager | `BattleManager` | The Pokemon battle manager to run the battle menu. |
+| battleManager | `BattleManager` | The Pokémon battle manager to run the battle menu. |
 
 #### Methods
 
 ##### `@Override run()`
 
-Runs the Pokemon battle with the battle manager. 
+Runs the Pokémon battle with the battle manager. 
 
+### _pokemon.menu._**MainMenu**
+The main menu or application entry point
 
+#### Methods
+##### `static void main(String[])`
+The entry point for the application. Responsible for initial loading of types, instantiation of the `SerializationContext` and `MenuBuilder`, and managing the overall lifecycle of the program.
 
-## Pokemon Comparators (`pokemon.data.comparators.*`)
+## Pokémon Comparators (`pokemon.data.comparators.*`)
 
-The following classes implement `Comparator<T>` for Pokemon Data Types
+The following classes implement `Comparator<T>` for Pokémon Data Types
 
 ### _pokemon.data.comparators_.**PokemonSpeciesNameComparator** implements Comparator\<PokemonSpecies\>
 
@@ -811,19 +815,19 @@ Compares two `PokemonSpecies` by their name in lexicographical order.
 
 ##### `int compare(PokemonSpecies, PokemonSpecies)`
 
-Compares two Pokemon species by their name `getName()` in lexicographical order. Defers to `String.compare` for comparison.
+Compares two Pokémon species by their name `getName()` in lexicographical order. Defers to `String.compare` for comparison.
 
 
 
 ### _pokemon.data.comparators_.**PokemonSpeciesNumberComparator** implements Comparator\<PokemonSpecies\>
 
-Compares two `PokemonSpecies` by their Pokemon number.
+Compares two `PokemonSpecies` by their Pokémon number.
 
 #### Methods
 
 ##### `int compare(PokemonSpecies, PokemonSpecies)`
 
-Compares two Pokemon species by their number `getNumber()` Defers to `Integer.compare` for comparison.
+Compares two Pokémon species by their number `getNumber()` Defers to `Integer.compare` for comparison.
 
 ### _pokemon.data.comparators_.**PokemonSpeciesWeightComparator** implements Comparator\<PokemonSpecies\>
 
@@ -833,78 +837,7 @@ Compares two `PokemonSpecies` by their weight.
 
 ##### `int compare(PokemonSpecies, PokemonSpecies)`
 
-Compares two Pokemon species by their weight `getWeight()` Defers to `Double.compare` for comparison.
-
-## Appendix A — Simple Relational String Format 
-
-*Simple Relational String Format*, or SRSF defines a generic method to load and save a collection of objects into text files. Objects are loaded into a root serialization context from formatted ‘.srsf’ record files, and are accessible as collections of loaded objects. In order to resolve self-references, object references are lazily evaluated and resolved within the context before being produced into objects by the converter. Record files are expected to contain a collection of objects of the same type, and will be serialized as a list or array.
-
-## Serialization Context
-
-The serialization context is the root context in which a set of SRSF files are loaded into. Each serialization context should be self contained in a folder, and contain at least a `Schema.srsf`, specifying the schema of the data files contained in the folder, and one or more `.srsf` record files describing the actual records. Saving and loading should occur only in the specified context folder, and all `.srsf` files in the context folder must be named as the simple name of the class it represents, for example, data representing instances of `pokemon.data.PokemonType` must be saved and loaded from `PokemonType.srsf`. 
-
-
-
-## SRSF Tokens
-
-| Token       | Example                             | Description                              |
-| ----------- | ----------------------------------- | ---------------------------------------- |
-| `~~!srsf~~` | `~~!srsf~~`                         | The magic header required at the beginning of all valid SRSF record files. |
-| `!!`        | `!!PokemonType`                     | The type descriptor, describing the Java type this record file is a collection of. If  used after a primitive descriptor in a schema, indicates an object reference of the type. |
-| `$`         | `$name|Pikachu`                     | A semantic marker for a required field, indicates that this value will be used to provide a bean property of the object to be serialized. |
-| `@`         | `@name|string`                      | A semantic marker for a schema property, valid only in schema definitions, indicates that this value is a typing for a field defined in a sep |
-| `|`         | `$name|Pikachu`                     | The separator character separating the semantic marker from the string value. |
-| `[]`        | `[WATER, GRASS]`                    | For a value, indicates that the value represents an array of primitives. |
-| `,`         | `[WATER, GRASS]`                    | In an array value, separates the values of the array. |
-| `---`       | `---`                               | Block marker delimiter, indicates the end of a record block. |
-| `@@NULL@@`  | `$name|@@NULL@@`                    | Indicates a reference to the null or default value. To represent the string literal of "@@NULL@@", enclose the literal shall be enclosed in quotes. |
-| `#`         | `#Some comment is is written here.` | Indicates that the line begins a comment. |
-
-
-
-## SRSF Record Format
-
-An SRSF file begins with the magic string `~~!srsf~~`, followed by the type marker `!!`, a type, and the block end marker. Thus, the first "block" in any SRSF format specifies the schema type for the rest of the file. Files may contain any amount of blocks delimited by the block marker delimiter, and each block must contain the data required to instantiate one instance of the type specified. 
-
-```
-~~!srsf~~
-!!PokemonType
----
-$name|GRASS
-$strongAgainst|[WATER,GROUND]
-$weakAgainst|[FIRE]
-#todo add more types
----
-```
-
-This example file denotes a collection of `PokemonType` objects, with a single instance. Containing the header block and one record block, the record block has the properties `name`, `strongAgainst`, and `weakAgainst`. `strongAgainst` and `weakAgainst` are string arrays, but as specified in a separate schema file, are in actuality typed to be `PokemonType`s themselves, and must be deserialized accordingly.
-
-## SRSF Schema Files
-
-The SRSF Schema format defines a schema for every single record file in the serialization context. Named `Schema.srsf`, this file should be the first to be loaded in any serialization context. One can consider the schema file to be a special case of Record, as they are serialized just the same as a normal record. However, they are privileged in that the `Schema.srsf` need not a schema specified for itself, and the Schema format is the only format specified to have metadata in it's definitions; thus each record shape will be different, unlike normal records.
-
-```
-!!schema
----
-$schemaName|PokemonType
-$outputType|pokemon.data.PokemonType
-@name|string
-@strongAgainst|[string!!PokemonType]
-@weakAgainst|[string!!PokemonType]
----
-```
-
-This schema defines the type for the previous `PokemonType` example. A schema has two required field, `schemaName`, indicating the name of the schema, generally the simple name of the type, and `outputType`, indicating the fully qualified name of the Java type it represents. The entries that begin with `@` are metadata properties and are used to define the shape of the schema. Rather than have values, they must contain either a primitive type, or a primitive that will be serialized into an object reference. SRSF primitives are not exactly the same as Java primitives, the list of SRSF primitives is defined as follows
-
-| SRSF Primitive | Definition                               | Java Equivalent    |
-| -------------- | ---------------------------------------- | ------------------ |
-| `string`       | A string-like type.                      | `java.lang.String` |
-| `bool`         | A true or false value represented by the string literals `true` or `false`. | `boolean`          |
-| `int`          | A machine-length integer guaranteed to be at least 30 bits large. | `int`              |
-| double         | An IEEE-754 double precision floating-point number | `double`           |
-|                |                                          |                    |
-
-Thus, each SRSF must be composed of, or have objects references derived, on the responsibility of the Serializer, these four SRSF primitive types.
+Compares two Pokémon species by their weight `getWeight()` Defers to `Double.compare` for comparison.
 
 #Algorithms and concepts
 
@@ -979,3 +912,74 @@ A contract for a class to implement. Used to define the `LazyResolver<T>` interf
 
 ## Hash Maps
 A data structure that maps keys to values. Used during serialization to represent key value pairs.
+
+## Appendix A — Simple Relational String Format 
+
+*Simple Relational String Format*, or SRSF defines a generic method to load and save a collection of objects into text files. Objects are loaded into a root serialization context from formatted ‘.srsf’ record files, and are accessible as collections of loaded objects. In order to resolve self-references, object references are lazily evaluated and resolved within the context before being produced into objects by the converter. Record files are expected to contain a collection of objects of the same type, and will be serialized as a list or array.
+
+## Serialization Context
+
+The serialization context is the root context in which a set of SRSF files are loaded into. Each serialization context should be self contained in a folder, and contain at least a `Schema.srsf`, specifying the schema of the data files contained in the folder, and one or more `.srsf` record files describing the actual records. Saving and loading should occur only in the specified context folder, and all `.srsf` files in the context folder must be named as the simple name of the class it represents, for example, data representing instances of `pokemon.data.PokemonType` must be saved and loaded from `PokemonType.srsf`. 
+
+
+
+## SRSF Tokens
+
+| Token       | Example                             | Description                              |
+| ----------- | ----------------------------------- | ---------------------------------------- |
+| `~~!srsf~~` | `~~!srsf~~`                         | The magic header required at the beginning of all valid SRSF record files. |
+| `!!`        | `!!PokemonType`                     | The type descriptor, describing the Java type this record file is a collection of. If  used after a primitive descriptor in a schema, indicates an object reference of the type. |
+| `$`         | `$name                              | Pikachu`                                 |
+| `@`         | `@name                              | string`                                  |
+| `           | `                                   | `$name                                   |
+| `[]`        | `[WATER, GRASS]`                    | For a value, indicates that the value represents an array of primitives. |
+| `,`         | `[WATER, GRASS]`                    | In an array value, separates the values of the array. |
+| `---`       | `---`                               | Block marker delimiter, indicates the end of a record block. |
+| `@@NULL@@`  | `$name                              | @@NULL@@`                                |
+| `#`         | `#Some comment is is written here.` | Indicates that the line begins a comment. |
+
+
+
+## SRSF Record Format
+
+An SRSF file begins with the magic string `~~!srsf~~`, followed by the type marker `!!`, a type, and the block end marker. Thus, the first "block" in any SRSF format specifies the schema type for the rest of the file. Files may contain any amount of blocks delimited by the block marker delimiter, and each block must contain the data required to instantiate one instance of the type specified. 
+
+```
+~~!srsf~~
+!!PokemonType
+---
+$name|GRASS
+$strongAgainst|[WATER,GROUND]
+$weakAgainst|[FIRE]
+#todo add more types
+---
+```
+
+This example file denotes a collection of `PokemonType` objects, with a single instance. Containing the header block and one record block, the record block has the properties `name`, `strongAgainst`, and `weakAgainst`. `strongAgainst` and `weakAgainst` are string arrays, but as specified in a separate schema file, are in actuality typed to be `PokemonType`s themselves, and must be deserialized accordingly.
+
+## SRSF Schema Files
+
+The SRSF Schema format defines a schema for every single record file in the serialization context. Named `Schema.srsf`, this file should be the first to be loaded in any serialization context. One can consider the schema file to be a special case of Record, as they are serialized just the same as a normal record. However, they are privileged in that the `Schema.srsf` need not a schema specified for itself, and the Schema format is the only format specified to have metadata in it's definitions; thus each record shape will be different, unlike normal records.
+
+```
+!!schema
+---
+$schemaName|PokemonType
+$outputType|pokemon.data.PokemonType
+@name|string
+@strongAgainst|[string!!PokemonType]
+@weakAgainst|[string!!PokemonType]
+---
+```
+
+This schema defines the type for the previous `PokemonType` example. A schema has two required field, `schemaName`, indicating the name of the schema, generally the simple name of the type, and `outputType`, indicating the fully qualified name of the Java type it represents. The entries that begin with `@` are metadata properties and are used to define the shape of the schema. Rather than have values, they must contain either a primitive type, or a primitive that will be serialized into an object reference. SRSF primitives are not exactly the same as Java primitives, the list of SRSF primitives is defined as follows
+
+| SRSF Primitive | Definition                               | Java Equivalent    |
+| -------------- | ---------------------------------------- | ------------------ |
+| `string`       | A string-like type.                      | `java.lang.String` |
+| `bool`         | A true or false value represented by the string literals `true` or `false`. | `boolean`          |
+| `int`          | A machine-length integer guaranteed to be at least 30 bits large. | `int`              |
+| double         | An IEEE-754 double precision floating-point number | `double`           |
+|                |                                          |                    |
+
+Thus, each SRSF must be composed of, or have objects references derived, on the responsibility of the Serializer, these four SRSF primitive types.
