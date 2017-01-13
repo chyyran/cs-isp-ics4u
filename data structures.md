@@ -6,7 +6,7 @@ The following data structures involve the serialization and organization of data
 
 ### _serialization.srsf.**SerializationContext**_
 #### Description
-The context in which the collection of objects is loaded. `Lazy<T>` should be used in conjunction with `LazyResolver<T>` to resolve object references within the context, thus, object references in serialized SRSF text format must be self-contained within the SerializationContext.
+The context in which the collection of objects is loaded. `Lazy<T>` should be used in conjunction with `LazyResolver<T>` to resolve object references within the context, thus, object references in serialized SRSF text format must be self-contained within the `SerializationContext`.
 
 #### Fields
 | Field Name  | Field Type                    | Field Description                        |
@@ -108,7 +108,7 @@ A helper class to represent a single SRSF key value pair (`$name|value`).
 | ---------- | ---------- | ---------------------------- |
 | value      | `String`   | The string value of the pair |
 | key        | `String`   | The string key of the pair   |
-|            |            |                              |
+
 
 #### Methods
 
