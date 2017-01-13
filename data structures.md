@@ -471,12 +471,19 @@ Searches for and returns all `PokemonSpecies` with the given `PokemonType`.
 Searches for and returns all `PokemonSpecies` with a name matching the given string.
 
 ##### `List<PokemonSpecies> getAllPokemon()`
-
 Gets all the Pokemon in the Pokedex.
 
 ##### `PokemonSpecies getPokemon(int)`
-
 Gets the Pokemon with the given number.
+
+##### `static void sortByName(List<PokemonSpecies>)`
+Sorts the given list of `PokemonSpecies` by their name in lexicographical order. See `PokemonSpeciesNameComparator`
+
+##### `static void sortByNumber(List<PokemonSpecies>)`
+Sorts the given list of `PokemonSpecies` by their number in ascending order. See `PokemonSpeciesNumberComparator`
+
+##### `static void sortByWeight(List<PokemonSpecies>)`
+Sorts the given list of `PokemonSpecies` by their weight in ascending order. See `PokemonSpeciesWeightComparator`
 
 ### _pokemon.core.battle.**BattleState**_
 
