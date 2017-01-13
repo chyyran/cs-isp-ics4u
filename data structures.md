@@ -6,7 +6,7 @@ The following data structures involve the serialization and organization of data
 
 ### _serialization.srsf.**SerializationContext**_
 #### Description
-The context in which the collection of objects is loaded. Lazy should be used in conjunction with LazyResolver to resolve object references within the context, thus, object references in serialized SRSF text format must be self-contained within the SerializationContext.
+The context in which the collection of objects is loaded. `Lazy<T>` should be used in conjunction with `LazyResolver<T>` to resolve object references within the context, thus, object references in serialized SRSF text format must be self-contained within the SerializationContext.
 
 #### Fields
 | Field Name  | Field Type                    | Field Description                        |
@@ -74,7 +74,7 @@ Represents a lazily evaluated object type. By providing a `LazyResolver<T>` as a
 Returns the cached or instantiates a new value of type T with the provided LazyResolver
 
 ##### `boolean isValueCreated()`
-Returns whether or not the instance or value has been created with the LazyResolver, in other words whether getValue() had previously been called.
+Returns whether or not the instance or value has been created with the LazyResolver, in other words whether `getValue()` had previously been called.
 
 ### *<u>abstract</u>* serialization.srsf.**Serializer\<T\>**
 
@@ -94,7 +94,6 @@ Converts from the key value pair representation of an SRSF block to an instance 
 
 ##### `abstract HashMap<String, String> serialize(T)`
 Converts from the instance of T to a hashmap of String/Value pairs ready for saving.
-
 
 
 ### _serialization.srsf._**KeyValuePair**
@@ -531,7 +530,7 @@ Applies the effects of the given move to the casting and target Pokemon. This me
 
 **Pokemon Serializer Classes**
 
-The following classes extend `serialization.srsf.Serializer` and are used to serialize their specified types.
+The following classes extend `serialization.srsf.Serializer` and are used to serialize their specified types. Provided is a schema and an example, see **Appendix A** for format details.
 
 ### _pokemon.serialization._**PokemonTypeSerializer** extends Serializer\<PokemonType\>
 Serializes `pokemon.data.PokemonType`
@@ -801,7 +800,7 @@ The main menu or application entry point
 
 #### Methods
 ##### `static void main(String[])`
-The entry point for the application. Responsible for initial loading of types, instantiation of the `SerializationContext` and `MenuBuilder`, and managing the overall lifecycle of the program.
+The entry point for the application. Responsible for initial loading of types, instantiation of the `SerializationContext` and `MenuBuilder`, and managing the overall lifecycle of the program. The main method should instatiate the `SerializationContext` in the `data` folder of the application startup directory, which will contain the `Schema.srsf` file.
 
 ## Pokémon Comparators (`pokemon.data.comparators.*`)
 
@@ -959,7 +958,7 @@ This example file denotes a collection of `PokemonType` objects, with a single i
 
 ## SRSF Schema Files
 
-The SRSF Schema format defines a schema for every single record file in the serialization context. Named `Schema.srsf`, this file should be the first to be loaded in any serialization context. One can consider the schema file to be a special case of Record, as they are serialized just the same as a normal record. However, they are privileged in that the `Schema.srsf` need not a schema specified for itself, and the Schema format is the only format specified to have metadata in it's definitions; thus each record shape will be different, unlike normal records.
+The SRSF Schema format defines a schema for every single record file in the serialization context. Named `Schema.srsf`, this file should be the first to be loaded in any serialization context. One can consider the schema file to be a special case of Record, as they are serialized just the same as a normal record. However, they are privileged in that the `Schema.srsf` need not a schema specified for itself, and the Schema format is the only format specified to have metadata in it's definitions; thus each record shape will be different, unlike normal records. These schema files are usually used for deserialization, and for machine parsing of various record formats.
 
 ```
 !!schema
