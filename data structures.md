@@ -649,7 +649,7 @@ $id|A9810DJ12D
 ```
 
 #### Methods
-##### `@Override Pokémon deserialize(HashMap<String, KeyValuePair)`
+##### `@Override Pokemon deserialize(HashMap<String, KeyValuePair)`
 Converts from a block of the above example to a `Pokemon`
 
 ##### `@Override HashMap<String, String> serialize(Pokemon)`
@@ -677,7 +677,7 @@ $pokemon|[A9810DJ12D]
 ##### `@Override Team deserialize(HashMap<String, KeyValuePair)`
 Converts from a block of the above example to a `Team`. Pokémon are stored as references by the unique Pokémon ID.
 
-##### `@Override HashMap<String, String> serialize(Pokemon)`
+##### `@Override HashMap<String, String> serialize(Team)`
 Converts from a `Team` object to it's key value pair representation.
 
 
