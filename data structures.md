@@ -4,7 +4,7 @@
 
 The following data structures involve the serialization and organization of data in the program. The `serialization.srsf.*` API supports saving and loading data to and from *Simple Relational String Format* data files, see **Appendix A** for format specifications.
 
-### _serialization.srsf.**SerializationContext**_
+### _serialization.srsf._**SerializationContext**
 #### Description
 The context in which the collection of objects is loaded. `Lazy<T>` should be used in conjunction with `LazyResolver<T>` to resolve object references within the context, thus, object references in serialized SRSF text format must be self-contained within the `SerializationContext`.
 
@@ -44,7 +44,7 @@ Saves the collection of type T to the file Name.srsf in the context directory, w
 #####`<T> List<T> getCollection(Class<T>)`
 Gets the loaded collection of items of type T as a List. 
 
-### <u>interface</u> _serialization.srsf.**LazyResolver\<T\>**_
+### <u>interface</u> _serialization.srsf._**LazyResolver\<T\>**
 
 #### Description
 An interface that represents a factory object used to resolve, or provide an instance of, an object at a later time, thus deferring initialization after object initialization for use with Lazy. 
@@ -271,7 +271,7 @@ Handles the given exception.
 | weight        | `double`               | See `getWeight()`        |
 | evolution     | `Lazy<PokemonSpecies>` | See `getEvolution()`     |
 | preEvolution  | `Lazy<PokemonSpecies>` | See `getPreEvolution()`  |
-|               |                        |                          |
+
 
 #### Methods
 
@@ -304,7 +304,7 @@ The Pokémon species previous in the evolutionary chain of the Pokemon. This mer
 
 Default `equals(Object)` override, defers to `equals(PokemonSpecies)`.
 
-### _pokemon.data.**Move**_
+### _pokemon.data.**PokemonMove**_
 
 #### Description 
 Represents a single move along with its base damage, type, and name of the move.
@@ -330,15 +330,15 @@ The damage applied to the Pokémon that uses this move. Can be negative to apply
 ##### `PokemonType getType()`
 The type of the move. The type is important in figuring out the damage given to the other Pokémon in battles as each type is strong and weak to other types.
 
-##### `boolean equals(Move)`
+##### `boolean equals(PokemonMove)`
 
-`Move` defines it's own equality by it's name. Two moves are equal if they have the same name `getName()`, ignoring case, however in practice there should only be a single instance of a unique move throughout the lifetime of the application.
+`PokemonMove` defines it's own equality by it's name. Two moves are equal if they have the same name `getName()`, ignoring case, however in practice there should only be a single instance of a unique move throughout the lifetime of the application.
 
 ##### `@Override boolean equals(Object)`
 
-Default `equals(Object)` override. Defers to `equals(Move)` for equality.
+Default `equals(Object)` override. Defers to `equals(PokemonMove)` for equality.
 
-### _pokemon.data.**Team**_ 
+### _pokemon.data.**PokemonTeam**_ 
 #### Description
 The team is a collection of individual `Pokemon`, usually up to 6.
 #### Fields
@@ -408,7 +408,7 @@ Represents an individual Pokémon belonging to the user or player character, inc
 | Field Name | Field Type             | Field Description   |
 | ---------- | ---------------------- | ------------------- |
 | species    | `Lazy<PokemonSpecies>` | See `getSpecies()`  |
-| moves      | `Lazy<List<Move>>`     | See `getMoves()`    |
+| moves      | `Lazy<List<PokemonMove>>`| See `getMoves()`    |
 | name       | `String`               | See `getNickname()` |
 | level      | `int`                  | See `getLevel()`    |
 | id         | String                 |                     |
@@ -417,7 +417,7 @@ Represents an individual Pokémon belonging to the user or player character, inc
 ##### `PokemonSpecies getSpecies()`
 Gets the species of this Pokemon
 
-##### `List<Move> getMoves()`
+##### `List<PokemonMove> getMoves()`
 Gets the list of moves for this Pokemon
 
 ##### `String getNickname()`
@@ -502,14 +502,14 @@ An enumeration of possible battle states.
 ### _pokemon.core.battle.**BattleManager**_
 
 #### Description
-Manages a battle between two Pokémon `Teams`. `BattleManager` is a state machine intended to be run in a loop until one Team has encountered a victory state. 
+Manages a battle between two `PokemonTeam`s. `BattleManager` is a state machine intended to be run in a loop until one team has encountered a victory state. 
 
 #### Fields
 | Field Name | Field Type    | Field Description                     |
 | ---------- | ------------- | ------------------------------------- |
 | state      | `BattleState` | The current state of the battle       |
-| teamOne    | `Team`        | The Pokémon team of the first player  |
-| teamTwo    | `Team`        | The Pokémon team of the second player |
+| teamOne    | `PokemonTeam`        | The Pokémon team of the first player  |
+| teamTwo    | `PokemonTeam`        | The Pokémon team of the second player |
 |            |               |                                       |
 
 #### Methods
@@ -517,13 +517,13 @@ Manages a battle between two Pokémon `Teams`. `BattleManager` is a state machin
 ##### `BattleState getState()`
 Gets the current state of the battle.
 
-##### `Team getTeamOne()`
+##### `PokemonTeam getTeamOne()`
 Gets the first team of Pokémon in the battle.
 
-##### `Team getTeamTwo()`
+##### `PokemonTeam getTeamTwo()`
 Gets the second team of Pokémon in the battle.
 
-##### `void applyMove(Move, Pokemon, Pokemon)`
+##### `void applyMove(PokemonMove, Pokemon, Pokemon)`
 Applies the effects of the given move to the casting and target Pokemon. This method calculates the amount of damage dealt to each Pokémon after the move is applied, and determines the new `BattleState` after damage calculations.
 
 ## Pokémon Serialization Classes (`pokemon.serialization.*`)
@@ -592,13 +592,13 @@ Converts from a block of the above example to a `PokemonSpecies`. `$evolution` a
 ##### `@Override HashMap<String, String> serialize(PokemonSpecies)`
 Converts from a `PokemonSpecies` object to it's key value pair representation.
 
-### _pokemon.serialization._**MoveSerializer** extends Serializer\<Move\>
-Serializes `pokemon.data.Move`
+### _pokemon.serialization._**PokemonMoveSerializer** extends Serializer\<PokemonMove\>
+Serializes `pokemon.data.PokemonMove`
 
 #### Schema
 ```
-$schemaName|Move
-$outputType|pokemon.data.Move
+$schemaName|PokemonMove
+$outputType|pokemon.data.PokemonMove
 @name|string
 @type|string!!PokemonType
 @baseDamage|int
@@ -614,11 +614,11 @@ $selfDamage|50
 ---
 ```
 #### Methods
-##### `@Override Move deserialize(HashMap<String, KeyValuePair)`
-Converts from a block of the above example to a `Move`. `$evolution` and `$preevlotion` are represented as the Pokémon number.
+##### `@Override PokemonMove deserialize(HashMap<String, KeyValuePair)`
+Converts from a block of the above example to a `PokemonMove`. `$evolution` and `$preevlotion` are represented as the Pokémon number.
 
-##### `@Override HashMap<String, String> serialize(Move)`
-Converts from a `Move` object to it's key value pair representation.
+##### `@Override HashMap<String, String> serialize(PokemonMove)`
+Converts from a `PokemonMove` object to it's key value pair representation.
 
 
 ### _pokemon.serialization._**PokemonSerializer** extends Serializer\<Pokemon\>
@@ -631,7 +631,7 @@ $outputType|pokemon.data.Pokemon
 @species|int!!PokemonSpecies
 @nickName|string
 @level|int
-@moves|[string!!Move]
+@moves|[string!!PokemonMove]
 @hp|int
 @id|string
 ---
@@ -649,20 +649,20 @@ $id|A9810DJ12D
 ```
 
 #### Methods
-##### `@Override Pokemon deserialize(HashMap<String, KeyValuePair)`
+##### `@Override Pokémon deserialize(HashMap<String, KeyValuePair)`
 Converts from a block of the above example to a `Pokemon`
 
 ##### `@Override HashMap<String, String> serialize(Pokemon)`
 Converts from a `Pokemon` object to it's key value pair representation.
 
-### _*pokemon.serialization.*_**TeamSerializer** extends Serializer\<Team\>
+### _*pokemon.serialization.*_**PokemonTeamSerializer** extends Serializer\<PokemonTeam\>
 
-Serializes `pokemon.data.Team`
+Serializes `pokemon.data.PokemonTeam`
 
 #### Schema
 ```
-$schemaName|Team
-$outputType|pokemon.data.Team
+$schemaName|PokemonTeam
+$outputType|pokemon.data.PokemonTeam
 @pokemon|[string!!Pokemon]
 ---
 ```
@@ -674,12 +674,11 @@ $pokemon|[A9810DJ12D]
 ```
 
 #### Methods
-##### `@Override Team deserialize(HashMap<String, KeyValuePair)`
-Converts from a block of the above example to a `Team`. Pokémon are stored as references by the unique Pokémon ID.
+##### `@Override PokemonTeam deserialize(HashMap<String, KeyValuePair)`
+Converts from a block of the above example to a `PokemonTeam`. Pokémon are stored as references by the unique Pokémon ID.
 
-##### `@Override HashMap<String, String> serialize(Team)`
-Converts from a `Team` object to it's key value pair representation.
-
+##### `@Override HashMap<String, String> serialize(PokemonTeam)`
+Converts from a `PokemonTeam` object to it's key value pair representation.
 
 
 **Pokemon Resolver Classes**
@@ -772,7 +771,7 @@ A menu option to manage your Pokémon Team
 
 | Field Name | Field Type | Field Description          |
 | ---------- | ---------- | -------------------------- |
-| team       | `Team`     | The Pokémon team to manage |
+| team       | `PokemonTeam`     | The Pokémon team to manage |
 
 #### Methods
 
