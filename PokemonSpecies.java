@@ -3,11 +3,21 @@
   public class PokemonSpecies {
     private int number;
     private String name;
-    private PokemonType primaryType;
-    private PokemonType secondaryType;
+    private Lazy<PokemonType> primaryType;
+    private Lazy<PokemonType> secondaryType;
     private double weight;
-    private PokemonSpecies evolution;
-    private PokemonSpecies preEvolution;
+    private Lazy<PokemonSpecies> evolution;
+    private Lazy<PokemonSpecies> preEvolution;
+    
+    public PokemonSpecies (String name, int num, Lazy<PokemonType> type1, Lazy<PokemonType> type2, double weight, Lazy<PokemonSpecies> evolvesTo, Lazy<PokemonSpecies> evolvesFrom) {
+      numver=num;
+      this.name=name;
+      primaryType=type1;
+      secondaryType=type2;
+      this.weight=weight;
+      evolution=evolvesTo;
+      preEvolution=evolvesFrom;
+    }
     
     public String getName(){
       return name;
