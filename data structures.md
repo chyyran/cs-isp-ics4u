@@ -265,46 +265,46 @@ Converts the schema to string/string key value pairs.
 
 The following classes assist with building text-based menus, allowing options to be separately run and tested.
 
-### _menu.text.**MenuBuilder**_
+### _menu.text.**menu.text.MenuBuilder**_
 
 #### Description
 Represents a menu with various options. Menus may contain options that spawn sub-menus. Exposes a fluent API to prepare various menu options, and a menu loop to display and execute the menu options. 
 
 #### Constructor
 ```java
-public MenuBuilder() 
+public menu.text.MenuBuilder()
 ```
 
 #### Fields
 | Field Name | Field Type         | Field Description                        |
 | ---------- | ------------------ | ---------------------------------------- |
-| options    | `List<MenuOption>` | The list of all menu options for this menu |
-| exit       | `MenuOption`       | The menu option used to exit this menu. Will cease the menu loop, and go back to the previous menu, or exit the application. The exit option is always run when the user selects a menu option less than 1. |
-| error      | `ErrorHandler`     | The general handler for uncaught exceptions, usually displays an error message to the user |
+| options    | `List<menu.text.MenuOption>` | The list of all menu options for this menu |
+| exit       | `menu.text.MenuOption`       | The menu option used to exit this menu. Will cease the menu loop, and go back to the previous menu, or exit the application. The exit option is always run when the user selects a menu option less than 1. |
+| error      | `menu.text.ErrorHandler`     | The general handler for uncaught exceptions, usually displays an error message to the user |
 
 #### Methods
 
-##### `MenuBuilder option(MenuOption)`
-Adds the given option to this menu, and returns the updated `MenuBuilder`
+##### `menu.text.MenuBuilder option(menu.text.MenuOption)`
+Adds the given option to this menu, and returns the updated `menu.text.MenuBuilder`
 
 ```java
-  new MenuBuilder()
+  new menu.text.MenuBuilder()
       .option(new MyOption());
 ```
 
-##### `MenuBuilder exit(MenuOption)`
-Sets the given option to the menu exit option, and returns the updated `MenuBuilder`
+##### `menu.text.MenuBuilder exit(menu.text.MenuOption)`
+Sets the given option to the menu exit option, and returns the updated `menu.text.MenuBuilder`
 
 ```java
-  new MenuBuilder()
+  new menu.text.MenuBuilder()
       .exit(new MyExitOption());
 ```
 
-##### `MenuBuilder error(ErrorHandler)`
-Sets the given error handler menu error handler, and returns the updated `MenuBuilder`.
+##### `menu.text.MenuBuilder error(menu.text.ErrorHandler)`
+Sets the given error handler menu error handler, and returns the updated `menu.text.MenuBuilder`.
 
 ```java
-  new MenuBuilder()
+  new menu.text.MenuBuilder()
       .error(new MyErrorHandler());
 ```
 
@@ -312,7 +312,7 @@ Sets the given error handler menu error handler, and returns the updated `MenuBu
 Starts the menu loop, and run until the user chooses to exit.
 
 ```java
-  new MenuBuilder()
+  new menu.text.MenuBuilder()
     .option(new OptionOne())
     .option(new OptionTwo())
     .exit(new MyExitOption())
@@ -323,7 +323,7 @@ Starts the menu loop, and run until the user chooses to exit.
 ##### `@Override toString()`
 Returns the string representation of the menu to be displayed to the user.
 
-### _*<u>abstract</u>* menu.text.**MenuOption**_
+### _*<u>abstract</u>* menu.text.**menu.text.MenuOption**_
 
 #### Description 
 An abstract class to represent an option in a menu. 
@@ -342,7 +342,7 @@ Gets the name of the menu option to be displayed to the user
 ##### `abstract void run()`
 Runs the menu option once.
 
-### *<u>abstract</u>* _menu.text.**ErrorHandler**_
+### *<u>abstract</u>* _menu.text.**menu.text.ErrorHandler**_
 
 #### Description
 An abstract class to represent an error handler.
@@ -909,7 +909,7 @@ Resolves the move from the serialization context
 
 ## _Menu Options (`pokemon.menu.*`)_
 
-The following classes extend `menu.text.MenuOption` to provide the UI for the application.
+The following classes extend `menu.text.menu.text.MenuOption` to provide the UI for the application.
 
 ### _pokemon.menu.PokedexMenu_
 A menu option to display and search the Pokedex. 
@@ -961,7 +961,7 @@ The main menu or application entry point
 
 #### Methods
 ##### `static void main(String[])`
-The entry point for the application. Responsible for initial loading of types, instantiation of the `SerializationContext` and `MenuBuilder`, and managing the overall lifecycle of the program. The main method should instatiate the `SerializationContext` in the `data` folder of the application startup directory, which will contain the `Schema.srsf` file.
+The entry point for the application. Responsible for initial loading of types, instantiation of the `SerializationContext` and `menu.text.MenuBuilder`, and managing the overall lifecycle of the program. The main method should instatiate the `SerializationContext` in the `data` folder of the application startup directory, which will contain the `Schema.srsf` file.
 
 ## Pokémon Comparators (`pokemon.data.comparators.*`)
 
@@ -1077,7 +1077,7 @@ A data structure that maps keys to values. Used during serialization to represen
 
 ## Appendix A — Simple Relational String Format 
 
-*Simple Relational String Format*, or SRSF defines a generic method to load and save a collection of objects into text files. Objects are loaded into a root serialization context from formatted ‘.srsf’ record files, and are accessible as collections of loaded objects. In order to resolve self-references, object references are lazily evaluated and resolved within the context before being produced into objects by the converter. Record files are expected to contain a collection of objects of the same type, and will be serialized as a list or array.
+*Simple Relational String Format*, or SRSF defines a generic method to load and save a collection of objects into text files. Objects are loaded into a root serialization context from formatted ‘.srsf’ record files, and are accessible as collections of loaded objects. In order to resolve self-references, object references are lazily evaluated and resolved within the context before being produced into objects by the converter. menu.text.Record files are expected to contain a collection of objects of the same type, and will be serialized as a list or array.
 
 ### Serialization Context
 
@@ -1100,7 +1100,7 @@ The serialization context is the root context in which a set of SRSF files are l
 | `#`         | `#Some comment is is written here.` | Indicates that the line begins a comment. |
 |&#124;|$name&#124;Pokemon|The vertical bar symbol separates the key from the value in a line|
 
-### SRSF Record Format
+### SRSF menu.text.Record Format
 
 An SRSF file begins with the magic string `~~!srsf~~`, followed by the type marker `!!`, a type, and the block end marker. Thus, the first "block" in any SRSF format specifies the schema type for the rest of the file. Files may contain any amount of blocks delimited by the block marker delimiter, and each block must contain the data required to instantiate one instance of the type specified. 
 
@@ -1119,7 +1119,7 @@ This example file denotes a collection of `PokemonType` objects, with a single i
 
 ### SRSF Schema Files
 
-The SRSF Schema format defines a schema for every single record file in the serialization context. Named `Schema.srsf`, this file should be the first to be loaded in any serialization context. One can consider the schema file to be a special case of Record, as they are serialized just the same as a normal record. However, they are privileged in that the `Schema.srsf` need not a schema specified for itself, and the Schema format is the only format specified to have metadata in it's definitions; thus each record shape will be different, unlike normal records. These schema files are usually used for deserialization, and for machine parsing of various record formats.
+The SRSF Schema format defines a schema for every single record file in the serialization context. Named `Schema.srsf`, this file should be the first to be loaded in any serialization context. One can consider the schema file to be a special case of menu.text.Record, as they are serialized just the same as a normal record. However, they are privileged in that the `Schema.srsf` need not a schema specified for itself, and the Schema format is the only format specified to have metadata in it's definitions; thus each record shape will be different, unlike normal records. These schema files are usually used for deserialization, and for machine parsing of various record formats.
 
 ```
 !!schema
