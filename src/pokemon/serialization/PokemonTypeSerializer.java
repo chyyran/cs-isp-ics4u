@@ -1,6 +1,12 @@
-package serialization.srsf;
+package pokemon.serialization;
 
+import pokemon.data.PokemonType;
+import serialization.srsf.*;
+import serialization.srsf.PokemonTypeResolver;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Ronny on 2017-01-12.
@@ -18,7 +24,15 @@ public class PokemonTypeSerializer extends Serializer<PokemonType>
         String[] weakness = keyValuePairs.get("$weakAgainst").asStringArray();
         String[] strength = keyValuePairs.get("$strongAgainst").asStringArray();
 
-        return new PokemonType(name, new Lazy<>(new PokemonTypeListResolver(this.getContext(), weakness)),
-                new Lazy<>(new PokemonTypeListResolver(this.getContext(), strength)));
-}
+        List<Lazy<PokemonType>> weaknesses = new ArrayList<>();
+        for(String wkString : weakness) {
+            weaknesses.add(new Lazy<>(new PokemonTypeResolver(this.getContext(), wkString)));
+        }
+
+        List<Lazy<PokemonType>> strengths = new ArrayList<>();
+        for(String strString : strength) {
+            strengths.add(new Lazy<>(new PokemonTypeResolver(this.getContext(), strString)));
+        }
+        return new PokemonType(name, weaknesses, strengths);
+    }
 }

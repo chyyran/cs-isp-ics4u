@@ -1,3 +1,5 @@
+package menu.text;
+
 public abstract class MenuOption {
 
     protected Object[] params;
