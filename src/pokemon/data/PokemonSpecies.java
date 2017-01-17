@@ -3,8 +3,7 @@ package pokemon.data;
 
 import serialization.srsf.Lazy;
 
-public class PokemonSpecies
-{
+public class PokemonSpecies {
     private int number;
     private String name;
     private Lazy<PokemonType> primaryType;
@@ -13,8 +12,7 @@ public class PokemonSpecies
     private Lazy<PokemonSpecies> evolution;
     private Lazy<PokemonSpecies> preEvolution;
 
-    public PokemonSpecies(String name, int num, Lazy<PokemonType> type1, Lazy<PokemonType> type2, double weight, Lazy<PokemonSpecies> evolvesTo, Lazy<PokemonSpecies> evolvesFrom)
-    {
+    public PokemonSpecies(String name, int num, Lazy<PokemonType> type1, Lazy<PokemonType> type2, double weight, Lazy<PokemonSpecies> evolvesTo, Lazy<PokemonSpecies> evolvesFrom) {
         number = num;
         this.name = name;
         primaryType = type1;
@@ -24,49 +22,40 @@ public class PokemonSpecies
         preEvolution = evolvesFrom;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public PokemonType getPrimaryType()
-    {
+    public PokemonType getPrimaryType() {
         return primaryType.getValue();
     }
 
-    public PokemonType getSecondaryType()
-    {
+    public PokemonType getSecondaryType() {
         return secondaryType.getValue();
     }
 
-    public double getWeight()
-    {
+    public double getWeight() {
         return weight;
     }
 
-    public int getNumber()
-    {
+    public int getNumber() {
         return number;
     }
 
-    public PokemonSpecies getNextEvolution()
-    {
+    public PokemonSpecies getNextEvolution() {
         return evolution.getValue();
     }
 
-    public PokemonSpecies getPreviousEvolution()
-    {
+    public PokemonSpecies getPreviousEvolution() {
         return preEvolution.getValue();
     }
 
-    public boolean equals(PokemonSpecies that)
-    {
+    public boolean equals(PokemonSpecies that) {
         return (that.getNumber() == getNumber());
     }
 
     @Override
-    public boolean equals(Object o)
-    {
+    public boolean equals(Object o) {
         if (o instanceof PokemonSpecies) return this.equals((PokemonSpecies) o);
         return false;
     }

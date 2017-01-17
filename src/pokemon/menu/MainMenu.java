@@ -1,8 +1,6 @@
 package pokemon.menu;
 
-import pokemon.data.PokemonMove;
-import pokemon.data.PokemonSpecies;
-import pokemon.data.PokemonType;
+import pokemon.data.*;
 import pokemon.serialization.PokemonTypeSerializer;
 import serialization.srsf.Schema;
 import serialization.srsf.SchemaSerializer;
@@ -23,7 +21,8 @@ public class MainMenu {
             sc.loadCollection("PokemonType", PokemonType.class);
             sc.loadCollection("PokemonMove", PokemonMove.class);
             sc.loadCollection("PokemonSpecies", PokemonSpecies.class);
-
+            sc.loadCollection("Pokemon", Pokemon.class);
+            sc.loadCollection("PokemonTeam", PokemonTeam.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
