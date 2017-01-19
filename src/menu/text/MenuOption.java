@@ -2,11 +2,10 @@ package menu.text;
 
 public abstract class MenuOption {
 
-    protected Object[] params;
     private final String optionName;
-    protected MenuOption(String name, Object... params) {
+
+    protected MenuOption(String name) {
         this.optionName = name;
-        this.params = params;
     }
 
     public abstract void run();

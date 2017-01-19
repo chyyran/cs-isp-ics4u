@@ -3,9 +3,6 @@ package serialization.srsf;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Ronny on 2017-01-12.
- */
 public class SchemaSerializer extends Serializer<Schema>
 {
     public SchemaSerializer(SerializationContext context) {
@@ -13,7 +10,7 @@ public class SchemaSerializer extends Serializer<Schema>
     }
 
     @Override
-    public Schema toObject(HashMap<String, KeyValuePair> keyValuePairs)
+    public Schema deserialize(HashMap<String, KeyValuePair> keyValuePairs)
     {
         String schemaName = keyValuePairs.get("$schemaName").asString();
         String outputType = keyValuePairs.get("$outputType").asString();
@@ -24,5 +21,10 @@ public class SchemaSerializer extends Serializer<Schema>
             }
         }
         return new Schema(properties, schemaName, outputType);
+    }
+
+    @Override
+    public HashMap<String, String> serialize(Schema s) {
+        throw new UnsupportedOperationException("Schemas can not be changed");
     }
 }

@@ -1,9 +1,13 @@
 package serialization.srsf;
 
-/**
- * Created by Ronny on 2017-01-12.
- */
 public interface LazyResolver<E>
 {
     E resolve();
+
+    LazyResolver NULL_RESOLVER = new LazyResolver() {
+        @Override
+        public Object resolve() {
+            return null;
+        }
+    };
 }

@@ -7,19 +7,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by Ronny on 2017-01-12.
- */
+
 public class PokemonTypeSerializer extends Serializer<PokemonType> {
     public PokemonTypeSerializer(SerializationContext context) {
         super(context);
     }
 
     @Override
-    public PokemonType toObject(HashMap<String, KeyValuePair> keyValuePairs) {
+    public PokemonType deserialize(HashMap<String, KeyValuePair> keyValuePairs) {
         String name = keyValuePairs.get("$name").asString();
         String[] weakness = keyValuePairs.get("$weakAgainst").asStringArray();
         String[] strength = keyValuePairs.get("$strongAgainst").asStringArray();
+        String[] immune = keyValuePairs.get("$immuneAgainst").asStringArray();
 
         List<Lazy<PokemonType>> weaknesses = new ArrayList<>();
         for (String wkString : weakness) {
@@ -30,6 +29,16 @@ public class PokemonTypeSerializer extends Serializer<PokemonType> {
         for (String strString : strength) {
             strengths.add(new Lazy<>(new PokemonTypeResolver(this.getContext(), strString)));
         }
-        return new PokemonType(name, weaknesses, strengths);
+
+        List<Lazy<PokemonType>> immunities = new ArrayList<>();
+        for (String imString : immune) {
+            immunities.add(new Lazy<>(new PokemonTypeResolver(this.getContext(), imString)));
+        }
+        return new PokemonType(name, weaknesses, strengths, immunities);
+    }
+
+    @Override
+    public HashMap<String, String> serialize(PokemonType pokemonType) {
+        throw new UnsupportedOperationException("Type is static and can not be serialized.");
     }
 }
