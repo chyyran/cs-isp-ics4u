@@ -34,9 +34,12 @@ public class MainMenu {
         MenuBuilder menuBuilder = new MenuBuilder();
         List<PokemonTeam> teamArray = sc.getCollection(PokemonTeam.class);
         if (teamArray.isEmpty()) teamArray.add(new PokemonTeam());
+        final PokemonTeam team = teamArray.get(0);
         menuBuilder.option(new PokedexMenu(sc.getCollection(PokemonSpecies.class)))
-                .option(new TeamMenu(teamArray.get(0), sc.getCollection(PokemonMove.class),
-                        sc.getCollection(PokemonSpecies.class)));
+                .option(new TeamMenu(team, sc.getCollection(PokemonMove.class),
+                        sc.getCollection(PokemonSpecies.class)))
+                .option(new BattleMenu(team, sc.getCollection(PokemonSpecies.class),
+                        sc.getCollection(PokemonMove.class)));
         menuBuilder.run();
     }
 }

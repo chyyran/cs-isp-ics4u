@@ -35,6 +35,14 @@ public class Lazy<T>
         return eList;
     }
 
+    public static <E> List<E> asList(final List<Lazy<E>> lazyList) {
+        List<E> eList = new ArrayList<>();
+        for (Lazy<E> element : lazyList) {
+            eList.add(element.getValue());
+        }
+        return eList;
+    }
+
     public static <E> List<E> getValues(final List<Lazy<E>> lazyList) {
         List<E> eagerList = new ArrayList<>();
         for (Lazy<E> element : lazyList) {
