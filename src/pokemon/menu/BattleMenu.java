@@ -15,7 +15,7 @@ import java.util.*;
 
 public class BattleMenu extends MenuOption {
 
-
+    private final static int LEVEL_RANGE = 2;
     private final MenuBuilder menuBuilder;
     private final PokemonTeam team;
     private final List<PokemonSpecies> validSpecies;
@@ -56,7 +56,8 @@ public class BattleMenu extends MenuOption {
             System.out.println("Please make a team first!");
             return;
         }
-        PokemonTeam cpuTeam = getRandomTeam(validSpecies, validMoves, team.getActivePokemon().getLevel() + new Random().nextInt(5) + 1); //todo: I am broken.
+        PokemonTeam cpuTeam = getRandomTeam(validSpecies, validMoves, team.getActivePokemon().getLevel() +
+                new Random().nextInt(LEVEL_RANGE) + 1); //todo: I am broken.
         BattleManager manager = new BattleManager(team, cpuTeam);
         Scanner sc = new Scanner(System.in);
         boolean gameEnd = false;
