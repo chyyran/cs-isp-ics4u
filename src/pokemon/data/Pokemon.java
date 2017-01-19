@@ -71,4 +71,8 @@ public class Pokemon {
     public boolean isFainted() {
         return currentHp == 0;
     }
+
+    public String getId() {
+        return this.id;
+    }
 }

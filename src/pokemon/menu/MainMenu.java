@@ -1,6 +1,8 @@
 package pokemon.menu;
 
 import pokemon.data.*;
+import pokemon.serialization.PokemonMoveSerializer;
+import pokemon.serialization.PokemonSpeciesSerializer;
 import pokemon.serialization.PokemonTypeSerializer;
 import serialization.srsf.Schema;
 import serialization.srsf.SchemaSerializer;
@@ -15,6 +17,8 @@ public class MainMenu {
     public static void main(String[] args) {
         SerializationContext sc = new SerializationContext("c:\\srsf");
         sc.addSerializer(new PokemonTypeSerializer(sc), PokemonType.class);
+        sc.addSerializer(new PokemonMoveSerializer(sc), PokemonMove.class);
+        sc.addSerializer(new PokemonSpeciesSerializer(sc), PokemonSpecies.class);
         sc.addSerializer(new SchemaSerializer(sc), Schema.class);
         try {
             sc.loadCollection("schema", Schema.class);

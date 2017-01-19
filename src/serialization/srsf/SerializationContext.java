@@ -6,7 +6,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -47,7 +46,7 @@ public class SerializationContext
                 if(s.isEmpty()) continue;
                 if(s.startsWith("---")) {
                     if(!currentSet.isEmpty()) {
-                        E object = (E)serializers.get(collectionClass.getName()).toObject(currentSet);
+                        E object = (E)serializers.get(collectionClass.getName()).deserialize(currentSet);
                         this.collected.get(collectionClass.getName()).add(object);
                     }
                     currentSet = new HashMap<>();

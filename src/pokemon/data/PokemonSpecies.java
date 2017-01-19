@@ -12,7 +12,8 @@ public class PokemonSpecies {
     private Lazy<PokemonSpecies> evolution;
     private Lazy<PokemonSpecies> preEvolution;
 
-    public PokemonSpecies(String name, int num, Lazy<PokemonType> type1, Lazy<PokemonType> type2, double weight, Lazy<PokemonSpecies> evolvesTo, Lazy<PokemonSpecies> evolvesFrom) {
+    public PokemonSpecies(String name, int num, Lazy<PokemonType> type1, Lazy<PokemonType> type2,
+                          double weight, Lazy<PokemonSpecies> evolvesTo, Lazy<PokemonSpecies> evolvesFrom) {
         number = num;
         this.name = name;
         primaryType = type1;

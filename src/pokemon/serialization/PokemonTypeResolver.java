@@ -17,7 +17,7 @@ public class PokemonTypeResolver implements LazyResolver<PokemonType> {
     @Override
     public PokemonType resolve() {
         for (PokemonType p : this.context.getCollection(PokemonType.class)) {
-            if (p.getName().equals(this.name)) return p;
+            if (p.getName().equalsIgnoreCase(this.name)) return p;
         }
         return null;
     }
