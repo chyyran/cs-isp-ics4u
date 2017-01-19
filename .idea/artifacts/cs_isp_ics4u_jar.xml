@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="cs-isp-ics4u:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/cs_isp_ics4u_jar</output-path>
-    <root id="archive" name="cs-isp-ics4u.jar">
-      <element id="module-output" name="cs-isp-ics4u" />
-    </root>
-  </artifact>
-</component>

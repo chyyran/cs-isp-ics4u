@@ -1,6 +1,7 @@
 package serialization.srsf;
 
 import java.util.HashMap;
+import java.util.List;
 
 public abstract class Serializer<T>
 {
@@ -17,8 +18,24 @@ public abstract class Serializer<T>
     protected static String arrayFormat(String[] s) {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
-        sb.append(String.join(",", s)); //todo this is a 1.8 api.
+        sb.append(join(",", s)); //todo this is a 1.8 api.
         sb.append("]");
+        return sb.toString();
+    }
+
+    private static String join(String conjunction, String[] list)
+    {
+        StringBuilder sb = new StringBuilder();
+        boolean first = true;
+        for (String item : list)
+        {
+            if (first) {
+                first = false;
+            } else {
+                sb.append(conjunction);
+            }
+            sb.append(item);
+        }
         return sb.toString();
     }
 }

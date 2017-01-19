@@ -5,10 +5,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.*;
 import java.security.Key;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class SerializationContext
@@ -45,7 +42,7 @@ public class SerializationContext
         List<E> collection = this.getCollection(collectionClass);
         for (E record : collection) {
             HashMap<String, String> values = this.serializers.get(collectionClass.getName()).serialize(record);
-            for (HashMap.Entry<String, String> entry : values.entrySet()) {
+            for (Map.Entry<String, String> entry : values.entrySet()) {
                 sb.append(entry.getKey());
                 sb.append("|");
                 sb.append(entry.getValue());

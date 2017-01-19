@@ -17,7 +17,7 @@ public class PokemonTeam {
         this.pokemon = pokemon;
         for (int i = 0; i < 6; i++) {
             if (!(i < this.getPokemon().size())) {
-                this.pokemon.add(i, new Lazy<>(LazyResolver.NULL_RESOLVER));
+                this.pokemon.add(i, new Lazy<Pokemon>(LazyResolver.NULL_RESOLVER));
             }
         }
     }
