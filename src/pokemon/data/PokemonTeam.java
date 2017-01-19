@@ -64,6 +64,7 @@ public class PokemonTeam {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 6; i++) {
             Pokemon pokemon = this.getPokemon().get(i);
+            sb.append("["+(i+1)+"] ");
             if (pokemon != null) {
                 sb.append("LVL: ");
                 sb.append(pokemon.getLevel());

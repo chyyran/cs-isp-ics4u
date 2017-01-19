@@ -115,13 +115,7 @@ public class PokedexMenu extends MenuOption {
                     }
                 });
             }
-            nextFivePokemon.option(new MenuOption("Go to top menu") {
-                @Override
-                public void run() {
-                    menuBuilder.halt(); //todo: fix going back.
-                    nextFivePokemon.halt();
-                }
-            });
+
             return nextFivePokemon;
 
 

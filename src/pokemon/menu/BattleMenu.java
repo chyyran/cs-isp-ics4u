@@ -29,8 +29,8 @@ public class BattleMenu extends MenuOption {
         this.validSpecies = validSpecies;
     }
 
-    private static PokemonTeam getRandomTeam(List<PokemonSpecies> validSpecies, List<PokemonMove> validMoves) {
-        return new PokemonTeam(getSixPokemon(validSpecies, validMoves));
+    private static PokemonTeam getRandomTeam(List<PokemonSpecies> validSpecies, List<PokemonMove> validMoves, int max) {
+        return new PokemonTeam(getSixPokemon(validSpecies, validMoves, max));
     }
 
     private static List<Lazy<PokemonMove>> getFourMoves(List<PokemonMove> validMoves) {
@@ -39,20 +39,24 @@ public class BattleMenu extends MenuOption {
         return Lazy.asLazyList(copy.subList(0, 4));
     }
 
-    private static ArrayList<Lazy<Pokemon>> getSixPokemon(List<PokemonSpecies> validSpecies, List<PokemonMove> validMoves) {
+    private static ArrayList<Lazy<Pokemon>> getSixPokemon(List<PokemonSpecies> validSpecies, List<PokemonMove> validMoves, int max) {
         List<PokemonSpecies> copy = new LinkedList<>(validSpecies);
         Collections.shuffle(copy);
         ArrayList<Lazy<Pokemon>> pokemon = new ArrayList<>();
         for (PokemonSpecies species : copy.subList(0, 6)) {
             pokemon.add(Lazy.asLazy(new Pokemon(UUID.randomUUID().toString(),
                     Lazy.asLazy(species), getFourMoves(validMoves),
-                    species.getName(), new Random().nextInt(1))));
+                    species.getName(), new Random().nextInt(max) + 1)));
         }
         return pokemon;
     }
 
     public void run() {
-        PokemonTeam cpuTeam = getRandomTeam(validSpecies, validMoves); //todo: I am broken.
+        if(team.getActivePokemon() == null) {
+            System.out.println("Please make a team first!");
+            return;
+        }
+        PokemonTeam cpuTeam = getRandomTeam(validSpecies, validMoves, team.getActivePokemon().getLevel() + new Random().nextInt(5) + 1); //todo: I am broken.
         BattleManager manager = new BattleManager(team, cpuTeam);
         do {
             switch (manager.getState()) {

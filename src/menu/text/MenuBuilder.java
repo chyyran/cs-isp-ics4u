@@ -8,7 +8,20 @@ public class MenuBuilder {
 
     private List<MenuOption> runnables;
     private boolean halt = false;
-    private MenuOption exit = new GoodbyeOption("Goodbye");
+    private MenuOption exit = new MenuOption("Exit") {
+        @Override
+        public void run() {
+            return;
+        }
+    };
+
+    private MenuOption haltOption = new MenuOption("Exit or go back.") {
+        @Override
+        public void run() {
+            halt();
+        }
+    };
+
     private ErrorHandler error = new ErrorHandler() {
         @Override
         public void handle(Exception e) {
@@ -49,9 +62,10 @@ public class MenuBuilder {
 
     public void run() {
         Scanner scanner = new Scanner(System.in);
+        this.runnables.add(haltOption); //monkeypatch in halter
         int selection;
         do {
-            System.out.println("Select from the choices below. Enter 0 or less than to exit.");
+            System.out.println("Select from the choices below.");
             System.out.print(this);
             selection = scanner.nextInt();
             scanner.nextLine();
@@ -66,7 +80,8 @@ public class MenuBuilder {
             }
 
             System.out.println();
-        } while (selection > 0 && !this.halt);
+        } while (!this.halt);
+        this.runnables.remove(haltOption); //remove halter
         this.exit.run();
     }
 

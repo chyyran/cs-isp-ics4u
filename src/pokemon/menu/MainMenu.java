@@ -1,6 +1,7 @@
 package pokemon.menu;
 
 import menu.text.MenuBuilder;
+import menu.text.MenuOption;
 import pokemon.data.*;
 import pokemon.serialization.*;
 import serialization.srsf.Lazy;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class MainMenu {
     public static void main(String[] args) {
-        SerializationContext sc = new SerializationContext("c:\\srsf");
+        final SerializationContext sc = new SerializationContext("data");
         sc.addSerializer(new SchemaSerializer(sc), Schema.class);
         sc.addSerializer(new PokemonTypeSerializer(sc), PokemonType.class);
         sc.addSerializer(new PokemonMoveSerializer(sc), PokemonMove.class);
@@ -40,6 +41,20 @@ public class MainMenu {
                         sc.getCollection(PokemonSpecies.class)))
                 .option(new BattleMenu(team, sc.getCollection(PokemonSpecies.class),
                         sc.getCollection(PokemonMove.class)));
+        menuBuilder.exit(new MenuOption("Save on exit") {
+            @Override
+            public void run() {
+                try {
+                    sc.getCollection(Pokemon.class).addAll(team.getPokemon());
+                    sc.getCollection(PokemonTeam.class).set(0, team);
+                    sc.saveCollection(Pokemon.class);
+                    sc.saveCollection(PokemonTeam.class);
+                }catch(IOException e) {
+                    e.printStackTrace();
+                    System.out.println("We were unable to save your changes.");
+                }
+            }
+        });
         menuBuilder.run();
     }
 }

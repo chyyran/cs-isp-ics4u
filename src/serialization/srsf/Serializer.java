@@ -18,7 +18,7 @@ public abstract class Serializer<T>
     protected static String arrayFormat(String[] s) {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
-        sb.append(join(",", s)); //todo this is a 1.8 api.
+        sb.append(join(",", s));
         sb.append("]");
         return sb.toString();
     }
@@ -32,6 +32,7 @@ public abstract class Serializer<T>
             if (first) {
                 first = false;
             } else {
+
                 sb.append(conjunction);
             }
             sb.append(item);

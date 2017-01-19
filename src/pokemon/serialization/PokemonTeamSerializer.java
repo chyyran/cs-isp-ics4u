@@ -37,7 +37,11 @@ public class PokemonTeamSerializer extends Serializer<PokemonTeam> {
         List<Pokemon> pokemon = team.getPokemon();
         String[] pokemonids = new String[pokemon.size()];
         for (int i = 0; i < pokemonids.length; i++) {
-            pokemonids[i] = pokemon.get(i).getId();
+            if(pokemon.get(i) != null) {
+                pokemonids[i] = pokemon.get(i).getId();
+            }else{
+                pokemonids[i] = "@@NUL@@";
+            }
         }
         values.put("$pokemon", Serializer.arrayFormat(pokemonids));
         return values;

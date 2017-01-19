@@ -39,20 +39,22 @@ public class SerializationContext
         sb.append(schemaName);
         sb.append(System.getProperty("line.separator"));
         sb.append("---"); //build header
+        sb.append(System.getProperty("line.separator"));
         List<E> collection = this.getCollection(collectionClass);
         for (E record : collection) {
+            if(record == null) continue;
             HashMap<String, String> values = this.serializers.get(collectionClass.getName()).serialize(record);
             for (Map.Entry<String, String> entry : values.entrySet()) {
                 sb.append(entry.getKey());
                 sb.append("|");
-                sb.append(entry.getValue());
+                sb.append(entry.getValue() != null ? entry.getValue() : "@@NUL@@");
                 sb.append(System.getProperty("line.separator"));
             }
             sb.append("---");
             sb.append(System.getProperty("line.separator"));
         }
         Files.write(Paths.get(this.directory, schemaName + ".srsf"),
-                sb.toString().getBytes(), StandardOpenOption.CREATE_NEW);
+                sb.toString().getBytes(), StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
 
     }
     public <E> void loadCollection(Class<E> collectionClass) throws IOException

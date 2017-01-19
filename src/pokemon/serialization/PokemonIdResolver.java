@@ -17,6 +17,7 @@ public class PokemonIdResolver implements LazyResolver<Pokemon> {
     @Override
     public Pokemon resolve() {
         for (Pokemon pokemon : this.context.getCollection(Pokemon.class)) {
+            if(pokemon == null) continue;
             if (pokemon.getId().equalsIgnoreCase(this.id)) return pokemon;
         }
         return null;

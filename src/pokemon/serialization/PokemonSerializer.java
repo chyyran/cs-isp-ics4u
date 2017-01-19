@@ -20,7 +20,7 @@ public class PokemonSerializer extends Serializer<Pokemon> {
     @Override
     public Pokemon deserialize(HashMap<String, KeyValuePair> keyValuePairs) {
         int species = keyValuePairs.get("$species").asInt();
-        String nickName = keyValuePairs.get("$nickName").asString();
+        String nickName = keyValuePairs.get("$nickname").asString();
         int level = keyValuePairs.get("$level").asInt();
         String[] moveStr = keyValuePairs.get("$moves").asStringArray();
         int hp = keyValuePairs.get("$hp").asInt();
@@ -40,6 +40,7 @@ public class PokemonSerializer extends Serializer<Pokemon> {
 
     @Override
     public HashMap<String, String> serialize(Pokemon pokemon) {
+        if(pokemon == null) return null;
         HashMap<String, String> values = new HashMap<>();
         values.put("$species", String.valueOf(pokemon.getSpecies().getNumber()));
         values.put("$id", pokemon.getId());
