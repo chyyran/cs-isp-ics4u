@@ -20,7 +20,7 @@ public class PokemonSpeciesSerializer extends Serializer<PokemonSpecies> {
         //number
         //name primaryType secondaryType weight evolution preEvolution
 
-        int number = keyValuePairs.get("$numbers").asInt();
+        int number = keyValuePairs.get("$number").asInt();
         String name = keyValuePairs.get("$name").asString();
         String primaryType = keyValuePairs.get("$primaryType").asString();
         String secondaryType = keyValuePairs.get("$secondaryType").asString();

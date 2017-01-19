@@ -1,9 +1,8 @@
 package pokemon.menu;
 
+import menu.text.MenuBuilder;
 import pokemon.data.*;
-import pokemon.serialization.PokemonMoveSerializer;
-import pokemon.serialization.PokemonSpeciesSerializer;
-import pokemon.serialization.PokemonTypeSerializer;
+import pokemon.serialization.*;
 import serialization.srsf.Schema;
 import serialization.srsf.SchemaSerializer;
 import serialization.srsf.SerializationContext;
@@ -13,26 +12,24 @@ import java.io.IOException;
 public class MainMenu {
     public static void main(String[] args) {
         SerializationContext sc = new SerializationContext("c:\\srsf");
+        sc.addSerializer(new SchemaSerializer(sc), Schema.class);
         sc.addSerializer(new PokemonTypeSerializer(sc), PokemonType.class);
         sc.addSerializer(new PokemonMoveSerializer(sc), PokemonMove.class);
         sc.addSerializer(new PokemonSpeciesSerializer(sc), PokemonSpecies.class);
-        sc.addSerializer(new SchemaSerializer(sc), Schema.class);
+        sc.addSerializer(new PokemonSerializer(sc), Pokemon.class);
+        sc.addSerializer(new PokemonTeamSerializer(sc), PokemonTeam.class);
         try {
-            sc.loadCollection("schema", Schema.class);
-            sc.loadCollection("PokemonType", PokemonType.class);
-            sc.loadCollection("PokemonMove", PokemonMove.class);
-            sc.loadCollection("PokemonSpecies", PokemonSpecies.class);
-            sc.loadCollection("Pokemon", Pokemon.class);
-            sc.loadCollection("PokemonTeam", PokemonTeam.class);
+            sc.loadCollection(Schema.class);
+            sc.loadCollection(PokemonType.class);
+            sc.loadCollection(PokemonMove.class);
+            sc.loadCollection(PokemonSpecies.class);
+            sc.loadCollection(Pokemon.class);
+            sc.loadCollection(PokemonTeam.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for (Schema s : sc.getCollection(Schema.class)) {
-            System.out.println(s);
-        }
 
-        for (PokemonSpecies t : sc.getCollection(PokemonSpecies.class)) {
-            System.out.println(t.getName());
-        }
+        MenuBuilder menuBuilder = new MenuBuilder();
+
     }
 }

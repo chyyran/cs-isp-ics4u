@@ -17,7 +17,7 @@ public abstract class Serializer<T>
     protected static String arrayFormat(String[] s) {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
-        sb.append(String.join(",", s));
+        sb.append(String.join(",", s)); //todo this is a 1.8 api.
         sb.append("]");
         return sb.toString();
     }

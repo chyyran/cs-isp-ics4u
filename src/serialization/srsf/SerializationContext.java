@@ -1,9 +1,11 @@
 package serialization.srsf;
 
+import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.*;
+import java.security.Key;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,28 +32,42 @@ public class SerializationContext
         return this.collected.get(collectionClass.getName());
     }
 
-    public <E> void loadCollection(String schemaName, Class<E> collectionClass) throws IOException
+    public <E> void loadCollection(Class<E> collectionClass) throws IOException
     {
+        String schemaName = collectionClass.getSimpleName();
         if(this.serializers.containsKey(collectionClass.getName())) {
-            List<String> lines = Files.readAllLines(Paths.get(this.directory, schemaName+".srsf"), Charset.defaultCharset());
-            HashMap<String, KeyValuePair> currentSet = new HashMap<>();
-            this.collected.put(collectionClass.getName(), new ArrayList<>());
-            for(String s : lines){
-                if(s.startsWith("~~!srsf~~")) continue;
-                if(s.startsWith("!!")) continue;
-                if(s.startsWith("#")) continue;
-                if(s.isEmpty()) continue;
-                if(s.startsWith("---")) {
-                    if(!currentSet.isEmpty()) {
-                        E object = (E)serializers.get(collectionClass.getName()).deserialize(currentSet);
-                        this.collected.get(collectionClass.getName()).add(object);
+            try {
+                List<String> lines = Files.readAllLines(Paths.get(this.directory, schemaName + ".srsf"), Charset.defaultCharset());
+                HashMap<String, KeyValuePair> currentSet = new HashMap<>();
+                this.collected.put(collectionClass.getName(), new ArrayList<>());
+                for (String s : lines) {
+                    if (s.startsWith("~~!srsf~~")) continue;
+                    if (s.startsWith("!!")) continue;
+                    if (s.startsWith("#")) continue;
+                    if (s.isEmpty()) continue;
+                    if (s.startsWith("---")) {
+                        if (!currentSet.isEmpty()) {
+                            E object = (E) serializers.get(collectionClass.getName()).deserialize(currentSet);
+                            this.collected.get(collectionClass.getName()).add(object);
+                        }
+                        currentSet = new HashMap<>();
+                        continue;
                     }
-                    currentSet = new HashMap<>();
-                    continue;
+                    if (!s.contains("|")) continue; //be permissive
+                    String[] kvp = s.split(Pattern.quote("|"), 2);
+                    currentSet.put(kvp[0], new KeyValuePair(kvp[0], kvp[1]));
                 }
-                if(!s.contains("|")) continue; //be permissive
-                String[] kvp = s.split(Pattern.quote("|"), 2);
-                currentSet.put(kvp[0], new KeyValuePair(kvp[0], kvp[1]));
+            } catch (NoSuchFileException e) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("~~!srsf~~");
+                sb.append(System.getProperty("line.separator"));
+                sb.append("!!");
+                sb.append(schemaName);
+                sb.append(System.getProperty("line.separator"));
+                sb.append("---");
+                Files.write(Paths.get(this.directory, schemaName + ".srsf"),
+                        sb.toString().getBytes(), StandardOpenOption.CREATE_NEW);
+                return;
             }
         }
     }

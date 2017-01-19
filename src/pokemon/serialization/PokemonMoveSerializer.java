@@ -23,7 +23,7 @@ public class PokemonMoveSerializer extends Serializer<PokemonMove> {
         String type = keyValuePairs.get("$type").asString();
         double baseDamage = keyValuePairs.get("$baseDamage").asDouble();
         double selfDamage = keyValuePairs.get("$selfDamage").asDouble();
-        return new PokemonMove(name, new Lazy<>(new PokemonTypeResolver(this.getContext(), name)), baseDamage, selfDamage);
+        return new PokemonMove(name, new Lazy<>(new PokemonTypeResolver(this.getContext(), type)), baseDamage, selfDamage);
     }
 
     @Override
