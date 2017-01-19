@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class MenuBuilder {
 
     private List<MenuOption> runnables;
+    private boolean halt = false;
     private MenuOption exit = new GoodbyeOption("Goodbye");
     private ErrorHandler error = new ErrorHandler() {
         @Override
@@ -34,6 +35,9 @@ public class MenuBuilder {
         return this;
     }
 
+    public void halt() {
+        this.halt = true;
+    }
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -60,10 +64,9 @@ public class MenuBuilder {
             }catch (Exception e) {
                 this.error.handle(e);
             }
-            System.out.print("Press enter to continue.");
-            scanner.nextLine();
+
             System.out.println();
-        } while(selection > 0);
+        } while (selection > 0 && !this.halt);
         this.exit.run();
     }
 

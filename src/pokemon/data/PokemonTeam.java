@@ -9,6 +9,9 @@ import java.util.List;
 public class PokemonTeam {
     private ArrayList<Lazy<Pokemon>> pokemon;
 
+    public PokemonTeam() {
+        this(new ArrayList<Lazy<Pokemon>>());
+    }
     public PokemonTeam(ArrayList<Lazy<Pokemon>> pokemon) {
         this.pokemon = pokemon;
     }
@@ -39,5 +42,23 @@ public class PokemonTeam {
         Lazy<Pokemon> y = pokemon.get(0);
         pokemon.set(0, x);
         pokemon.set(pos, y);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 6; i++) {
+            if (i < this.getPokemon().size()) {
+                Pokemon pokemon = this.getPokemon().get(i);
+                sb.append("LVL: ");
+                sb.append(pokemon.getLevel());
+                sb.append(" " + pokemon.getSpecies().getName());
+                sb.append(System.getProperty("line.separator"));
+            } else {
+                sb.append("EMPTY SLOT");
+                sb.append(System.getProperty("line.separator"));
+            }
+        }
+        return sb.toString();
     }
 }

@@ -32,6 +32,32 @@ public class SerializationContext
         return this.collected.get(collectionClass.getName());
     }
 
+    @SuppressWarnings("unchecked")
+    public <E> void saveCollection(Class<E> collectionClass) throws IOException {
+        String schemaName = collectionClass.getSimpleName();
+        StringBuilder sb = new StringBuilder();
+        sb.append("~~!srsf~~");
+        sb.append(System.getProperty("line.separator"));
+        sb.append("!!");
+        sb.append(schemaName);
+        sb.append(System.getProperty("line.separator"));
+        sb.append("---"); //build header
+        List<E> collection = this.getCollection(collectionClass);
+        for (E record : collection) {
+            HashMap<String, String> values = this.serializers.get(collectionClass.getName()).serialize(record);
+            for (HashMap.Entry<String, String> entry : values.entrySet()) {
+                sb.append(entry.getKey());
+                sb.append("|");
+                sb.append(entry.getValue());
+                sb.append(System.getProperty("line.separator"));
+            }
+            sb.append("---");
+            sb.append(System.getProperty("line.separator"));
+        }
+        Files.write(Paths.get(this.directory, schemaName + ".srsf"),
+                sb.toString().getBytes(), StandardOpenOption.CREATE_NEW);
+
+    }
     public <E> void loadCollection(Class<E> collectionClass) throws IOException
     {
         String schemaName = collectionClass.getSimpleName();

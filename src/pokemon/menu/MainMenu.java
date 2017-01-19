@@ -30,6 +30,7 @@ public class MainMenu {
         }
 
         MenuBuilder menuBuilder = new MenuBuilder();
-
+        menuBuilder.option(new PokedexMenu(sc.getCollection(PokemonSpecies.class)));
+        menuBuilder.run();
     }
 }

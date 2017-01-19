@@ -8,6 +8,6 @@ public class GoodbyeOption extends MenuOption {
         this.message = message;
     }
     public void run() {
-        System.out.print(message);
+        System.out.println(message);
     }
 }

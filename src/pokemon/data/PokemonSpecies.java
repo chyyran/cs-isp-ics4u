@@ -56,6 +56,10 @@ public class PokemonSpecies {
     }
 
     @Override
+    public String toString() {
+        return this.getNumber() + ": " + this.getName();
+    }
+    @Override
     public boolean equals(Object o) {
         if (o instanceof PokemonSpecies) return this.equals((PokemonSpecies) o);
         return false;
