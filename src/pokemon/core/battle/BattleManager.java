@@ -20,6 +20,9 @@ public class BattleManager {
         return state;
     }
 
+    public void setState(BattleState state) {
+        this.state = state;
+    }
     public void applyMove(PokemonMove move, Pokemon moveInitiator, Pokemon moveTarget) {
         double multiplier = 1;
         if (moveTarget.getSpecies().getPrimaryType().isImmuneAgainst(move.getType())) multiplier = 0;

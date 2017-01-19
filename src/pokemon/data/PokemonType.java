@@ -23,6 +23,10 @@ public class PokemonType {
         return this.name;
     }
 
+    @Override
+    public String toString() {
+        return this.getName();
+    }
     public List<PokemonType> getWeaknesses() {
         // this needs caching
         List<PokemonType> types = Lazy.asList(this.weaknesses);

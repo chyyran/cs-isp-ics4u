@@ -36,4 +36,12 @@ public class PokemonMove {
     public boolean equals(PokemonMove that) {
         return (that.getName().equals(getName()));
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[" + this.getType() + "] ");
+        sb.append(this.name);
+        return sb.toString();
+    }
 }

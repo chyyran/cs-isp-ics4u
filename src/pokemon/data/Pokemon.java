@@ -15,9 +15,12 @@ public class Pokemon {
     private String id;
     private int maxHp;
     private int currentHp;
-    private static int MULTIPLIER = 4;
+    private static int MULTIPLIER = 400;
 
     public Pokemon(String id, Lazy<PokemonSpecies> species, List<Lazy<PokemonMove>> moves, String name, int level) {
+        this(id, species, moves, name, level, level * MULTIPLIER);
+    }
+    public Pokemon(String id, Lazy<PokemonSpecies> species, List<Lazy<PokemonMove>> moves, String name, int level, int hp) {
         this.id = id;
         this.species = species;
         this.moves = moves;
@@ -25,7 +28,7 @@ public class Pokemon {
         this.level = level;
         this.id = id;
         maxHp = level * MULTIPLIER;
-        currentHp = maxHp;
+        currentHp = hp;
     }
 
     public PokemonSpecies getSpecies() {
@@ -62,10 +65,27 @@ public class Pokemon {
     }
 
     public void setHp(int num) {
-        if (num < maxHp)
+        if (num < maxHp) {
             currentHp = num;
-        else
+        } else {
             currentHp = maxHp;
+        }
+        if(currentHp < 0) {
+            currentHp = 0;
+        }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("LVL");
+        sb.append(this.getLevel());
+        sb.append(" " + this.getNickname());
+        sb.append(" " + this.getCurrentHp() + "/" + this.getMaxHp());
+        if(this.isFainted()) {
+            sb.append(" [FNT]");
+        }
+        return sb.toString();
     }
 
     public boolean isFainted() {

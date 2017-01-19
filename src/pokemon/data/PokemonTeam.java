@@ -66,10 +66,8 @@ public class PokemonTeam {
             Pokemon pokemon = this.getPokemon().get(i);
             sb.append("["+(i+1)+"] ");
             if (pokemon != null) {
-                sb.append("LVL: ");
-                sb.append(pokemon.getLevel());
-                sb.append(" " + pokemon.getSpecies().getName());
-                sb.append(System.getProperty("line.separator")); //this should be in pokemon.tostring
+              sb.append(pokemon);
+              sb.append(System.getProperty("line.separator"));
             } else {
 
                 sb.append("EMPTY SLOT");

@@ -58,35 +58,90 @@ public class BattleMenu extends MenuOption {
         }
         PokemonTeam cpuTeam = getRandomTeam(validSpecies, validMoves, team.getActivePokemon().getLevel() + new Random().nextInt(5) + 1); //todo: I am broken.
         BattleManager manager = new BattleManager(team, cpuTeam);
+        Scanner sc = new Scanner(System.in);
         do {
             switch (manager.getState()) {
                 case PLAYER_ONE_MOVE:
                     //can not switch during battle
-                    for (PokemonMove move : team.getActivePokemon().getMoves()) {
-                        System.out.println(move);
+                    Pokemon activePokemon = team.getActivePokemon();
+                    Pokemon targetPokemon = cpuTeam.getActivePokemon();
+                    System.out.println("You: " + activePokemon);
+                    System.out.println("Opponent: " + targetPokemon);
+                    List<PokemonMove> moves = activePokemon.getMoves();
+                    for(int i = 0; i < moves.size(); i++) {
+                        System.out.println("[" + (i+1) + "] " + moves.get(i));
                     }
+                    int moveSelect = 0;
+                    do {
+                        try {
+                            System.out.println("Please choose a move.");
+                            moveSelect = Integer.parseInt(sc.nextLine());
+                        }catch(NumberFormatException e) {
+                            continue;
+                        }
+                    }while(moveSelect <= 0 || moveSelect > moves.size());
                     //input, choose move
-                    PokemonMove move = null;
+                    PokemonMove move = moves.get(moveSelect - 1);
                     manager.applyMove(move, team.getActivePokemon(), cpuTeam.getActivePokemon());
+                    if(targetPokemon.isFainted()) {
+                        manager.setState(BattleState.PLAYER_TWO_FAINTED);
+                        break;
+                    }
+                    if(activePokemon.isFainted()) {
+                        manager.setState(BattleState.PLAYER_ONE_FAINTED);
+                        break;
+                    }
+                    manager.setState(BattleState.PLAYER_TWO_MOVE);
                     break;
                 case PLAYER_ONE_FAINTED:
-                    //make them switch here
+                    System.out.println("Your Pokemon has fainted. Please choose a new one.");
+                    System.out.print(team);
+                    try {
+                        int newPoke = Integer.parseInt(sc.nextLine());
+                    }catch(NumberFormatException e) {
+
+                    }
                     break;
                 case PLAYER_ONE_VICTORY:
                     System.out.println("you're winner!");
                     break;
                 case PLAYER_TWO_FAINTED:
+                    List<Pokemon> cpuPoke = cpuTeam.getPokemon();
+                    for(int i = 0; i < cpuPoke.size(); i++) {
+                        if(!cpuPoke.get(i).isFainted()) {
+                            cpuTeam.setActivePokemon(i);
+                        }
+                        if(cpuTeam.getActivePokemon().isFainted()) {
+                            manager.setState(BattleState.PLAYER_ONE_VICTORY);
+                        } else {
+                            manager.setState(BattleState.PLAYER_TWO_MOVE);
+                        }
+                    }
                     //switch with a random non fainted in the cpu
                     break;
                 case PLAYER_TWO_MOVE:
-                    //literally rngesus a move and apply it thats it.
+                    Pokemon cpuActivePokemon = cpuTeam.getActivePokemon();
+                    Pokemon playerTargetPokemon = team.getActivePokemon();
+                    List<PokemonMove> cpuMoves = cpuActivePokemon.getMoves();
+                    PokemonMove cpuMove = cpuMoves.get(new Random().nextInt(cpuMoves.size()));
+                    manager.applyMove(cpuMove, cpuActivePokemon, playerTargetPokemon);
+
+                    if(playerTargetPokemon.isFainted()) {
+                        manager.setState(BattleState.PLAYER_ONE_FAINTED);
+                        break;
+                    }
+                    if(cpuActivePokemon.isFainted()) {
+                        manager.setState(BattleState.PLAYER_TWO_FAINTED);
+                        break;
+                    }
+                    manager.setState(BattleState.PLAYER_ONE_MOVE);
                     break;
                 case PLAYER_TWO_VICTORY:
                     System.out.println("you got beat by rngesus");
                     break;
             }
 
-        } while (!(manager.getState() == BattleState.PLAYER_ONE_VICTORY)
-                || !(manager.getState() == BattleState.PLAYER_TWO_VICTORY));
+        } while (manager.getState() != BattleState.PLAYER_ONE_VICTORY
+                || manager.getState() != BattleState.PLAYER_TWO_VICTORY);
     }
 }

@@ -35,7 +35,8 @@ public class PokemonSerializer extends Serializer<Pokemon> {
                 new Lazy<>(new PokemonSpeciesResolver(this.getContext(), species)),
                 moves,
                 nickName,
-                level);
+                level,
+                hp);
     }
 
     @Override
