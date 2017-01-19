@@ -3,9 +3,6 @@ package serialization.srsf;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Ronny on 2017-01-12.
- */
 public class SchemaSerializer extends Serializer<Schema>
 {
     public SchemaSerializer(SerializationContext context) {

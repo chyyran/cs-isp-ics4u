@@ -4,9 +4,6 @@ import pokemon.data.PokemonSpecies;
 import serialization.srsf.LazyResolver;
 import serialization.srsf.SerializationContext;
 
-/**
- * Created by Ronny on 2017-01-12.
- */
 public class PokemonSpeciesResolver implements LazyResolver<PokemonSpecies> {
     private final SerializationContext context;
     private final int number;

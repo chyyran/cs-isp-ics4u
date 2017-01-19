@@ -3,9 +3,6 @@ package serialization.srsf;
 import java.util.HashMap;
 import java.util.HashSet;
 
-/**
- * Created by Ronny on 2017-01-12.
- */
 public class Schema
 {
     private final HashMap<String, String> schemaProperties;

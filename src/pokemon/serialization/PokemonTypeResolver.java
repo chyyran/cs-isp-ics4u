@@ -2,9 +2,6 @@ package pokemon.serialization;
 import pokemon.data.PokemonType;
 import serialization.srsf.*;
 
-/**
- * Created by Ronny on 2017-01-12.
- */
 public class PokemonTypeResolver implements LazyResolver<PokemonType> {
     private final SerializationContext context;
     private final String name;

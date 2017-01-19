@@ -1,8 +1,5 @@
 package serialization.srsf;
 
-/**
- * Created by Ronny on 2017-01-12.
- */
 public class KeyValuePair {
     private final String value;
     private final String key;
@@ -17,7 +14,7 @@ public class KeyValuePair {
     }
 
     public String[] asStringArray() {
-        return value.split(",");
+        return value.substring(1, value.length() - 1).split(",");
     }
 
     public String asString() {
@@ -25,7 +22,7 @@ public class KeyValuePair {
     }
 
     public int[] asIntArray() {
-        String[] strValues = value.split(",");
+        String[] strValues = this.asStringArray();
         int[] retVal = new int[strValues.length];
         for (int i = 0; i < strValues.length; i++) {
             retVal[i] = Integer.parseInt(strValues[i]);
@@ -35,7 +32,7 @@ public class KeyValuePair {
 
 
     public double[] asDoubleArray() {
-        String[] strValues = value.split(",");
+        String[] strValues = this.asStringArray();
         double[] retVal = new double[strValues.length];
         for (int i = 0; i < strValues.length; i++) {
             retVal[i] = Double.parseDouble(strValues[i]);
@@ -44,7 +41,7 @@ public class KeyValuePair {
     }
 
     public boolean[] asBooleanArray() {
-        String[] strValues = value.split(",");
+        String[] strValues = this.asStringArray();
         boolean[] retVal = new boolean[strValues.length];
         for (int i = 0; i < strValues.length; i++) {
             retVal[i] = Boolean.parseBoolean(strValues[i]);

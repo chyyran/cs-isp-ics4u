@@ -10,9 +10,6 @@ import serialization.srsf.SerializationContext;
 
 import java.io.IOException;
 
-/**
- * Created by Ronny on 2017-01-17.
- */
 public class MainMenu {
     public static void main(String[] args) {
         SerializationContext sc = new SerializationContext("c:\\srsf");
@@ -34,8 +31,8 @@ public class MainMenu {
             System.out.println(s);
         }
 
-        for (PokemonType t : sc.getCollection(PokemonType.class)) {
-            System.out.println(t.getWeaknesses().get(0).getName());
+        for (PokemonSpecies t : sc.getCollection(PokemonSpecies.class)) {
+            System.out.println(t.getName());
         }
     }
 }

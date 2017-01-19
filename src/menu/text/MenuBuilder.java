@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * Created by chyyran on 11/25/16.
- */
 public class MenuBuilder {
 
     private List<MenuOption> runnables;

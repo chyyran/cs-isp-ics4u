@@ -9,9 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
 
-/**
- * Created by Ronny on 2017-01-12.
- */
 public class SerializationContext
 {
     private final String directory;

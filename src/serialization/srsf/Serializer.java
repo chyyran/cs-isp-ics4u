@@ -2,9 +2,6 @@ package serialization.srsf;
 
 import java.util.HashMap;
 
-/**
- * Created by Ronny on 2017-01-12.
- */
 public abstract class Serializer<T>
 {
     private final SerializationContext context;
@@ -16,4 +13,12 @@ public abstract class Serializer<T>
     }
     public abstract T deserialize(HashMap<String, KeyValuePair> keyValuePairs);
     public abstract HashMap<String, String> serialize(T object);
+
+    protected static String arrayFormat(String[] s) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        sb.append(String.join(",", s));
+        sb.append("]");
+        return sb.toString();
+    }
 }

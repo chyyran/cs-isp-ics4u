@@ -5,9 +5,6 @@ import pokemon.data.PokemonMove;
 import serialization.srsf.LazyResolver;
 import serialization.srsf.SerializationContext;
 
-/**
- * Created by Ronny on 2017-01-12.
- */
 public class PokemonIdResolver implements LazyResolver<Pokemon> {
     private final SerializationContext context;
     private final String id;
@@ -19,8 +16,8 @@ public class PokemonIdResolver implements LazyResolver<Pokemon> {
 
     @Override
     public Pokemon resolve() {
-        for (Pokemon move : this.context.getCollection(Pokemon.class)) {
-            if (move.getId().equalsIgnoreCase(this.id)) return move;
+        for (Pokemon pokemon : this.context.getCollection(Pokemon.class)) {
+            if (pokemon.getId().equalsIgnoreCase(this.id)) return pokemon;
         }
         return null;
     }

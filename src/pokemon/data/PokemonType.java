@@ -5,9 +5,6 @@ import serialization.srsf.Lazy;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Ronny on 2017-01-12.
- */
 public class PokemonType {
     private final String name;
     private final List<Lazy<PokemonType>> weaknesses;
