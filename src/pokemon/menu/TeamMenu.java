@@ -64,18 +64,9 @@ public class TeamMenu extends MenuOption {
     private static List<Lazy<PokemonMove>> getFourMoves(List<PokemonMove> validMoves) {
         List<PokemonMove> copy = new LinkedList<>(validMoves);
         Collections.shuffle(copy);
-        List<Lazy<PokemonMove>> pokemonMove = new ArrayList<>();
-        for (PokemonMove move : copy.subList(0, 4)) {
-            final PokemonMove _move = move; //got to get this done.
-            pokemonMove.add(new Lazy<PokemonMove>(new LazyResolver<PokemonMove>() {
-                @Override
-                public PokemonMove resolve() {
-                    return _move;
-                }
-            }));
-        }
-        return pokemonMove;
+        return Lazy.asLazyList(copy.subList(0, 4));
     }
+
 
     @Override
     public void run() {
