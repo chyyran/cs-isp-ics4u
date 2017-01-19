@@ -15,7 +15,7 @@ import java.util.*;
 
 public class BattleMenu extends MenuOption {
 
-
+    private final static int LEVEL_RANGE = 2;
     private final MenuBuilder menuBuilder;
     private final PokemonTeam team;
     private final List<PokemonSpecies> validSpecies;
@@ -56,9 +56,11 @@ public class BattleMenu extends MenuOption {
             System.out.println("Please make a team first!");
             return;
         }
-        PokemonTeam cpuTeam = getRandomTeam(validSpecies, validMoves, team.getActivePokemon().getLevel() + new Random().nextInt(5) + 1); //todo: I am broken.
+        PokemonTeam cpuTeam = getRandomTeam(validSpecies, validMoves, team.getActivePokemon().getLevel() +
+                new Random().nextInt(LEVEL_RANGE) + 1); //todo: I am broken.
         BattleManager manager = new BattleManager(team, cpuTeam);
         Scanner sc = new Scanner(System.in);
+        boolean gameEnd = false;
         do {
             switch (manager.getState()) {
                 case PLAYER_ONE_MOVE:
@@ -94,16 +96,49 @@ public class BattleMenu extends MenuOption {
                     manager.setState(BattleState.PLAYER_TWO_MOVE);
                     break;
                 case PLAYER_ONE_FAINTED:
+                    List<Pokemon> pokemon = team.getPokemon();
+                    boolean hasUsable = false;
+                    for(Pokemon p : pokemon) {
+                        if(p == null) continue;
+                        if(!p.isFainted()){
+                            hasUsable = true;
+                            break;
+                        }
+                    }
+                    if(!hasUsable) {
+                        manager.setState(BattleState.PLAYER_TWO_VICTORY);
+                        break;
+                    }
                     System.out.println("Your Pokemon has fainted. Please choose a new one.");
                     System.out.print(team);
                     try {
                         int newPoke = Integer.parseInt(sc.nextLine());
+                        if(newPoke > pokemon.size()) {
+                            System.out.println("Invalid Pokemon.");
+                            break;
+                        }
+                        if(pokemon.get(newPoke - 1) == null) {
+                            System.out.println("Invalid Pokemon.");
+                            break;
+                        }
+                        if(pokemon.get(newPoke - 1).isFainted()) {
+                            System.out.println(pokemon.get(newPoke - 1).getNickname() + " is fainted and can not battle!");
+                            break;
+                        }
+                        team.setActivePokemon(newPoke - 1);
+                        manager.setState(BattleState.PLAYER_ONE_MOVE);
                     }catch(NumberFormatException e) {
-
+                        break;
                     }
                     break;
                 case PLAYER_ONE_VICTORY:
                     System.out.println("you're winner!");
+                    for(Pokemon p : team.getPokemon()) {
+                        if(p == null) continue;
+                        p.setHp(p.getMaxHp());
+                        p.setLevel(p.getLevel() + 1);
+                    }
+                    gameEnd = true;
                     break;
                 case PLAYER_TWO_FAINTED:
                     List<Pokemon> cpuPoke = cpuTeam.getPokemon();
@@ -137,11 +172,15 @@ public class BattleMenu extends MenuOption {
                     manager.setState(BattleState.PLAYER_ONE_MOVE);
                     break;
                 case PLAYER_TWO_VICTORY:
-                    System.out.println("you got beat by rngesus");
+                    System.out.println("You lost! Try again next time!");
+                    for(Pokemon p : team.getPokemon()) {
+                        if(p == null) continue;
+                        p.setHp(p.getMaxHp());
+                    }
+                    gameEnd = true;
                     break;
             }
 
-        } while (manager.getState() != BattleState.PLAYER_ONE_VICTORY
-                || manager.getState() != BattleState.PLAYER_TWO_VICTORY);
+        } while (!gameEnd);
     }
 }
