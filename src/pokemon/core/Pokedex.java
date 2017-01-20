@@ -45,7 +45,6 @@ public class Pokedex {
       else {
          return searchName(name, list.subList(middle+1, list.size()-1));
       }
-      return null;
    }
    
    public List<PokemonSpecies> getAllPokemon () {
