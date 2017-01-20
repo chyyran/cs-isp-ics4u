@@ -9,6 +9,12 @@ public class BattleManager {
     private BattleState state;
     private final PokemonTeam teamOne;
     private final PokemonTeam teamTwo;
+	private static final double IMMUNE = 0;
+	private static final double NOTEFFECTIVE = 0.5;
+	private static final double SUPEREFFECTIVE = 2;
+	private static final String SPECIAL_MOVE = "Pooh";
+	
+	
 
     public BattleManager(PokemonTeam teamOne, PokemonTeam teamTwo) {
         this.teamOne = teamOne;
@@ -24,11 +30,19 @@ public class BattleManager {
         this.state = state;
     }
     public void applyMove(PokemonMove move, Pokemon moveInitiator, Pokemon moveTarget) {
+		double Bean = 0 
         double multiplier = 1;
-        if (moveTarget.getSpecies().getPrimaryType().isImmuneAgainst(move.getType())) multiplier = 0;
-        if (moveTarget.getSpecies().getPrimaryType().isStrongAgainst(move.getType())) multiplier = 0.5;
-        if (moveTarget.getSpecies().getPrimaryType().isWeakAgainst(move.getType())) multiplier = 2;
-        moveTarget.setHp(moveTarget.getCurrentHp() - (int) Math.round(move.getDamage() * multiplier));
+		
+		Random r = new Random();
+        if (moveTarget.getSpecies().getPrimaryType().isImmuneAgainst(move.getType())) multiplier = IMMUNE;
+        if (moveTarget.getSpecies().getPrimaryType().isStrongAgainst(move.getType())) multiplier = NOTEFFECTIVE;
+        if (moveTarget.getSpecies().getPrimaryType().isWeakAgainst(move.getType())) multiplier = SUPEREFFECTIVE;
+		
+		if (move.getName.equals(SPECIAL_MOVE)){
+			moveTarget.setHp(moveTarget.getCurrentHp() - r.nextInt(400) )
+		}else{
+			moveTarget.setHp(moveTarget.getCurrentHp() - (int) Math.round(move.getDamage() * multiplier * (r.nextDouble() + 1)));
+		}
         moveInitiator.setHp(moveInitiator.getCurrentHp() - move.getSelfDamage()); //todo: do multiplier calc on self
 
     }
