@@ -91,8 +91,6 @@ public class PokedexMenu extends MenuOption {
                     buildMenu(0, 5).run();
                 }
             });
-
-
         }
 
         private MenuBuilder buildMenu(final int pokemonStart,
