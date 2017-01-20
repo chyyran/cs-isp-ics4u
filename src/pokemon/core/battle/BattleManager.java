@@ -17,7 +17,7 @@ public class BattleManager {
 	private static final String SPECIAL_MOVE = "Pooh";
     private static int DAMAGE_MODIFIER = 125;
     private static int DAMAGE_BOUND = 85;
->>>>>>> origin/master
+
     public BattleManager(PokemonTeam teamOne, PokemonTeam teamTwo) {
         this.teamOne = teamOne;
         this.teamTwo = teamTwo;
