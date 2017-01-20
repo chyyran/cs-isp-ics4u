@@ -160,7 +160,7 @@ public class BattleMenu extends MenuOption {
                     List<PokemonMove> cpuMoves = cpuActivePokemon.getMoves();
                     PokemonMove cpuMove = cpuMoves.get(new Random().nextInt(cpuMoves.size()));
                     manager.applyMove(cpuMove, cpuActivePokemon, playerTargetPokemon);
-
+                    System.out.println(cpuActivePokemon.getNickname() + " used " + cpuMove.getName() + "!");
                     if(playerTargetPokemon.isFainted()) {
                         manager.setState(BattleState.PLAYER_ONE_FAINTED);
                         break;
