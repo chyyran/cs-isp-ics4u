@@ -1,5 +1,5 @@
 @echo off
-set PATH=%PATH%;"F:\Program Files\Java\jdk8\bin";"%PROGRAMFILES%/Java/jdk8/bin"
+set PATH=%PATH%;"F:\Program Files\Java\jdk8\bin";"%PROGRAMFILES%/Java/jdk1.8.0_121/bin"
 echo Building...
 mkdir out
 javac src/pokemon/menu/MainMenu.java -cp src -d out
