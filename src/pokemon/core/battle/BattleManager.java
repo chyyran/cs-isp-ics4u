@@ -54,6 +54,6 @@ public class BattleManager {
     }
     private static int getMoveDamage(int baseDamage, int level) {
         Random r = new Random();
-        return (int)Math.abs((level + (0.25 * DAMAGE_MODIFIER) / (double)DAMAGE_MODIFIER) * baseDamage * (r.nextInt(DAMAGE_BOUND) * 0.01));
+        return (int)(level + ((0.25 * DAMAGE_MODIFIER) / (double)DAMAGE_MODIFIER) * baseDamage * (r.nextInt(DAMAGE_BOUND) * 0.01));
     }
 }

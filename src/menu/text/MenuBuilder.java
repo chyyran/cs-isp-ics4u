@@ -1,6 +1,7 @@
 package menu.text;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -67,8 +68,15 @@ public class MenuBuilder {
         do {
             System.out.println("Select from the choices below.");
             System.out.print(this);
-            selection = scanner.nextInt();
-            scanner.nextLine();
+            try {
+                selection = scanner.nextInt();
+                scanner.nextLine();
+            }catch (InputMismatchException e){
+                System.out.println("Invalid choice! Please select from the menu options.");
+                scanner.nextLine();
+                selection = 0;
+                continue;
+            }
             if(selection > this.runnables.size()) {
                 System.out.println("Invalid choice! Please select from the menu options.");
                 continue;

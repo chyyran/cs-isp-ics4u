@@ -2,6 +2,7 @@ package pokemon.menu;
 
 import menu.text.MenuBuilder;
 import menu.text.MenuOption;
+import pokemon.core.Pokedex;
 import pokemon.data.*;
 import pokemon.serialization.*;
 import serialization.srsf.Lazy;
@@ -29,14 +30,16 @@ public class MainMenu {
             sc.loadCollection(Pokemon.class);
             sc.loadCollection(PokemonTeam.class);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Unable to load data files. Please ensure all data files are in the data directory.");
+            return;
         }
 
         MenuBuilder menuBuilder = new MenuBuilder();
         List<PokemonTeam> teamArray = sc.getCollection(PokemonTeam.class);
         if (teamArray.isEmpty()) teamArray.add(new PokemonTeam());
         final PokemonTeam team = teamArray.get(0);
-        menuBuilder.option(new PokedexMenu(sc.getCollection(PokemonSpecies.class)))
+        menuBuilder.option(new PokedexMenu(new Pokedex(sc.getCollection(PokemonSpecies.class)),
+                sc.getCollection(PokemonType.class)))
                 .option(new TeamMenu(team, sc.getCollection(PokemonMove.class),
                         sc.getCollection(PokemonSpecies.class)))
                 .option(new BattleMenu(team, sc.getCollection(PokemonSpecies.class),
