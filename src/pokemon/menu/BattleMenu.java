@@ -57,7 +57,7 @@ public class BattleMenu extends MenuOption {
             return;
         }
         PokemonTeam cpuTeam = getRandomTeam(validSpecies, validMoves, team.getActivePokemon().getLevel() +
-                new Random().nextInt(LEVEL_RANGE) + 1); //todo: I am broken.
+                new Random().nextInt(LEVEL_RANGE) + 1);
         BattleManager manager = new BattleManager(team, cpuTeam);
         Scanner sc = new Scanner(System.in);
         boolean gameEnd = false;
@@ -86,6 +86,7 @@ public class BattleMenu extends MenuOption {
                     for(int i = 0; i < moves.size(); i++) {
                         System.out.println("[" + (i+1) + "] " + moves.get(i));
                     }
+                    System.out.println("[" + (moves.size() + 1) + "] Switch Pokemon.");
                     int moveSelect = 0;
                     do {
                         try {
@@ -94,8 +95,12 @@ public class BattleMenu extends MenuOption {
                         }catch(NumberFormatException e) {
                             continue;
                         }
-                    }while(moveSelect <= 0 || moveSelect > moves.size());
-                    //input, choose move
+                    }while(moveSelect <= 0 || moveSelect > moves.size() + 1);
+                    if(moveSelect == moves.size() + 1) {
+                        manager.setState(BattleState.PLAYER_ONE_FAINTED);
+                        break;
+                    }
+
                     PokemonMove move = moves.get(moveSelect - 1);
                     manager.applyMove(move, team.getActivePokemon(), cpuTeam.getActivePokemon());
 					System.out.println(activePokemon.getNickname() + " used " + move.getName() + "!");
@@ -117,7 +122,7 @@ public class BattleMenu extends MenuOption {
                         manager.setState(BattleState.PLAYER_TWO_VICTORY);
                         break;
                     }
-                    System.out.println("Your Pokemon has fainted. Please choose a new one.");
+                    System.out.println("Please choose a new Pokemon.");
                     System.out.print(team);
                     try {
                         int newPoke = Integer.parseInt(sc.nextLine());
@@ -140,7 +145,7 @@ public class BattleMenu extends MenuOption {
                     }
                     break;
                 case PLAYER_ONE_VICTORY:
-                    System.out.println("you're winner!");
+                    System.out.println("Congratulations, you've won!");
                     for(Pokemon p : team.getPokemon()) {
                         if(p == null) continue;
                         p.setHp(p.getMaxHp());
