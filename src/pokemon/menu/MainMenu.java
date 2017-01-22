@@ -1,7 +1,6 @@
 package pokemon.menu;
 
-import menu.text.MenuBuilder;
-import menu.text.MenuOption;
+import menu.text.*;
 import pokemon.data.*;
 import pokemon.serialization.*;
 import serialization.srsf.Lazy;
@@ -53,6 +52,11 @@ public class MainMenu {
                     e.printStackTrace();
                     System.out.println("We were unable to save your changes.");
                 }
+            }
+        }).error(new ErrorHandler() {
+            @Override
+            public void handle(Exception e) {
+               System.out.println ("There was a general error");
             }
         });
         menuBuilder.run();
