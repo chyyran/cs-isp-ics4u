@@ -19,7 +19,7 @@ public class BattleMenu extends MenuOption {
     private final PokemonTeam team;
     private final List<PokemonSpecies> validSpecies;
     private final List<PokemonMove> validMoves;
-	private static int health;
+	private static int tHealth, sHealth;
 
     public BattleMenu(PokemonTeam team, List<PokemonSpecies> validSpecies, List<PokemonMove> validMoves) {
         super("Battle");
@@ -78,7 +78,8 @@ public class BattleMenu extends MenuOption {
                         break;
                     }
                     
-					health = targetPokemon.getCurrentHp();
+					tHealth = targetPokemon.getCurrentHp();
+					sHealth = activePokemon.getCurrentHp();
 					
 					System.out.println("You: " + activePokemon);
                     System.out.println("Opponent: " + targetPokemon);
@@ -99,9 +100,17 @@ public class BattleMenu extends MenuOption {
                     PokemonMove move = moves.get(moveSelect - 1);
                     manager.applyMove(move, team.getActivePokemon(), cpuTeam.getActivePokemon());
 					System.out.println(activePokemon.getNickname() + " used " + move.getName() + "!");
-					System.out.println(activePokemon.getNickname() + " dealt " + (health - targetPokemon.getCurrentHp()) + " damage! \n");
+					System.out.println(activePokemon.getNickname() + " dealt " + (tHealth - targetPokemon.getCurrentHp()) + " damage! \n");
 					
-                    manager.setState(BattleState.PLAYER_TWO_MOVE);
+					if (sHealth < activePokemon.getCurrentHp()){
+						System.out.println(activePokemon.getNickname() + " healed for" + 
+							Math.abs(sHealth - activePokemon.getCurrentHp()) + " damage! \n");
+					}else if (sHealth > activePokemon.getCurrentHp()){
+						System.out.println(activePokemon.getNickname() + " dealt " + 
+							(sHealth - activePokemon.getCurrentHp()) + " to itself! \n");
+					}
+					
+					manager.setState(BattleState.PLAYER_TWO_MOVE);
                     break;
                 case PLAYER_ONE_FAINTED:
                     List<Pokemon> pokemon = team.getPokemon();
@@ -140,7 +149,7 @@ public class BattleMenu extends MenuOption {
                     }
                     break;
                 case PLAYER_ONE_VICTORY:
-                    System.out.println("you're winner!");
+                    System.out.println("you're the winner!");
                     for(Pokemon p : team.getPokemon()) {
                         if(p == null) continue;
                         p.setHp(p.getMaxHp());
@@ -176,15 +185,24 @@ public class BattleMenu extends MenuOption {
                         break;
                     }
 					
-					health = playerTargetPokemon.getCurrentHp();
+					tHealth = playerTargetPokemon.getCurrentHp();
+					sHealth = cpuActivePokemon.getCurrentHp();
             
                     List<PokemonMove> cpuMoves = cpuActivePokemon.getMoves();
                     PokemonMove cpuMove = cpuMoves.get(new Random().nextInt(cpuMoves.size()));
                     manager.applyMove(cpuMove, cpuActivePokemon, playerTargetPokemon);
 					
                     System.out.println(cpuActivePokemon.getNickname() + " used " + cpuMove.getName() + "!");
-					System.out.println(cpuActivePokemon.getNickname() + " dealt " + (health - playerTargetPokemon.getCurrentHp()) + " damage! \n");
+					System.out.println(cpuActivePokemon.getNickname() + " dealt " + (tHealth - playerTargetPokemon.getCurrentHp()) + " damage! \n");
 					
+					if (sHealth < cpuActivePokemon.getCurrentHp()){
+						System.out.println(cpuActivePokemon.getNickname() + " healed for" + 
+							Math.abs(sHealth - cpuActivePokemon.getCurrentHp()) + " damage! \n");
+					}
+					else if (sHealth > cpuActivePokemon.getCurrentHp()){
+						System.out.println(cpuActivePokemon.getNickname() + " dealt " + 
+							(sHealth - cpuActivePokemon.getCurrentHp()) + " to itself! \n");
+					}
                     manager.setState(BattleState.PLAYER_ONE_MOVE);
                     break;
                 case PLAYER_TWO_VICTORY:
