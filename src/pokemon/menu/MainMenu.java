@@ -44,7 +44,9 @@ public class MainMenu {
             @Override
             public void run() {
                 try {
-                    sc.getCollection(Pokemon.class).addAll(team.getPokemon());
+                    List<Pokemon> pokemon = team.getPokemon();
+                    sc.getCollection(Pokemon.class).clear();
+                    sc.getCollection(Pokemon.class).addAll(pokemon);
                     sc.getCollection(PokemonTeam.class).set(0, team);
                     sc.saveCollection(Pokemon.class);
                     sc.saveCollection(PokemonTeam.class);

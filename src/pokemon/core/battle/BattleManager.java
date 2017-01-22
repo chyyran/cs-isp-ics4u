@@ -45,7 +45,7 @@ public class BattleManager {
         if(move.getName().equalsIgnoreCase(SPECIAL_MOVE)) {
             realDamage = getMoveDamage(new Random().nextInt(moveInitiator.getMaxHp() + 101),
 				DAMAGE_MODIFIER);
-			selfDamage = getMoveDamage(new Random().nextInt(moveTarget.getMaxHp() + 101),
+			selfDamage = getMoveDamage(new Random().nextInt(moveInitiator.getMaxHp() + 101),
 				DAMAGE_MODIFIER);
 					
         }
