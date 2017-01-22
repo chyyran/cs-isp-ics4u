@@ -1,43 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ae6cadfa-5c62-437d-bdbe-7db2b9ec64bc" name="Default" comment="implement switching">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/menu/text/ErrorHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/menu/text/MenuBuilder$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/menu/text/MenuBuilder$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/menu/text/MenuBuilder$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/menu/text/MenuBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/menu/text/MenuOption.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/core/Pokedex.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/core/battle/BattleState.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/BattleMenu$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/BattleMenu.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/MainMenu$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/MainMenu.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu$PokedexPaginator$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu$PokedexPaginator$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu$PokedexPaginator$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu$PokedexPaginator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/TeamMenu$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/TeamMenu$2$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/TeamMenu$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/menu/TeamMenu.class" afterPath="" />
+    <list default="true" id="ae6cadfa-5c62-437d-bdbe-7db2b9ec64bc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/menu/text/MenuBuilder.java" afterPath="$PROJECT_DIR$/src/menu/text/MenuBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/core/Pokedex.java" afterPath="$PROJECT_DIR$/src/pokemon/core/Pokedex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java" afterPath="$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/data/PokemonSpecies.java" afterPath="$PROJECT_DIR$/src/pokemon/data/PokemonSpecies.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/Pokemon.srsf" afterPath="$PROJECT_DIR$/data/Pokemon.srsf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/PokemonTeam.srsf" afterPath="$PROJECT_DIR$/data/PokemonTeam.srsf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/menu/MainMenu.java" afterPath="$PROJECT_DIR$/src/pokemon/menu/MainMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu.java" afterPath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/menu/TeamMenu.java" afterPath="$PROJECT_DIR$/src/pokemon/menu/TeamMenu.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,8 +28,8 @@
       <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pokemon/menu/MainMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
-              <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+            <state relative-caret-position="-117">
+              <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -79,8 +48,8 @@
       <file leaf-file-name="PokemonSpeciesSerializer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesSerializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="27" column="44" selection-start-line="26" selection-start-column="43" selection-end-line="27" selection-end-column="44" />
+            <state relative-caret-position="121">
+              <caret line="26" column="64" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -89,14 +58,14 @@
       <file leaf-file-name="BattleMenu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pokemon/menu/BattleMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
+            <state relative-caret-position="-5">
               <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="87" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
@@ -116,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pokedex.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Pokedex.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pokemon/core/Pokedex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="359">
+              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding>
                 <element signature="e#381#382#0" expanded="true" />
                 <element signature="e#418#419#0" expanded="true" />
@@ -162,6 +131,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="TeamMenu.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pokemon/menu/TeamMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="512">
+              <caret line="61" column="100" selection-start-line="61" selection-start-column="100" selection-end-line="61" selection-end-column="100" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -178,12 +157,13 @@
         <option value="$PROJECT_DIR$/compile and run.bat" />
         <option value="$PROJECT_DIR$/src/pokemon/menu/BattleMenu.java" />
         <option value="$PROJECT_DIR$/src/menu/text/MenuBuilder.java" />
-        <option value="$PROJECT_DIR$/src/pokemon/menu/MainMenu.java" />
         <option value="$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java" />
         <option value="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu.java" />
         <option value="$PROJECT_DIR$/src/pokemon/core/Pokedex.java" />
         <option value="$PROJECT_DIR$/src/pokemon/data/PokemonSpecies.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/pokemon/menu/MainMenu.java" />
+        <option value="$PROJECT_DIR$/src/pokemon/menu/TeamMenu.java" />
       </list>
     </option>
   </component>
@@ -463,20 +443,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="text" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cs-isp-ics4u" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cs-isp-ics4u" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -823,7 +789,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485119347642</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix pokedex menu">
+      <created>1485122743385</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1485122743385</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -837,7 +810,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -846,7 +819,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3992674" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3992674" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -873,7 +846,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="implement switching" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement switching" />
+    <MESSAGE value="fix pokedex menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix pokedex menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -885,61 +859,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/pokemon/core/Pokedex.java</url>
-          <line>40</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/pokemon/core/Pokedex.java</url>
-          <line>38</line>
-          <properties />
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/pokemon/core/Pokedex.java</url>
-          <line>35</line>
-          <properties />
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/pokemon/core/Pokedex.java</url>
-          <line>36</line>
-          <properties />
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/pokemon/core/Pokedex.java</url>
-          <line>37</line>
-          <properties />
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/pokemon/core/Pokedex.java</url>
-          <line>39</line>
-          <properties />
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/pokemon/core/Pokedex.java</url>
-          <line>41</line>
-          <properties />
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/pokemon/core/Pokedex.java</url>
           <line>43</line>
-          <properties />
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/pokemon/core/Pokedex.java</url>
-          <line>42</line>
-          <properties />
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/pokemon/core/Pokedex.java</url>
-          <line>44</line>
           <properties />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
@@ -1000,14 +920,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesSerializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="27" column="44" selection-start-line="26" selection-start-column="43" selection-end-line="27" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pokemon/core/battle/BattleState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1016,18 +928,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/menu/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/menu/text/MenuBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-259">
+          <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pokemon/data/PokemonSpecies.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1047,18 +975,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/menu/text/MenuBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/pokemon/menu/TeamMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-259">
-          <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+        <state relative-caret-position="512">
+          <caret line="61" column="100" selection-start-line="61" selection-start-column="100" selection-end-line="61" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesSerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="26" column="64" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pokemon/menu/BattleMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="87" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pokemon/menu/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-117">
+          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pokemon/core/Pokedex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="359">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
             <element signature="e#381#382#0" expanded="true" />
             <element signature="e#418#419#0" expanded="true" />
@@ -1069,30 +1021,6 @@
             <element signature="e#2549#2550#0" expanded="true" />
             <element signature="e#2619#2620#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/data/PokemonSpecies.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/menu/BattleMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="87" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>

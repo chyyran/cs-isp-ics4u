@@ -30,7 +30,8 @@ public class MainMenu {
             sc.loadCollection(Pokemon.class);
             sc.loadCollection(PokemonTeam.class);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Unable to load data files. Please ensure all data files are in the data directory.");
+            return;
         }
 
         MenuBuilder menuBuilder = new MenuBuilder();
