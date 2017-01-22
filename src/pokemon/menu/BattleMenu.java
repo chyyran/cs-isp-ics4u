@@ -154,11 +154,7 @@ public class BattleMenu extends MenuOption {
                     }
                     break;
                 case PLAYER_ONE_VICTORY:
-<<<<<<< HEAD
-                    System.out.println("you're the winner!");
-=======
                     System.out.println("Congratulations, you've won!");
->>>>>>> origin/master
                     for(Pokemon p : team.getPokemon()) {
                         if(p == null) continue;
                         p.setHp(p.getMaxHp());
