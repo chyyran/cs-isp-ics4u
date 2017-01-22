@@ -1,43 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ae6cadfa-5c62-437d-bdbe-7db2b9ec64bc" name="Default" comment="clear pokemon list and readd">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonIdResolver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonMoveResolver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonMoveSerializer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonSerializer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesResolver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesSerializer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonTeamSerializer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonTypeResolver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonTypeSerializer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/serialization/srsf/KeyValuePair.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/serialization/srsf/Lazy$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/serialization/srsf/Lazy.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/serialization/srsf/LazyResolver$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/serialization/srsf/LazyResolver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/serialization/srsf/Schema.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/serialization/srsf/SchemaSerializer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/serialization/srsf/SerializationContext.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/serialization/srsf/Serializer.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/menu/text/ErrorHandler.java" afterPath="$PROJECT_DIR$/src/menu/text/ErrorHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/menu/text/MenuBuilder.java" afterPath="$PROJECT_DIR$/src/menu/text/MenuBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/menu/text/MenuOption.java" afterPath="$PROJECT_DIR$/src/menu/text/MenuOption.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/core/battle/BattleState.java" afterPath="$PROJECT_DIR$/src/pokemon/core/battle/BattleState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonIdResolver.java" afterPath="$PROJECT_DIR$/src/pokemon/serialization/PokemonIdResolver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonMoveResolver.java" afterPath="$PROJECT_DIR$/src/pokemon/serialization/PokemonMoveResolver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonSerializer.java" afterPath="$PROJECT_DIR$/src/pokemon/serialization/PokemonSerializer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesResolver.java" afterPath="$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesResolver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonTypeResolver.java" afterPath="$PROJECT_DIR$/src/pokemon/serialization/PokemonTypeResolver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/serialization/srsf/KeyValuePair.java" afterPath="$PROJECT_DIR$/src/serialization/srsf/KeyValuePair.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/serialization/srsf/Lazy.java" afterPath="$PROJECT_DIR$/src/serialization/srsf/Lazy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/serialization/srsf/LazyResolver.java" afterPath="$PROJECT_DIR$/src/serialization/srsf/LazyResolver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/serialization/srsf/Schema.java" afterPath="$PROJECT_DIR$/src/serialization/srsf/Schema.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/serialization/srsf/SchemaSerializer.java" afterPath="$PROJECT_DIR$/src/serialization/srsf/SchemaSerializer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/serialization/srsf/SerializationContext.java" afterPath="$PROJECT_DIR$/src/serialization/srsf/SerializationContext.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/serialization/srsf/Serializer.java" afterPath="$PROJECT_DIR$/src/serialization/srsf/Serializer.java" />
-    </list>
+    <list default="true" id="ae6cadfa-5c62-437d-bdbe-7db2b9ec64bc" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -992,7 +956,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485124026974</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="clear pokemon list and readd">
+      <created>1485127631919</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1485127631919</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
