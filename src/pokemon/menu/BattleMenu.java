@@ -10,7 +10,6 @@ import pokemon.data.PokemonSpecies;
 import pokemon.data.PokemonTeam;
 import serialization.srsf.Lazy;
 import serialization.srsf.LazyResolver;
-
 import java.util.*;
 
 public class BattleMenu extends MenuOption {
@@ -20,6 +19,7 @@ public class BattleMenu extends MenuOption {
     private final PokemonTeam team;
     private final List<PokemonSpecies> validSpecies;
     private final List<PokemonMove> validMoves;
+	private static int tHealth, sHealth;
 
     public BattleMenu(PokemonTeam team, List<PokemonSpecies> validSpecies, List<PokemonMove> validMoves) {
         super("Battle");
@@ -57,7 +57,7 @@ public class BattleMenu extends MenuOption {
             return;
         }
         PokemonTeam cpuTeam = getRandomTeam(validSpecies, validMoves, team.getActivePokemon().getLevel() +
-                new Random().nextInt(LEVEL_RANGE) + 1); //todo: I am broken.
+                new Random().nextInt(LEVEL_RANGE) + 1);
         BattleManager manager = new BattleManager(team, cpuTeam);
         Scanner sc = new Scanner(System.in);
         boolean gameEnd = false;
@@ -66,13 +66,28 @@ public class BattleMenu extends MenuOption {
                 case PLAYER_ONE_MOVE:
                     //can not switch during battle
                     Pokemon activePokemon = team.getActivePokemon();
-                    Pokemon targetPokemon = cpuTeam.getActivePokemon();
-                    System.out.println("You: " + activePokemon);
+					Pokemon targetPokemon = cpuTeam.getActivePokemon();
+					if(targetPokemon.isFainted()) {
+						System.out.println (targetPokemon.getNickname() + " has fainted. \n");
+                        manager.setState(BattleState.PLAYER_TWO_FAINTED);
+                        break;
+                    }
+                    if(activePokemon.isFainted()) {
+						System.out.println ("Your " + activePokemon.getNickname() + " has fainted. \n");
+                        manager.setState(BattleState.PLAYER_ONE_FAINTED);
+                        break;
+                    }
+                    
+					tHealth = targetPokemon.getCurrentHp();
+					sHealth = activePokemon.getCurrentHp();
+					
+					System.out.println("You: " + activePokemon);
                     System.out.println("Opponent: " + targetPokemon);
                     List<PokemonMove> moves = activePokemon.getMoves();
                     for(int i = 0; i < moves.size(); i++) {
                         System.out.println("[" + (i+1) + "] " + moves.get(i));
                     }
+                    System.out.println("[" + (moves.size() + 1) + "] Switch Pokemon.");
                     int moveSelect = 0;
                     do {
                         try {
@@ -81,19 +96,26 @@ public class BattleMenu extends MenuOption {
                         }catch(NumberFormatException e) {
                             continue;
                         }
-                    }while(moveSelect <= 0 || moveSelect > moves.size());
-                    //input, choose move
-                    PokemonMove move = moves.get(moveSelect - 1);
-                    manager.applyMove(move, team.getActivePokemon(), cpuTeam.getActivePokemon());
-                    if(targetPokemon.isFainted()) {
-                        manager.setState(BattleState.PLAYER_TWO_FAINTED);
-                        break;
-                    }
-                    if(activePokemon.isFainted()) {
+                    }while(moveSelect <= 0 || moveSelect > moves.size() + 1);
+                    if(moveSelect == moves.size() + 1) {
                         manager.setState(BattleState.PLAYER_ONE_FAINTED);
                         break;
                     }
-                    manager.setState(BattleState.PLAYER_TWO_MOVE);
+
+                    PokemonMove move = moves.get(moveSelect - 1);
+                    manager.applyMove(move, team.getActivePokemon(), cpuTeam.getActivePokemon());
+					System.out.println(activePokemon.getNickname() + " used " + move.getName() + "!");
+					System.out.println(activePokemon.getNickname() + " dealt " + (tHealth - targetPokemon.getCurrentHp()) + " damage! \n");
+					
+					if (sHealth < activePokemon.getCurrentHp()){
+						System.out.println(activePokemon.getNickname() + " healed for" + 
+							Math.abs(sHealth - activePokemon.getCurrentHp()) + " damage! \n");
+					}else if (sHealth > activePokemon.getCurrentHp()){
+						System.out.println(activePokemon.getNickname() + " dealt " + 
+							(sHealth - activePokemon.getCurrentHp()) + " to itself! \n");
+					}
+					
+					manager.setState(BattleState.PLAYER_TWO_MOVE);
                     break;
                 case PLAYER_ONE_FAINTED:
                     List<Pokemon> pokemon = team.getPokemon();
@@ -109,7 +131,7 @@ public class BattleMenu extends MenuOption {
                         manager.setState(BattleState.PLAYER_TWO_VICTORY);
                         break;
                     }
-                    System.out.println("Your Pokemon has fainted. Please choose a new one.");
+                    System.out.println("Please choose a new Pokemon.");
                     System.out.print(team);
                     try {
                         int newPoke = Integer.parseInt(sc.nextLine());
@@ -122,7 +144,7 @@ public class BattleMenu extends MenuOption {
                             break;
                         }
                         if(pokemon.get(newPoke - 1).isFainted()) {
-                            System.out.println(pokemon.get(newPoke - 1).getNickname() + " is fainted and can not battle!");
+                            System.out.println(pokemon.get(newPoke - 1).getNickname() + " has fainted and can not battle!");
                             break;
                         }
                         team.setActivePokemon(newPoke - 1);
@@ -132,7 +154,7 @@ public class BattleMenu extends MenuOption {
                     }
                     break;
                 case PLAYER_ONE_VICTORY:
-                    System.out.println("you're winner!");
+                    System.out.println("Congratulations, you've won!");
                     for(Pokemon p : team.getPokemon()) {
                         if(p == null) continue;
                         p.setHp(p.getMaxHp());
@@ -156,19 +178,36 @@ public class BattleMenu extends MenuOption {
                     break;
                 case PLAYER_TWO_MOVE:
                     Pokemon cpuActivePokemon = cpuTeam.getActivePokemon();
-                    Pokemon playerTargetPokemon = team.getActivePokemon();
-                    List<PokemonMove> cpuMoves = cpuActivePokemon.getMoves();
-                    PokemonMove cpuMove = cpuMoves.get(new Random().nextInt(cpuMoves.size()));
-                    manager.applyMove(cpuMove, cpuActivePokemon, playerTargetPokemon);
-                    System.out.println(cpuActivePokemon.getNickname() + " used " + cpuMove.getName() + "!");
-                    if(playerTargetPokemon.isFainted()) {
-                        manager.setState(BattleState.PLAYER_ONE_FAINTED);
-                        break;
-                    }
-                    if(cpuActivePokemon.isFainted()) {
+					Pokemon playerTargetPokemon = team.getActivePokemon();
+					if(cpuActivePokemon.isFainted()) {
+						System.out.println (cpuActivePokemon.getNickname() + " has fainted. \n");
                         manager.setState(BattleState.PLAYER_TWO_FAINTED);
                         break;
                     }
+                    if(playerTargetPokemon.isFainted()) {
+						System.out.println ("Your " + playerTargetPokemon.getNickname() + " has fainted. \n");
+                        manager.setState(BattleState.PLAYER_ONE_FAINTED);
+                        break;
+                    }
+					
+					tHealth = playerTargetPokemon.getCurrentHp();
+					sHealth = cpuActivePokemon.getCurrentHp();
+            
+                    List<PokemonMove> cpuMoves = cpuActivePokemon.getMoves();
+                    PokemonMove cpuMove = cpuMoves.get(new Random().nextInt(cpuMoves.size()));
+                    manager.applyMove(cpuMove, cpuActivePokemon, playerTargetPokemon);
+					
+                    System.out.println(cpuActivePokemon.getNickname() + " used " + cpuMove.getName() + "!");
+					System.out.println(cpuActivePokemon.getNickname() + " dealt " + (tHealth - playerTargetPokemon.getCurrentHp()) + " damage! \n");
+					
+					if (sHealth < cpuActivePokemon.getCurrentHp()){
+						System.out.println(cpuActivePokemon.getNickname() + " healed for" + 
+							Math.abs(sHealth - cpuActivePokemon.getCurrentHp()) + " damage! \n");
+					}
+					else if (sHealth > cpuActivePokemon.getCurrentHp()){
+						System.out.println(cpuActivePokemon.getNickname() + " dealt " + 
+							(sHealth - cpuActivePokemon.getCurrentHp()) + " to itself! \n");
+					}
                     manager.setState(BattleState.PLAYER_ONE_MOVE);
                     break;
                 case PLAYER_TWO_VICTORY:

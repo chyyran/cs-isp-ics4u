@@ -25,39 +25,42 @@ public class TeamMenu extends MenuOption {
                     public void run() {
                         int selection = 1;
                         do {
-                            Scanner scanner = new Scanner(System.in);
-                            if (team == null) team = new PokemonTeam();
-                            System.out.println(team);
-                            if(team.getActivePokemon() != null) {
-                                System.out.println("Pick a slot, or press 0 to exit.");
-                                selection = Integer.parseInt(scanner.nextLine()); //todo: validate input.
-                            }
-                            if(selection == 0) {
-                                return;
-                            }
-                            if(selection < 1 || selection > team.getPokemon().size()) {
-                                System.out.println("Please select a valid slot!!");
-                                continue;
-                            }
-                            System.out.println("Pick a pokemon from 1 to " + pokemonSpecies.size());
-                            int pokemonNumber = Integer.parseInt(scanner.nextLine()); //todo: validate input.
-                            if(pokemonNumber < 1 || pokemonNumber > pokemonSpecies.size()) {
-                                System.out.println("Please select a valid Pokemon");
-                                continue;
-                            }
-                            PokemonSpecies pokemon = null;
-                            for (PokemonSpecies p : pokemonSpecies) {
-                                if (p.getNumber() == pokemonNumber) pokemon = p; //this should be in pokedex
-                            }
-                            final PokemonSpecies _pokemon = pokemon; //finalize pokemon
-                            Pokemon p = new Pokemon(UUID.randomUUID().toString(), new Lazy<PokemonSpecies>(new LazyResolver<PokemonSpecies>() {
-                                @Override
-                                public PokemonSpecies resolve() {
-                                    return _pokemon; //todo: make this easier.
+                            try {
+                                Scanner scanner = new Scanner(System.in);
+                                if (team == null) team = new PokemonTeam();
+                                System.out.println(team);
+                                if (team.getActivePokemon() != null) {
+                                    System.out.println("Pick a slot, or press 0 to exit.");
+                                    selection = Integer.parseInt(scanner.nextLine()); //todo: validate input.
                                 }
-                            }), getFourMoves(moves), _pokemon.getName(), 1);
-                            team.setPokemon(selection - 1, p);
-
+                                if (selection == 0) {
+                                    return;
+                                }
+                                if (selection < 1 || selection > team.getPokemon().size()) {
+                                    System.out.println("Please select a valid slot!!");
+                                    continue;
+                                }
+                                System.out.println("Pick a pokemon from 1 to " + pokemonSpecies.size());
+                                int pokemonNumber = Integer.parseInt(scanner.nextLine()); //todo: validate input.
+                                if (pokemonNumber < 1 || pokemonNumber > pokemonSpecies.size()) {
+                                    System.out.println("Please select a valid Pokemon");
+                                    continue;
+                                }
+                                PokemonSpecies pokemon = null;
+                                for (PokemonSpecies p : pokemonSpecies) {
+                                    if (p.getNumber() == pokemonNumber) pokemon = p; //this should be in pokedex
+                                }
+                                final PokemonSpecies _pokemon = pokemon; //finalize pokemon
+                                Pokemon p = new Pokemon(UUID.randomUUID().toString(), new Lazy<PokemonSpecies>(new LazyResolver<PokemonSpecies>() {
+                                    @Override
+                                    public PokemonSpecies resolve() {
+                                        return _pokemon; //todo: make this easier.
+                                    }
+                                }), getFourMoves(moves), _pokemon.getName(), 1);
+                                team.setPokemon(selection - 1, p);
+                            }catch(NumberFormatException e) {
+                                System.out.println("That is not a valid choice, please try again.");
+                            }
                             //this should ideally be done with a MenuOption, but in the interest of time.
                         } while (true);
                     }

@@ -17,7 +17,7 @@ public class BattleManager {
 	private static final String SPECIAL_MOVE = "Pooh";
     private static int DAMAGE_MODIFIER = 125;
     private static int DAMAGE_BOUND = 85;
->>>>>>> origin/master
+
     public BattleManager(PokemonTeam teamOne, PokemonTeam teamTwo) {
         this.teamOne = teamOne;
         this.teamTwo = teamTwo;
@@ -43,9 +43,9 @@ public class BattleManager {
         int realDamage = getMoveDamage(move.getDamage(), moveInitiator.getLevel());
         int selfDamage = getMoveDamage(move.getSelfDamage(), moveInitiator.getLevel());
         if(move.getName().equalsIgnoreCase(SPECIAL_MOVE)) {
-            realDamage = getMoveDamage(new Random().nextInt(moveTarget.getMaxHp() + 101),
+            realDamage = getMoveDamage(new Random().nextInt(moveInitiator.getMaxHp() + 101),
 				DAMAGE_MODIFIER);
-			selfDamage = getMoveDamage(new Random().nextInt(moveInitiator.getMaxHp() + 101),
+			selfDamage = getMoveDamage(new Random().nextInt(moveTarget.getMaxHp() + 101),
 				DAMAGE_MODIFIER);
 					
         }
@@ -54,6 +54,6 @@ public class BattleManager {
     }
     private static int getMoveDamage(int baseDamage, int level) {
         Random r = new Random();
-        return (int)Math.abs((level + (0.25 * DAMAGE_MODIFIER) / (double)DAMAGE_MODIFIER) * baseDamage * (r.nextInt(DAMAGE_BOUND) * 0.01));
+        return (int)(level + ((0.25 * DAMAGE_MODIFIER) / (double)DAMAGE_MODIFIER) * baseDamage * (r.nextInt(DAMAGE_BOUND) * 0.01));
     }
 }
