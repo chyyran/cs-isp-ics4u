@@ -52,7 +52,7 @@ public class PokemonSpecies {
     }
 
     public boolean equals(PokemonSpecies that) {
-        return (that.getNumber() == getNumber());
+        return (that != null && that.getNumber() == getNumber());
     }
 
     @Override

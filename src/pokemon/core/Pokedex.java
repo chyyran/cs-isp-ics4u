@@ -3,6 +3,7 @@ package pokemon.core;
 
 import pokemon.data.PokemonSpecies;
 import pokemon.data.PokemonType;
+import pokemon.data.comparators.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,12 +40,11 @@ public class Pokedex {
          return null;
       }
       else if (list.get(middle).getName().compareTo(name) > 0) {
-    //     return sortPokemon(name, list.subList(0, middle-1);
+         return searchName(name, list.subList(0, middle-1));
       }
       else {
-      //   return sortPokemon(name, list.subList(middle+1, list.size()-1);
+         return searchName(name, list.subList(middle+1, list.size()-1));
       }
-      return null;
    }
    
    public List<PokemonSpecies> getAllPokemon () {
@@ -60,12 +60,14 @@ public class Pokedex {
    }
    
    public static void sortByName (List<PokemonSpecies> list) {
+      PokemonSpeciesNameComparator comparator = new PokemonSpeciesNameComparator();
       boolean sorted=false;
       PokemonSpecies temp;
+      
       for (int i=list.size()-1; i>0&&sorted==false; i--) {
          sorted=true;
          for (int j=0; j<i; j++) {
-            if (list.get(j).getName().compareTo(list.get(j+1).getName())==0) {
+            if (comparator.compare(list.get(j), list.get(j+1))<0) {
                sorted=false;
                temp=list.get(j);
                list.add(j, list.get(j+1));
@@ -76,12 +78,14 @@ public class Pokedex {
    }
    
    public static void sortByNumber (List<PokemonSpecies> list) {
+      PokemonSpeciesNumberComparator comparator = new PokemonSpeciesNumberComparator();
       boolean sorted=false;
       PokemonSpecies temp;
+      
       for (int i=list.size()-1; i>0&&sorted==false; i--) {
          sorted=true;
          for (int j=0; j<i; j++) {
-            if (list.get(j).getNumber()>list.get(j+1).getNumber()) {
+            if (comparator.compare(list.get(j), list.get(j+1))<0) {
                sorted=false;
                temp=list.get(j);
                list.add(j, list.get(j+1));
@@ -92,12 +96,14 @@ public class Pokedex {
    }
    
    public static void sortByWeight (List<PokemonSpecies> list) {
+      PokemonSpeciesWeightComparator comparator = new PokemonSpeciesWeightComparator();
       boolean sorted=false;
       PokemonSpecies temp;
+      
       for (int i=list.size()-1; i>0&&sorted==false; i--) {
          sorted=true;
          for (int j=0; j<i; j++) {
-            if (list.get(j).getWeight()>list.get(j+1).getWeight()) {
+            if (comparator.compare(list.get(j), list.get(j+1))<0) {
                sorted=false;
                temp=list.get(j);
                list.add(j, list.get(j+1));
