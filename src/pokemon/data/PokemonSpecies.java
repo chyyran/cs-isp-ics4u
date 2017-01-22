@@ -57,8 +57,40 @@ public class PokemonSpecies {
 
     @Override
     public String toString() {
-        return this.getNumber() + ": " + this.getName();
+        StringBuilder sb = new StringBuilder();
+
+        PokemonSpecies evolvesTo = this.getNextEvolution();
+        PokemonSpecies evolvesFrom = this.getPreviousEvolution();
+        sb.append("No. ");
+        sb.append(this.getNumber());
+        sb.append(": ");
+        sb.append(this.getName());
+        sb.append("\n");
+        sb.append("Primary Type: ");
+        sb.append(this.getPrimaryType());
+        sb.append("\n");
+        sb.append("Secondary Type: ");
+        sb.append(this.getSecondaryType() == null ? "Does not exist" : this.getSecondaryType());
+        sb.append("\n");
+        sb.append("Weight: ");
+        sb.append(this.getWeight());
+        if(evolvesTo != null) {
+            sb.append("\n");
+            sb.append("Evolves to: No. ");
+            sb.append(evolvesTo.getNumber());
+            sb.append(": ");
+            sb.append(evolvesTo.getName());
+        }
+        if(evolvesFrom != null) {
+            sb.append("\n");
+            sb.append("Evolves from: No. ");
+            sb.append(this.getPreviousEvolution().getNumber());
+            sb.append(": ");
+            sb.append(this.getPreviousEvolution().getName());
+        }
+        return sb.toString();
     }
+
     @Override
     public boolean equals(Object o) {
         if (o instanceof PokemonSpecies) return this.equals((PokemonSpecies) o);

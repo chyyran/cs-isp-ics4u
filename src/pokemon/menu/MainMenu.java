@@ -2,6 +2,7 @@ package pokemon.menu;
 
 import menu.text.MenuBuilder;
 import menu.text.MenuOption;
+import pokemon.core.Pokedex;
 import pokemon.data.*;
 import pokemon.serialization.*;
 import serialization.srsf.Lazy;
@@ -36,7 +37,8 @@ public class MainMenu {
         List<PokemonTeam> teamArray = sc.getCollection(PokemonTeam.class);
         if (teamArray.isEmpty()) teamArray.add(new PokemonTeam());
         final PokemonTeam team = teamArray.get(0);
-        menuBuilder.option(new PokedexMenu(sc.getCollection(PokemonSpecies.class)))
+        menuBuilder.option(new PokedexMenu(new Pokedex(sc.getCollection(PokemonSpecies.class)),
+                sc.getCollection(PokemonType.class)))
                 .option(new TeamMenu(team, sc.getCollection(PokemonMove.class),
                         sc.getCollection(PokemonSpecies.class)))
                 .option(new BattleMenu(team, sc.getCollection(PokemonSpecies.class),
