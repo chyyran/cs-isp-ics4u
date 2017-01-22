@@ -11,8 +11,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-
+/**
+ * Serializes a Pokemon from an SRSF block
+ */
 public class PokemonSerializer extends Serializer<Pokemon> {
+
+    /**
+     * Instantiates the PokemonSerializer into the given context
+     * @param context The serialization context this serializer will be loaded into
+     */
     public PokemonSerializer(SerializationContext context) {
         super(context);
     }
