@@ -218,7 +218,7 @@ public class PokedexMenu extends MenuOption {
         private MenuBuilder buildMenu(final int pokemonStart,
                                       final int length) {
             final MenuBuilder nextFivePokemon = new MenuBuilder();
-            for (int i = 0; i < pokemon.size() && i < length; i++) {
+            for (int i = 0; (i + pokemonStart) < pokemon.size() && i < length; i++) {
                 final PokemonSpecies pokemonSpecies = pokemon.get(i + pokemonStart);
                 nextFivePokemon.option(new MenuOption(pokemonSpecies.getName()) {
                     //Each Pokemon has an option to display further details
