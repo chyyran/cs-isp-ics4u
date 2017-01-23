@@ -58,7 +58,7 @@ public class TeamMenu extends MenuOption {
                                 }
 
                                 //allow user to choose pokemon by number
-                                System.out.println("Pick a pokemon from 1 to " + pokedex.getAllPokemon().size());
+                                System.out.println("Pick a Pokemon from 1 to " + pokedex.getAllPokemon().size());
                                 int pokemonNumber = Integer.parseInt(scanner.nextLine());
                                 if (pokemonNumber < 1 || pokemonNumber > pokedex.getAllPokemon().size()) {
                                     System.out.println("Please select a valid Pokemon");
@@ -108,10 +108,13 @@ public class TeamMenu extends MenuOption {
                                     return;
                                 }
                                 if (selection < 1 || selection > team.getPokemon().size()) {
-                                    System.out.println("Please select a valid slot!!");
+                                    System.out.println("Please select a valid slot!");
                                     continue;
                                 }
-
+                                if(team.getPokemon().get(selection - 1) == null) {
+                                    System.out.println("Please select a valid Pokemon!");
+                                    continue;
+                                }
                                 //enter and change nickname
                                 System.out.println("Enter a new nickname: ");
                                 String nickName = scanner.nextLine();

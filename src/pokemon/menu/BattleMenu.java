@@ -169,9 +169,14 @@ public class BattleMenu extends MenuOption {
                 case PLAYER_TWO_FAINTED: //when the user has defeated a cpu pokemon
                     List<Pokemon> cpuPoke = manager.getTeamTwo().getPokemon();
                     for(int i = 0; i < cpuPoke.size(); i++) {
-                        if(!cpuPoke.get(i).isFainted()) {
-                            //try to swap with the first usable Pokemon
-                            manager.getTeamTwo().setActivePokemon(i);
+                        try {
+                            if (cpuPoke.get(i) == null) continue;
+                            if (!cpuPoke.get(i).isFainted()) {
+                                //try to swap with the first usable Pokemon
+                                manager.getTeamTwo().setActivePokemon(i);
+                            }
+                        }catch (NullPointerException e) {
+                            continue;
                         }
                    }
                    //If team two has no usable Pokemon, then Player one wins

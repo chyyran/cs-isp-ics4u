@@ -120,7 +120,7 @@ public class BattleManager {
                                                           int maxLevel, int maxAmount) {
         List<PokemonSpecies> copy = new LinkedList<>(validSpecies);
         Collections.shuffle(copy);
-        ArrayList<Lazy<Pokemon>> pokemon = new ArrayList<>();
+        ArrayList<Lazy<Pokemon>> pokemon = new ArrayList<>(6);
         for (PokemonSpecies species : copy.subList(0, maxAmount)) {
             pokemon.add(Lazy.asLazy(new Pokemon(UUID.randomUUID().toString(),
                     Lazy.asLazy(species), getFourMoves(validMoves),
