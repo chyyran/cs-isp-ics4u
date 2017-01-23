@@ -10,6 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Pokedex {
+
     private List<PokemonSpecies> pokemonSpecies;
 
     public Pokedex(List<PokemonSpecies> list) {
@@ -32,7 +33,7 @@ public class Pokedex {
     }
 
     public static PokemonSpecies searchName(String name, List<PokemonSpecies> list) {
-        if(list.size() == 0) return null;
+        if (list.size() == 0) return null;
         int middle = list.size() / 2;
         if (list.get(middle).getName().equalsIgnoreCase(name)) {
             return list.get(middle);
@@ -72,6 +73,7 @@ public class Pokedex {
             }
         }
     }
+
     public static void sortByName(List<PokemonSpecies> list) {
         Pokedex.sort(list, new PokemonSpeciesNameComparator());
     }

@@ -14,6 +14,14 @@ import java.util.UUID;
  */
 public class Pokemon {
     /**
+     * The tag to display for fainted Pokemon
+     */
+    private static final String STR_FAINT_TAG = " [FNT]";
+    /**
+     * The tag to display for the Pokemon's level
+     */
+    private static final String STR_LEVEL_TAG = "Lv.";
+    /**
      * The to-be-resolved value of the Pokemon's species
      */
     private Lazy<PokemonSpecies> species;
@@ -191,12 +199,12 @@ public class Pokemon {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Lv.");
+        sb.append(STR_LEVEL_TAG);
         sb.append(this.getLevel());
         sb.append(" " + this.getNickname());
         sb.append(" " + this.getCurrentHp() + "/" + this.getMaxHp());
         if(this.isFainted()) {
-            sb.append(" [FNT]");
+            sb.append(STR_FAINT_TAG);
         }
         return sb.toString();
     }
