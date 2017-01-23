@@ -11,10 +11,20 @@ import java.util.HashMap;
 
 
 public class PokemonSpeciesSerializer extends Serializer<PokemonSpecies> {
+
+    /**
+     * Instantiates the PokemonSpeciesSerializer into the given context
+     * @param context The serialization context this serializer will be loaded into
+     */
     public PokemonSpeciesSerializer(SerializationContext context) {
         super(context);
     }
 
+    /**
+     * Converts an SRSF block into a PokemonSpecies object
+     * @param keyValuePairs The key value pairs of the SRSF block
+     * @return The deserialized PokemonSpecies object
+     */
     @Override
     public PokemonSpecies deserialize(HashMap<String, KeyValuePair> keyValuePairs) {
         //number
@@ -35,6 +45,11 @@ public class PokemonSpeciesSerializer extends Serializer<PokemonSpecies> {
                 new Lazy<>(new PokemonSpeciesResolver(this.getContext(), preEvolution)));
     }
 
+
+    /**
+     * PokemonSpecies can not be serialized, and are read only.
+     * @throws UnsupportedOperationException
+     */
     @Override
     public HashMap<String, String> serialize(PokemonSpecies pokemonType) {
         throw new UnsupportedOperationException("Type is static and can not be serialized.");
