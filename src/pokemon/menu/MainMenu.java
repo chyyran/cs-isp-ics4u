@@ -1,8 +1,6 @@
 package pokemon.menu;
 
-import menu.text.MenuBuilder;
-import menu.text.MenuOption;
-import pokemon.core.Pokedex;
+import menu.text.*;
 import pokemon.data.*;
 import pokemon.serialization.*;
 import serialization.srsf.Lazy;
@@ -41,8 +39,7 @@ public class MainMenu {
             sc.loadCollection(Pokemon.class);
             sc.loadCollection(PokemonTeam.class);
         } catch (IOException e) {
-            System.out.println("Unable to load data files. Please ensure all data files are in the data directory.");
-            return;
+            e.printStackTrace();
         }
 
         //Instantiate the root menu
@@ -85,6 +82,11 @@ public class MainMenu {
                     e.printStackTrace();
                     System.out.println("We were unable to save your changes.");
                 }
+            }
+        }).error(new ErrorHandler() {
+            @Override
+            public void handle(Exception e) {
+               System.out.println ("There was a general error");
             }
         });
         //Start the main application loop
