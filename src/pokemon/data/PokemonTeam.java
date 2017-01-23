@@ -30,13 +30,7 @@ public class PokemonTeam {
     }
 
     public List<Pokemon> getPokemon() {
-        ArrayList<Pokemon> list = new ArrayList<>();
-        for (Lazy<Pokemon> p : pokemon) {
-            //add p.getValue() to a new ArrayList
-            list.add(p.getValue());
-        }
-        //return muh array list
-        return list;
+        return Lazy.asList(pokemon);
     }
 
     public void setPokemon(int pos, final Pokemon pokemon) {
