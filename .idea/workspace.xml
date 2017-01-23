@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ae6cadfa-5c62-437d-bdbe-7db2b9ec64bc" name="Default" comment="">
+    <list default="true" id="ae6cadfa-5c62-437d-bdbe-7db2b9ec64bc" name="Default" comment="comment battle menu">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/Pokemon.srsf" afterPath="$PROJECT_DIR$/data/Pokemon.srsf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/PokemonTeam.srsf" afterPath="$PROJECT_DIR$/data/PokemonTeam.srsf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java" afterPath="$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/menu/BattleMenu.java" afterPath="$PROJECT_DIR$/src/pokemon/menu/BattleMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu.java" afterPath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,24 +39,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PokedexMenu.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PokedexMenu.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pokemon/menu/PokedexMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="290">
+              <caret line="243" column="32" selection-start-line="243" selection-start-column="32" selection-end-line="243" selection-end-column="32" />
               <folding>
-                <element signature="class#1532:2255" expanded="false" />
+                <element signature="e#4212#4637#0" expanded="true" />
+                <element signature="e#4636#4637#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PokemonMove.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pokemon/data/PokemonMove.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="834">
-              <caret line="85" column="94" selection-start-line="85" selection-start-column="94" selection-end-line="85" selection-end-column="94" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -64,8 +55,8 @@
       <file leaf-file-name="BattleMenu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pokemon/menu/BattleMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="223" column="54" selection-start-line="223" selection-start-column="54" selection-end-line="223" selection-end-column="54" />
+            <state relative-caret-position="1717">
+              <caret line="110" column="51" selection-start-line="110" selection-start-column="51" selection-end-line="110" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -131,7 +122,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TeamMenu.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TeamMenu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pokemon/menu/TeamMenu.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-526">
@@ -198,7 +189,6 @@
         <option value="$PROJECT_DIR$/src/pokemon/serialization/PokemonTypeSerializer.java" />
         <option value="$PROJECT_DIR$/src/pokemon/data/comparators/PokemonSpeciesNumberComparator.java" />
         <option value="$PROJECT_DIR$/src/pokemon/data/comparators/PokemonSpeciesWeightComparator.java" />
-        <option value="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu.java" />
         <option value="$PROJECT_DIR$/src/pokemon/data/PokemonMove.java" />
         <option value="$PROJECT_DIR$/src/pokemon/data/PokemonSpecies.java" />
         <option value="$PROJECT_DIR$/src/pokemon/data/comparators/PokemonSpeciesNameComparator.java" />
@@ -210,6 +200,7 @@
         <option value="$PROJECT_DIR$/src/pokemon/data/PokemonType.java" />
         <option value="$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java" />
         <option value="$PROJECT_DIR$/src/pokemon/menu/BattleMenu.java" />
+        <option value="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu.java" />
       </list>
     </option>
   </component>
@@ -1067,7 +1058,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485141650546</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="comment battle menu">
+      <created>1485142515262</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1485142515262</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1130,7 +1128,8 @@
     <MESSAGE value="lowercase stuff" />
     <MESSAGE value="comment more stuff" />
     <MESSAGE value="BattleMenu: refactor stuff into battlemanager" />
-    <option name="LAST_COMMIT_MESSAGE" value="BattleMenu: refactor stuff into battlemanager" />
+    <MESSAGE value="comment battle menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="comment battle menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1481,6 +1480,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pokemon/menu/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="87" column="36" selection-start-line="87" selection-start-column="36" selection-end-line="87" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3489#3703#0" expanded="true" />
+            <element signature="e#3702#3703#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pokemon/menu/TeamMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-526">
+          <caret line="31" column="88" selection-start-line="31" selection-start-column="88" selection-end-line="31" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -1498,41 +1517,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/menu/BattleMenu.java">
+    <entry file="file://$PROJECT_DIR$/data/PokemonMove.srsf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="223" column="54" selection-start-line="223" selection-start-column="54" selection-end-line="223" selection-end-column="54" />
+        <state relative-caret-position="163">
+          <caret line="363" column="10" selection-start-line="363" selection-start-column="6" selection-end-line="363" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/menu/MainMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/pokemon/menu/BattleMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="87" column="36" selection-start-line="87" selection-start-column="36" selection-end-line="87" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3489#3703#0" expanded="true" />
-            <element signature="e#3702#3703#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1717">
+          <caret line="110" column="51" selection-start-line="110" selection-start-column="51" selection-end-line="110" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pokemon/menu/PokedexMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="290">
+          <caret line="243" column="32" selection-start-line="243" selection-start-column="32" selection-end-line="243" selection-end-column="32" />
           <folding>
-            <element signature="class#1532:2255" expanded="false" />
+            <element signature="e#4212#4637#0" expanded="true" />
+            <element signature="e#4636#4637#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/menu/TeamMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-526">
-          <caret line="31" column="88" selection-start-line="31" selection-start-column="88" selection-end-line="31" selection-end-column="88" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -111,7 +111,7 @@ public class BattleMenu extends MenuOption {
 					System.out.println(activePokemon.getNickname() + " dealt " + (manager.getTargetHealth() - targetPokemon.getCurrentHp()) + " damage! \n");
 					
 					if (manager.getPlayerHealth() < activePokemon.getCurrentHp()){
-						System.out.println(activePokemon.getNickname() + " healed for" + 
+						System.out.println(activePokemon.getNickname() + " healed for " +
 							Math.abs(manager.getPlayerHealth() - activePokemon.getCurrentHp()) + " damage! \n");
 					}else if (manager.getPlayerHealth() > activePokemon.getCurrentHp()){
 						System.out.println(activePokemon.getNickname() + " dealt " + 
@@ -209,7 +209,7 @@ public class BattleMenu extends MenuOption {
 					System.out.println(cpuActivePokemon.getNickname() + " dealt " + (manager.getTargetHealth() - playerTargetPokemon.getCurrentHp()) + " damage! \n");
 					
 					if (manager.getPlayerHealth() < cpuActivePokemon.getCurrentHp()){
-						System.out.println(cpuActivePokemon.getNickname() + " healed for" + 
+						System.out.println(cpuActivePokemon.getNickname() + " healed for " +
 							Math.abs(manager.getPlayerHealth() - cpuActivePokemon.getCurrentHp()) + " damage! \n");
 					}
 					else if (manager.getPlayerHealth() > cpuActivePokemon.getCurrentHp()){
