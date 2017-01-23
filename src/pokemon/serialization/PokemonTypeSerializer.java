@@ -7,18 +7,42 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-
+/**
+ * Serializes/Deserializes a PokemonType from an SRSF block
+ */
 public class PokemonTypeSerializer extends Serializer<PokemonType> {
+
+    /**
+     * Key for the name of the type
+     */
+    public static final String $_NAME = "$name";
+    /**
+     * Key for the array of weaknesses this type has.
+     */
+    public static final String $_WEAK_AGAINST = "$weakAgainst";
+    /**
+     * Key for the array of strengths this type has.
+     */
+    public static final String $_STRONG_AGAINST = "$strongAgainst";
+    /**
+     * Key for the array of immunities this type has.
+     */
+    public static final String $_IMMUNE_AGAINST = "$immuneAgainst";
+
+    /**
+     * Instantiates the PokemonSerializer into the given context
+     * @param context The serialization context this serializer will be loaded into
+     */
     public PokemonTypeSerializer(SerializationContext context) {
         super(context);
     }
 
     @Override
     public PokemonType deserialize(HashMap<String, KeyValuePair> keyValuePairs) {
-        String name = keyValuePairs.get("$name").asString();
-        String[] weakness = keyValuePairs.get("$weakAgainst").asStringArray();
-        String[] strength = keyValuePairs.get("$strongAgainst").asStringArray();
-        String[] immune = keyValuePairs.get("$immuneAgainst").asStringArray();
+        String name = keyValuePairs.get($_NAME).asString();
+        String[] weakness = keyValuePairs.get($_WEAK_AGAINST).asStringArray();
+        String[] strength = keyValuePairs.get($_STRONG_AGAINST).asStringArray();
+        String[] immune = keyValuePairs.get($_IMMUNE_AGAINST).asStringArray();
 
         List<Lazy<PokemonType>> weaknesses = new ArrayList<>();
         for (String wkString : weakness) {

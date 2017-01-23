@@ -87,16 +87,16 @@ public class PokemonSerializer extends Serializer<Pokemon> {
     public HashMap<String, String> serialize(Pokemon pokemon) {
         if(pokemon == null) return null;
         HashMap<String, String> values = new HashMap<>();
-        values.put($_SPECIES, String.valueOf(pokemon.getSpecies().getNumber()));
-        values.put($_ID, pokemon.getId());
-        values.put($_NICKNAME, pokemon.getNickname());
-        values.put($_LEVEL, String.valueOf(pokemon.getLevel()));
+        values.put($_SPECIES, String.valueOf(pokemon.getSpecies().getNumber())); //put the species number
+        values.put($_ID, pokemon.getId()); //put the id
+        values.put($_NICKNAME, pokemon.getNickname()); //put the nickname
+        values.put($_LEVEL, String.valueOf(pokemon.getLevel())); //put the level
         String[] moveNames = new String[pokemon.getMoves().size()];
         for (int i = 0; i < moveNames.length; i++) {
-            moveNames[i] = pokemon.getMoves().get(i).getName();
+            moveNames[i] = pokemon.getMoves().get(i).getName(); //get the names of all the moves
         }
-        values.put($_MOVES, Serializer.arrayFormat(moveNames));
-        values.put($_HP, String.valueOf(pokemon.getCurrentHp()));
+        values.put($_MOVES, Serializer.arrayFormat(moveNames)); //put the move names
+        values.put($_HP, String.valueOf(pokemon.getCurrentHp())); //put the current HP
         return values;
     }
 }

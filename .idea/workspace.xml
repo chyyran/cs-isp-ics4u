@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae6cadfa-5c62-437d-bdbe-7db2b9ec64bc" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/Pokemon.srsf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/PokemonTeam.srsf" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/Pokemon.srsf" afterPath="$PROJECT_DIR$/data/Pokemon.srsf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/menu/text/MenuBuilder.java" afterPath="$PROJECT_DIR$/src/menu/text/MenuBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/data/Pokemon.java" afterPath="$PROJECT_DIR$/src/pokemon/data/Pokemon.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/menu/MainMenu.java" afterPath="$PROJECT_DIR$/src/pokemon/menu/MainMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/menu/TeamMenu.java" afterPath="$PROJECT_DIR$/src/pokemon/menu/TeamMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonMoveSerializer.java" afterPath="$PROJECT_DIR$/src/pokemon/serialization/PokemonMoveSerializer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java" afterPath="$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonSerializer.java" afterPath="$PROJECT_DIR$/src/pokemon/serialization/PokemonSerializer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesSerializer.java" afterPath="$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesSerializer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonTeamSerializer.java" afterPath="$PROJECT_DIR$/src/pokemon/serialization/PokemonTeamSerializer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/serialization/PokemonTypeSerializer.java" afterPath="$PROJECT_DIR$/src/pokemon/serialization/PokemonTypeSerializer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,8 +31,8 @@
       <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pokemon/menu/MainMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="46" column="57" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />
+            <state relative-caret-position="646">
+              <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -42,8 +41,8 @@
       <file leaf-file-name="PokemonIdResolver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonIdResolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="11" selection-end-column="3" />
+            <state relative-caret-position="323">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="26" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -62,8 +61,8 @@
       <file leaf-file-name="PokemonSerializer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonSerializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+            <state relative-caret-position="119">
+              <caret line="46" column="7" selection-start-line="43" selection-start-column="1" selection-end-line="46" selection-end-column="7" />
               <folding>
                 <element signature="e#1262#1263#0" expanded="true" />
                 <element signature="e#1292#1293#0" expanded="true" />
@@ -72,11 +71,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PokemonTeam.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pokemon/data/PokemonTeam.java">
+      <file leaf-file-name="BattleManager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state relative-caret-position="357">
+              <caret line="56" column="92" selection-start-line="56" selection-start-column="92" selection-end-line="56" selection-end-column="92" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PokemonSpeciesResolver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesResolver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -85,51 +94,38 @@
       <file leaf-file-name="PokemonSpeciesSerializer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesSerializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="34" column="58" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
+            <state relative-caret-position="119">
+              <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TeamMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pokemon/menu/TeamMenu.java">
+      <file leaf-file-name="PokemonTypeSerializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonTypeSerializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="93" column="45" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
+            <state relative-caret-position="408">
+              <caret line="29" column="60" selection-start-line="29" selection-start-column="60" selection-end-line="29" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pokemon.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pokemon/data/Pokemon.java">
+      <file leaf-file-name="PokemonTeamSerializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonTeamSerializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
-              <folding>
-                <element signature="e#1925#1926#0" expanded="true" />
-                <element signature="e#2000#2001#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PokemonMove.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pokemon/data/PokemonMove.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-165">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="307">
+              <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PokemonMoveSerializer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonMoveSerializer.java">
+      <file leaf-file-name="PokemonTeam.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pokemon/data/PokemonTeam.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+            <state relative-caret-position="68">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -154,7 +150,6 @@
         <option value="$PROJECT_DIR$/src/pokemon/data/PokemonSpecies.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/pokemon/menu/BattleMenu.java" />
-        <option value="$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java" />
         <option value="$PROJECT_DIR$/src/serialization/srsf/Serializer.java" />
         <option value="$PROJECT_DIR$/src/serialization/srsf/Schema.java" />
         <option value="$PROJECT_DIR$/src/serialization/srsf/LazyResolver.java" />
@@ -170,20 +165,23 @@
         <option value="$PROJECT_DIR$/src/pokemon/serialization/PokemonTypeResolver.java" />
         <option value="$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesResolver.java" />
         <option value="$PROJECT_DIR$/src/menu/text/MenuBuilder.java" />
-        <option value="$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesSerializer.java" />
         <option value="$PROJECT_DIR$/src/pokemon/serialization/PokemonMoveSerializer.java" />
-        <option value="$PROJECT_DIR$/src/pokemon/serialization/PokemonSerializer.java" />
         <option value="$PROJECT_DIR$/src/pokemon/menu/MainMenu.java" />
         <option value="$PROJECT_DIR$/src/pokemon/menu/TeamMenu.java" />
         <option value="$PROJECT_DIR$/src/pokemon/data/Pokemon.java" />
+        <option value="$PROJECT_DIR$/src/pokemon/serialization/PokemonSerializer.java" />
+        <option value="$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesSerializer.java" />
+        <option value="$PROJECT_DIR$/src/pokemon/serialization/PokemonTeamSerializer.java" />
+        <option value="$PROJECT_DIR$/src/pokemon/serialization/PokemonTypeSerializer.java" />
+        <option value="$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="y" value="4" />
-    <option name="width" value="1930" />
-    <option name="height" value="1060" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -503,6 +501,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="text" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cs-isp-ics4u" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cs-isp-ics4u" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1009,12 +1021,19 @@
       <option name="project" value="LOCAL" />
       <updated>1485127638546</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add nickname changing">
+      <created>1485134175114</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1485134175114</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="4" width="1930" height="1060" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1023,12 +1042,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41894737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42071882" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973877" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24895833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1064,7 +1083,8 @@
     <MESSAGE value="sds" />
     <MESSAGE value="swap pkmn used in damage calc" />
     <MESSAGE value="clear pokemon list and readd" />
-    <option name="LAST_COMMIT_MESSAGE" value="clear pokemon list and readd" />
+    <MESSAGE value="add nickname changing" />
+    <option name="LAST_COMMIT_MESSAGE" value="add nickname changing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1254,14 +1274,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="36" column="32" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pokemon/core/battle/BattleState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -1315,38 +1327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonTeamSerializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesSerializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="34" column="58" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonIdResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="11" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonMoveSerializer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1363,18 +1343,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/menu/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="46" column="57" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pokemon/menu/TeamMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="93" column="45" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pokemon/data/Pokemon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="69" column="20" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+          <folding>
+            <element signature="e#1925#1926#0" expanded="true" />
+            <element signature="e#2000#2001#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pokemon/menu/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1387,10 +1378,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pokemon/data/PokemonTeam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonIdResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="26" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonSpeciesSerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonTeamSerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonSerializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+        <state relative-caret-position="119">
+          <caret line="46" column="7" selection-start-line="43" selection-start-column="1" selection-end-line="46" selection-end-column="7" />
           <folding>
             <element signature="e#1262#1263#0" expanded="true" />
             <element signature="e#1292#1293#0" expanded="true" />
@@ -1398,22 +1429,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/data/PokemonTeam.java">
+    <entry file="file://$PROJECT_DIR$/src/pokemon/serialization/PokemonTypeSerializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state relative-caret-position="408">
+          <caret line="29" column="60" selection-start-line="29" selection-start-column="60" selection-end-line="29" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pokemon/data/Pokemon.java">
+    <entry file="file://$PROJECT_DIR$/src/pokemon/core/battle/BattleManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
-          <folding>
-            <element signature="e#1925#1926#0" expanded="true" />
-            <element signature="e#2000#2001#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="357">
+          <caret line="56" column="92" selection-start-line="56" selection-start-column="92" selection-end-line="56" selection-end-column="92" />
+          <folding />
         </state>
       </provider>
     </entry>
