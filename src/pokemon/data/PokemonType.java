@@ -46,14 +46,29 @@ public class PokemonType {
     }
 
     public boolean isImmuneAgainst(PokemonType type) {
-        return immunities.contains(type); //todo: implement
+        List<PokemonType> isImmune = Lazy.asList(this.immunities);
+        for (int i=0; i<isImmune.size(); i++) {
+            if (isImmune.get(i).equals(type))
+               return true;
+        }
+        return false;  //todo: implement
     }
 
     public boolean isStrongAgainst(PokemonType type) {
-        return strengths.contains(type); //todo: implement
+        List<PokemonType> isStrong = Lazy.asList(this.strengths);
+        for (int i=0; i<isStrong.size(); i++) {
+            if (isStrong.get(i).equals(type))
+               return true;
+        }
+        return false; //todo: implement
     }
 
     public boolean isWeakAgainst(PokemonType type) {
-        return weaknesses.contains(type); //todo: implement
+        List<PokemonType> isWeak = Lazy.asList(this.weaknesses);
+        for (int i=0; i<isWeak.size(); i++) {
+            if (isWeak.get(i).equals(type))
+               return true;
+        }
+        return false; //todo: implement
     }
 }
