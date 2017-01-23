@@ -10,15 +10,15 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Pokedex {
+
     private List<PokemonSpecies> pokemonSpecies;
-    private static int NOTHERE = -1;
 
     public Pokedex(List<PokemonSpecies> list) {
         pokemonSpecies = list;
     }
 
     public List<PokemonSpecies> searchPokemonByType(PokemonType type) {
-        List<PokemonSpecies> list = new ArrayList<PokemonSpecies>();
+        List<PokemonSpecies> list = new ArrayList<>();
         for (PokemonSpecies all : pokemonSpecies) {
             if (all.getPrimaryType() == type || all.getSecondaryType() == type)
                 list.add(all);
@@ -27,19 +27,19 @@ public class Pokedex {
     }
 
     public PokemonSpecies searchPokemonByName(String name) {
-        List<PokemonSpecies> list = new ArrayList<PokemonSpecies>(pokemonSpecies);
+        List<PokemonSpecies> list = new ArrayList<>(pokemonSpecies);
         Pokedex.sortByName(list);
         return Pokedex.searchName(name, list);
     }
 
     public static PokemonSpecies searchName(String name, List<PokemonSpecies> list) {
-        if(list.size() == 0) return null;
+        if (list.size() == 0) return null;
         int middle = list.size() / 2;
         if (list.get(middle).getName().equalsIgnoreCase(name)) {
             return list.get(middle);
         } else if (list.size() == 1) {
             return null;
-        } else if (list.get(middle).getName().compareTo(name) < 0) {
+        } else if (list.get(middle).getName().toLowerCase().compareTo(name.toLowerCase()) < 0) {
             return searchName(name, list.subList(middle + 1, list.size()));
         } else {
             return searchName(name, list.subList(0, middle));
@@ -73,6 +73,7 @@ public class Pokedex {
             }
         }
     }
+
     public static void sortByName(List<PokemonSpecies> list) {
         Pokedex.sort(list, new PokemonSpeciesNameComparator());
     }

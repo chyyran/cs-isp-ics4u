@@ -128,7 +128,7 @@ public class MenuBuilder {
                 selection = 0; //reset the selection
                 continue;
             }
-            if(selection > this.runnables.size()) { //ensure the selected option exists
+            if(selection > this.runnables.size() || selection == 0) { //ensure the selected option exists
                 System.out.println("Invalid choice! Please select from the menu options.");
                 continue;
             }
