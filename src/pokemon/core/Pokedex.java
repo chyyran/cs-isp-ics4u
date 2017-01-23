@@ -11,14 +11,13 @@ import java.util.List;
 
 public class Pokedex {
     private List<PokemonSpecies> pokemonSpecies;
-    private static int NOTHERE = -1;
 
     public Pokedex(List<PokemonSpecies> list) {
         pokemonSpecies = list;
     }
 
     public List<PokemonSpecies> searchPokemonByType(PokemonType type) {
-        List<PokemonSpecies> list = new ArrayList<PokemonSpecies>();
+        List<PokemonSpecies> list = new ArrayList<>();
         for (PokemonSpecies all : pokemonSpecies) {
             if (all.getPrimaryType() == type || all.getSecondaryType() == type)
                 list.add(all);
@@ -27,7 +26,7 @@ public class Pokedex {
     }
 
     public PokemonSpecies searchPokemonByName(String name) {
-        List<PokemonSpecies> list = new ArrayList<PokemonSpecies>(pokemonSpecies);
+        List<PokemonSpecies> list = new ArrayList<>(pokemonSpecies);
         Pokedex.sortByName(list);
         return Pokedex.searchName(name, list);
     }

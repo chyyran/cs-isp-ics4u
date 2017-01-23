@@ -47,20 +47,27 @@ public class PokemonTypeSerializer extends Serializer<PokemonType> {
         List<Lazy<PokemonType>> weaknesses = new ArrayList<>();
         for (String wkString : weakness) {
             weaknesses.add(new Lazy<>(new PokemonTypeResolver(this.getContext(), wkString)));
+                                                //gets the weakneses resolved on their name
         }
 
         List<Lazy<PokemonType>> strengths = new ArrayList<>();
         for (String strString : strength) {
             strengths.add(new Lazy<>(new PokemonTypeResolver(this.getContext(), strString)));
+                                                //gets the strengths resolved on their name
         }
 
         List<Lazy<PokemonType>> immunities = new ArrayList<>();
         for (String imString : immune) {
             immunities.add(new Lazy<>(new PokemonTypeResolver(this.getContext(), imString)));
+                                                //gets the immunities resolved on their name
         }
         return new PokemonType(name, weaknesses, strengths, immunities);
     }
 
+    /**
+     * PokemonTypes can not be changed once loaded.
+     * @throws UnsupportedOperationException
+     */
     @Override
     public HashMap<String, String> serialize(PokemonType pokemonType) {
         throw new UnsupportedOperationException("Type is static and can not be serialized.");

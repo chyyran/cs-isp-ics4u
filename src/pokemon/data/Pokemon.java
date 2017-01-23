@@ -47,7 +47,7 @@ public class Pokemon {
     }
 
     public List<PokemonMove> getMoves() {
-        List<PokemonMove> temp = new ArrayList<PokemonMove>();
+        List<PokemonMove> temp = new ArrayList<>();
         for (Lazy<PokemonMove> m : this.moves) {
             temp.add(m.getValue());
         }

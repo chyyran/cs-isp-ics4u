@@ -46,8 +46,8 @@ public class SerializationContext
      */
     public SerializationContext(String directory) {
         this.directory = directory;
-        this.serializers = new HashMap<String, Serializer>();
-        this.collected = new HashMap<String, List>();
+        this.serializers = new HashMap<>();
+        this.collected = new HashMap<>();
     }
 
     /**

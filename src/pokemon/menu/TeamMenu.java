@@ -48,7 +48,7 @@ public class TeamMenu extends MenuOption {
                                     continue;
                                 }
                                 final PokemonSpecies _pokemon = pokedex.getPokemon(pokemonNumber);
-                                Pokemon p = new Pokemon(UUID.randomUUID().toString(), new Lazy<PokemonSpecies>(new LazyResolver<PokemonSpecies>() {
+                                Pokemon p = new Pokemon(UUID.randomUUID().toString(), new Lazy<>(new LazyResolver<PokemonSpecies>() {
                                     @Override
                                     public PokemonSpecies resolve() {
                                         return _pokemon; //todo: make this easier.
