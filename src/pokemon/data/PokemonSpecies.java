@@ -86,6 +86,7 @@ public class PokemonSpecies {
         sb.append("\n");
         sb.append("Weight: ");
         sb.append(this.getWeight());
+        sb.append("kg");
         if(evolvesTo != null) {
             sb.append("\n");
             sb.append("Evolves to: No. ");
