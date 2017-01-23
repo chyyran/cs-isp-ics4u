@@ -108,7 +108,7 @@ public class PokemonTeam {
             } else {
 
                 sb.append(STR_EMPTY_SLOT);
-                sb.append(System.getProperty(newline));
+                sb.append(newline);
             }
         }
         return sb.toString();
