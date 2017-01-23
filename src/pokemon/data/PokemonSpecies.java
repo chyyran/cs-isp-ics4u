@@ -3,9 +3,21 @@ package pokemon.data;
 
 import serialization.srsf.Lazy;
 
+/**
+ * Represents a species of Pokemon
+ */
 public class PokemonSpecies {
+    /**
+     * The number, from one to 151, of this Pokemon species
+     */
     private int number;
+    /**
+     * The name of this Pokemon species
+     */
     private String name;
+    /**
+     * The primary type of this Pokemon species
+     */
     private Lazy<PokemonType> primaryType;
     private Lazy<PokemonType> secondaryType;
     private double weight;

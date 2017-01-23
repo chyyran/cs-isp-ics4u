@@ -69,7 +69,7 @@ public class PokedexMenu extends MenuOption {
                             }catch(NumberFormatException e) {
                                 continue;
                             }
-                        }while(typeSelect <= 0 || typeSelect > types.size() + 1);
+                        }while(typeSelect <= 0 || typeSelect > types.size());
                         PokemonType type = types.get(typeSelect - 1);
                         List<PokemonSpecies> searchResult = pokedex.searchPokemonByType(type);
                         new PokedexPaginator(searchResult, pokedexMenu).run();

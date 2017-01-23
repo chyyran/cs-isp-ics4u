@@ -54,6 +54,7 @@ public class BattleManager {
     }
     private static int getMoveDamage(int baseDamage, int level) {
         Random r = new Random();
+        if(baseDamage == 0) return 0; //do not apply any effects if there is no base damage.
         return (int)(level + ((0.25 * DAMAGE_MODIFIER) / (double)DAMAGE_MODIFIER) * baseDamage * (r.nextInt(DAMAGE_BOUND) * 0.01));
     }
 }

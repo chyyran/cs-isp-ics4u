@@ -17,6 +17,31 @@ import java.util.List;
 public class PokemonSerializer extends Serializer<Pokemon> {
 
     /**
+     * The key for the species number
+     */
+    public static final String $_SPECIES = "$species";
+    /**
+     * The key for the nickname
+     */
+    public static final String $_NICKNAME = "$nickname";
+    /**
+     * The key for the level
+     */
+    public static final String $_LEVEL = "$level";
+    /**
+     * The key for the moves
+     */
+    public static final String $_MOVES = "$moves";
+    /**
+     * The key for the HP
+     */
+    public static final String $_HP = "$hp";
+    /**
+     * The key for the ID
+     */
+    public static final String $_ID = "$id";
+
+    /**
      * Instantiates the PokemonSerializer into the given context
      * @param context The serialization context this serializer will be loaded into
      */
@@ -31,12 +56,12 @@ public class PokemonSerializer extends Serializer<Pokemon> {
      */
     @Override
     public Pokemon deserialize(HashMap<String, KeyValuePair> keyValuePairs) {
-        int species = keyValuePairs.get("$species").asInt();
-        String nickName = keyValuePairs.get("$nickname").asString();
-        int level = keyValuePairs.get("$level").asInt();
-        String[] moveStr = keyValuePairs.get("$moves").asStringArray();
-        int hp = keyValuePairs.get("$hp").asInt();
-        String id = keyValuePairs.get("$id").asString(); //get data from the hashmap
+        int species = keyValuePairs.get($_SPECIES).asInt();
+        String nickName = keyValuePairs.get($_NICKNAME).asString();
+        int level = keyValuePairs.get($_LEVEL).asInt();
+        String[] moveStr = keyValuePairs.get($_MOVES).asStringArray();
+        int hp = keyValuePairs.get($_HP).asInt();
+        String id = keyValuePairs.get($_ID).asString(); //get data from the hashmap
 
         List<Lazy<PokemonMove>> moves = new ArrayList<>();
         for (String move : moveStr) {
@@ -62,16 +87,16 @@ public class PokemonSerializer extends Serializer<Pokemon> {
     public HashMap<String, String> serialize(Pokemon pokemon) {
         if(pokemon == null) return null;
         HashMap<String, String> values = new HashMap<>();
-        values.put("$species", String.valueOf(pokemon.getSpecies().getNumber()));
-        values.put("$id", pokemon.getId());
-        values.put("$nickname", pokemon.getNickname());
-        values.put("$level", String.valueOf(pokemon.getLevel()));
+        values.put($_SPECIES, String.valueOf(pokemon.getSpecies().getNumber())); //put the species number
+        values.put($_ID, pokemon.getId()); //put the id
+        values.put($_NICKNAME, pokemon.getNickname()); //put the nickname
+        values.put($_LEVEL, String.valueOf(pokemon.getLevel())); //put the level
         String[] moveNames = new String[pokemon.getMoves().size()];
         for (int i = 0; i < moveNames.length; i++) {
-            moveNames[i] = pokemon.getMoves().get(i).getName();
+            moveNames[i] = pokemon.getMoves().get(i).getName(); //get the names of all the moves
         }
-        values.put("$moves", Serializer.arrayFormat(moveNames));
-        values.put("$hp", String.valueOf(pokemon.getCurrentHp()));
+        values.put($_MOVES, Serializer.arrayFormat(moveNames)); //put the move names
+        values.put($_HP, String.valueOf(pokemon.getCurrentHp())); //put the current HP
         return values;
     }
 }
