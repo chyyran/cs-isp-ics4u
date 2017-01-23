@@ -65,11 +65,23 @@ public class BattleManager {
      */
     private static int CPU_POKEMON_AMOUNT = 3;
 
+    /**
+     * Instantiate a new Battle Manager
+     * @param teamOne The player team
+     * @param validSpecies Valid species to use for the CPU team
+     * @param validMoves Valid moves to use for the CPU team
+     */
     public BattleManager(PokemonTeam teamOne, List<PokemonSpecies> validSpecies, List<PokemonMove> validMoves) {
         this(teamOne, BattleManager.getRandomTeam(validSpecies, validMoves, teamOne.getActivePokemon().getLevel() +
-                new Random().nextInt(BattleManager.LEVEL_RANGE) + 1), validSpecies, validMoves);
+                new Random().nextInt(BattleManager.LEVEL_RANGE) + 1));
     }
-    public BattleManager(PokemonTeam teamOne, PokemonTeam teamTwo, List<PokemonSpecies> validSpecies, List<PokemonMove> validMoves) {
+
+    /**
+     * Instantiate a Battle Manager with the given teams
+     * @param teamOne The player team
+     * @param teamTwo The CPU team
+     */
+    public BattleManager(PokemonTeam teamOne, PokemonTeam teamTwo) {
         this.teamOne = teamOne;
         this.teamTwo = teamTwo;
         this.state = BattleState.PLAYER_ONE_MOVE;
@@ -153,6 +165,37 @@ public class BattleManager {
         return this.teamTwo;
     }
 
+    /**
+     * Checks that teamOne has usable pokemon
+     * @return Whether or not teamOne has  usable Pokemon
+     */
+    public boolean teamOneHasUsable() {
+        boolean hasUsable = false;
+        for(Pokemon p : this.getTeamOne().getPokemon()) {
+            if(p == null) continue;
+            if(!p.isFainted()){
+                hasUsable = true;
+                break;
+            }
+        }
+        return hasUsable;
+    }
+
+    /**
+     * Checks that teamOne has usable pokemon
+     * @return Whether or not teamTwo has usable Pokemon
+     */
+    public boolean teamTwoHasUsable() {
+        boolean hasUsable = false;
+        for(Pokemon p : this.getTeamTwo().getPokemon()) {
+            if(p == null) continue;
+            if(!p.isFainted()){
+                hasUsable = true;
+                break;
+            }
+        }
+        return hasUsable;
+    }
     /**
      * Gets the current battle state
      * @return The current battle state
