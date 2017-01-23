@@ -46,14 +46,14 @@ public class PokemonType {
     }
 
     public boolean isImmuneAgainst(PokemonType type) {
-        return false; //todo: implement
+        return immunities.contains(type); //todo: implement
     }
 
     public boolean isStrongAgainst(PokemonType type) {
-        return false; //todo: implement
+        return strengths.contains(type); //todo: implement
     }
 
     public boolean isWeakAgainst(PokemonType type) {
-        return false; //todo: implement
+        return weaknesses.contains(type); //todo: implement
     }
 }
