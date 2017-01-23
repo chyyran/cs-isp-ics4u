@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ae6cadfa-5c62-437d-bdbe-7db2b9ec64bc" name="Default" comment="fix npe">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu.java" afterPath="$PROJECT_DIR$/src/pokemon/menu/PokedexMenu.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -124,8 +123,8 @@
       <file leaf-file-name="PokemonSpecies.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pokemon/data/PokemonSpecies.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
+            <state relative-caret-position="222">
+              <caret line="95" column="9" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -1569,8 +1568,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pokemon/data/PokemonSpecies.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
+        <state relative-caret-position="222">
+          <caret line="95" column="9" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
           <folding />
         </state>
       </provider>
