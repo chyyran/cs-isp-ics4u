@@ -58,6 +58,10 @@ public class Pokemon {
         return name;
     }
 
+    public void setNickname(String nickName) {
+        this.name = nickName + " ("+this.getSpecies().getName()+")";
+    }
+
     public int getLevel() {
         return level;
     }

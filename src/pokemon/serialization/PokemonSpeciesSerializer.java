@@ -9,7 +9,9 @@ import serialization.srsf.Serializer;
 
 import java.util.HashMap;
 
-
+/**
+ * Serializes/Deserializes a PokemonSpecies from an SRSF block
+ */
 public class PokemonSpeciesSerializer extends Serializer<PokemonSpecies> {
 
     /**

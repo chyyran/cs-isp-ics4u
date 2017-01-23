@@ -38,10 +38,10 @@ public class MainMenu {
         List<PokemonTeam> teamArray = sc.getCollection(PokemonTeam.class);
         if (teamArray.isEmpty()) teamArray.add(new PokemonTeam());
         final PokemonTeam team = teamArray.get(0);
-        menuBuilder.option(new PokedexMenu(new Pokedex(sc.getCollection(PokemonSpecies.class)),
-                sc.getCollection(PokemonType.class)))
+        final Pokedex pokedex = new Pokedex(sc.getCollection(PokemonSpecies.class));
+        menuBuilder.option(new PokedexMenu(pokedex, sc.getCollection(PokemonType.class)))
                 .option(new TeamMenu(team, sc.getCollection(PokemonMove.class),
-                        sc.getCollection(PokemonSpecies.class)))
+                        pokedex))
                 .option(new BattleMenu(team, sc.getCollection(PokemonSpecies.class),
                         sc.getCollection(PokemonMove.class)));
         menuBuilder.exit(new MenuOption("Save on exit") {

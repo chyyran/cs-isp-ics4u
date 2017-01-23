@@ -16,6 +16,23 @@ import java.util.List;
  */
 public class PokemonMoveSerializer extends Serializer<PokemonMove> {
     /**
+     * The key for the move name
+     */
+    public static final String $_NAME = "$name";
+    /**
+     * The key for the move type
+     */
+    public static final String $_TYPE = "$type";
+    /**
+     * The key for the move base damage
+     */
+    public static final String $_BASE_DAMAGE = "$baseDamage";
+    /**
+     * The key for the move self damage
+     */
+    public static final String $_SELF_DAMAGE = "$selfDamage";
+
+    /**
      * Instantiates the PokemonMoveSerializer into the given context
      * @param context The serialization context this serializer will be loaded into
      */
@@ -30,10 +47,10 @@ public class PokemonMoveSerializer extends Serializer<PokemonMove> {
      */
     @Override
     public PokemonMove deserialize(HashMap<String, KeyValuePair> keyValuePairs) {
-        String name = keyValuePairs.get("$name").asString();
-        String type = keyValuePairs.get("$type").asString(); //get the type as it's name
-        double baseDamage = keyValuePairs.get("$baseDamage").asDouble();
-        double selfDamage = keyValuePairs.get("$selfDamage").asDouble(); //gets the value
+        String name = keyValuePairs.get($_NAME).asString();
+        String type = keyValuePairs.get($_TYPE).asString(); //get the type as it's name
+        double baseDamage = keyValuePairs.get($_BASE_DAMAGE).asDouble();
+        double selfDamage = keyValuePairs.get($_SELF_DAMAGE).asDouble(); //gets the value
         return new PokemonMove(name, new Lazy<>(new PokemonTypeResolver(this.getContext(), type)), baseDamage, selfDamage);
             //instantiates the PokemonMove, with the type of the move as a Lazy-wrapped value resolving from the
             //type name
