@@ -3,11 +3,10 @@ package pokemon.menu;
 import menu.text.*;
 import pokemon.data.*;
 import pokemon.serialization.*;
-import serialization.srsf.Lazy;
 import serialization.srsf.Schema;
 import serialization.srsf.SchemaSerializer;
 import serialization.srsf.SerializationContext;
-
+import pokemon.core.*;
 import java.io.IOException;
 import java.util.List;
 
@@ -86,6 +85,7 @@ public class MainMenu {
         }).error(new ErrorHandler() {
             @Override
             public void handle(Exception e) {
+                e.printStackTrace();
                System.out.println ("There was a general error");
             }
         });

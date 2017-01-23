@@ -12,10 +12,25 @@ import serialization.srsf.LazyResolver;
 
 import java.util.*;
 
+/**
+ * The team manager menu
+ */
 public class TeamMenu extends MenuOption {
+    /**
+     * The PokemonTeam this menu managers
+     */
     private PokemonTeam team;
+    /**
+     * The submenu container
+     */
     private final MenuBuilder teamMenu;
 
+    /**
+     * Instantiate a new TeamMenu
+     * @param _team The team to manage
+     * @param moves A list of PokemonMoves that a Pokemon can use
+     * @param pokedex An instance of Pokedex, including the available Pokemon registered
+     */
     public TeamMenu(final PokemonTeam _team, final List<PokemonMove> moves, final Pokedex pokedex) {
         super("Team Manager");
         this.team = _team;

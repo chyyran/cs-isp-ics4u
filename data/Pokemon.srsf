@@ -1,3 +1,17 @@
 ~~!srsf~~
 !!Pokemon
 ---
+$level|1
+$nickname|Bulbasaur
+$species|1
+$moves|[Crabhammer,Confusion,Bonemerang,Lick]
+$hp|24
+$id|3c01f77b-63a6-4e8f-a5ee-1786d77e3104
+---
+$level|1
+$nickname|Beedril
+$species|15
+$moves|[Cut,PinMissile,Thunder,SkullBash]
+$hp|24
+$id|0df18b34-95a1-47e0-a8b2-5ab4294a45a4
+---
