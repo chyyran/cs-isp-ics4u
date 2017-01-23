@@ -45,31 +45,31 @@ public class TeamMenu extends MenuOption {
                                 Scanner scanner = new Scanner(System.in);
                                 if (team == null) team = new PokemonTeam();
                                 System.out.println(team);
-                                if (team.getActivePokemon() != null) {
+                                if (team.getActivePokemon() != null) { //only allow choice if there exists a pokemon in the first slot
                                     System.out.println("Pick a slot, or press 0 to exit.");
-                                    selection = Integer.parseInt(scanner.nextLine()); //todo: validate input.
+                                    selection = Integer.parseInt(scanner.nextLine());
                                 }
-                                if (selection == 0) {
+                                if (selection == 0) { //quit if selection is 0
                                     return;
                                 }
                                 if (selection < 1 || selection > team.getPokemon().size()) {
                                     System.out.println("Please select a valid slot!!");
                                     continue;
                                 }
+
+                                //allow user to choose pokemon by number
                                 System.out.println("Pick a pokemon from 1 to " + pokedex.getAllPokemon().size());
-                                int pokemonNumber = Integer.parseInt(scanner.nextLine()); //todo: validate input.
+                                int pokemonNumber = Integer.parseInt(scanner.nextLine());
                                 if (pokemonNumber < 1 || pokemonNumber > pokedex.getAllPokemon().size()) {
                                     System.out.println("Please select a valid Pokemon");
                                     continue;
                                 }
-                                final PokemonSpecies _pokemon = pokedex.getPokemon(pokemonNumber);
-                                Pokemon p = new Pokemon(UUID.randomUUID().toString(), new Lazy<>(new LazyResolver<PokemonSpecies>() {
-                                    @Override
-                                    public PokemonSpecies resolve() {
-                                        return _pokemon; //todo: make this easier.
-                                    }
-                                }), getFourMoves(moves), _pokemon.getName(), 1);
-                                team.setPokemon(selection - 1, p);
+
+                                //instantiate a new Pokemon, with random moves, at level one.
+                                final PokemonSpecies pokemon = pokedex.getPokemon(pokemonNumber);
+                                Pokemon p = new Pokemon(UUID.randomUUID().toString(), Lazy.asLazy(pokemon),
+                                        getFourMoves(moves), pokemon.getName(), 1);
+                                team.setPokemon(selection - 1, p); //set the pokemon in the team
                             } catch (NumberFormatException e) {
                                 System.out.println("That is not a valid choice, please try again.");
                             }
@@ -78,6 +78,7 @@ public class TeamMenu extends MenuOption {
                     }
                 })
                 .option(new MenuOption("View Team") {
+                    //view the string representation of the team
                     @Override
                     public void run() {
                         if (team != null) {
@@ -89,6 +90,7 @@ public class TeamMenu extends MenuOption {
                     }
                 })
                 .option(new MenuOption("Change Nickname") {
+                    //allow the user to change the nickname of their pokemon
                     @Override
                     public void run() {
                         int selection = 1;
@@ -97,9 +99,10 @@ public class TeamMenu extends MenuOption {
                                 Scanner scanner = new Scanner(System.in);
                                 if (team == null) team = new PokemonTeam();
                                 System.out.println(team);
-                                if (team.getActivePokemon() != null) {
+
+                                if (team.getActivePokemon() != null) { //only allow choice if the first pokemon slot is filled
                                     System.out.println("Pick a slot, or press 0 to exit.");
-                                    selection = Integer.parseInt(scanner.nextLine()); //todo: validate input.
+                                    selection = Integer.parseInt(scanner.nextLine());
                                 }
                                 if (selection == 0) {
                                     return;
@@ -108,6 +111,8 @@ public class TeamMenu extends MenuOption {
                                     System.out.println("Please select a valid slot!!");
                                     continue;
                                 }
+
+                                //enter and change nickname
                                 System.out.println("Enter a new nickname: ");
                                 String nickName = scanner.nextLine();
                                 team.getPokemon().get(selection - 1).setNickname(nickName);
@@ -121,6 +126,11 @@ public class TeamMenu extends MenuOption {
                 });
     }
 
+    /**
+     * Gets four random moves from a list of valid moves
+     * @param validMoves The list of valid moves
+     * @return Four random moves
+     */
     private static List<Lazy<PokemonMove>> getFourMoves(List<PokemonMove> validMoves) {
         List<PokemonMove> copy = new LinkedList<>(validMoves);
         Collections.shuffle(copy);
@@ -128,6 +138,9 @@ public class TeamMenu extends MenuOption {
     }
 
 
+    /**
+     * Runs the team menu
+     */
     @Override
     public void run() {
         this.teamMenu.run();
