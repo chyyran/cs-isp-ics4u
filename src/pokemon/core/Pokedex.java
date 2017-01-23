@@ -38,7 +38,7 @@ public class Pokedex {
             return list.get(middle);
         } else if (list.size() == 1) {
             return null;
-        } else if (list.get(middle).getName().compareTo(name) < 0) {
+        } else if (list.get(middle).getName().toLowerCase().compareTo(name.toLowerCase()) < 0) {
             return searchName(name, list.subList(middle + 1, list.size()));
         } else {
             return searchName(name, list.subList(0, middle));
